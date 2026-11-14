@@ -1,0 +1,102 @@
+[
+ {
+  "id": "ho_00",
+  "domain": "prawo_przedsiebiorcow",
+  "question": "Dostałem zawiadomienie o kontroli mojej firmy. Czy urząd musi mnie wcześniej uprzedzić?"
+ },
+ {
+  "id": "ho_01",
+  "domain": "prawo_przedsiebiorcow",
+  "question": "Czy kontrolerzy mogą wejść do mojego warsztatu bez upoważnienia?"
+ },
+ {
+  "id": "ho_02",
+  "domain": "prawo_przedsiebiorcow",
+  "question": "Ile maksymalnie może trwać kontrola u przedsiębiorcy?"
+ },
+ {
+  "id": "ho_03",
+  "domain": "prawo_przedsiebiorcow",
+  "question": "Czy kilka instytucji może kontrolować mój sklep równolegle?"
+ },
+ {
+  "id": "ho_04",
+  "domain": "prawo_przedsiebiorcow",
+  "question": "Chcę zapytać urząd o wyjaśnienie przepisu dotyczącego mojej działalności. Gdzie i jak?"
+ },
+ {
+  "id": "ho_05",
+  "domain": "prawo_przedsiebiorcow",
+  "question": "Jak założyć jednoosobową działalność i gdzie złożyć wniosek?"
+ },
+ {
+  "id": "ho_06",
+  "domain": "prawo_przedsiebiorcow",
+  "question": "Zamykam firmę - jak ją wykreślić z ewidencji działalności gospodarczej?"
+ },
+ {
+  "id": "ho_07",
+  "domain": "prawo_przedsiebiorcow",
+  "question": "Czy mogę zawiesić działalność na jeden miesiąc?"
+ },
+ {
+  "id": "ho_08",
+  "domain": "prawo_przedsiebiorcow",
+  "question": "Zmieniłem numer telefonu firmowego - czy trzeba to zgłaszać w CEIDG?"
+ },
+ {
+  "id": "ho_09",
+  "domain": "prawo_przedsiebiorcow",
+  "question": "Czy prowadzenie sprzedaży na portalu aukcyjnym to już działalność gospodarcza?"
+ },
+ {
+  "id": "ho_10",
+  "domain": "kadry_i_place",
+  "question": "PIP zapowiedziała kontrolę u mnie w firmie, czy sprawdzi umowy o pracę?"
+ },
+ {
+  "id": "ho_11",
+  "domain": "podatkowe",
+  "question": "Dostałem wezwanie do kontroli skarbowej, jakie mam prawa?"
+ },
+ {
+  "id": "ho_12",
+  "domain": "podatkowe",
+  "question": "Czy mogę wystąpić o interpretację indywidualną w sprawie VAT?"
+ },
+ {
+  "id": "ho_13",
+  "domain": "ruch_drogowy",
+  "question": "Policjant zatrzymał mnie do kontroli drogowej, co może sprawdzić?"
+ },
+ {
+  "id": "ho_14",
+  "domain": "budowlane",
+  "question": "Nadzór budowlany ogłosił kontrolę mojej budowy, co mi grozi?"
+ },
+ {
+  "id": "ho_15",
+  "domain": "administracyjne",
+  "question": "Jak wnieść skargę na bezczynność urzędu gminy?"
+ },
+ {
+  "id": "ho_16",
+  "domain": "cudzoziemcy",
+  "question": "Jak przedłużyć wizę krajową dla pracownika z Ukrainy?"
+ },
+ {
+  "id": "ho_17",
+  "domain": "gospodarcze",
+  "question": "Jak zarejestrować spółkę z o.o.?"
+ },
+ {
+  "id": "ho_18",
+  "domain": "prawo_bankowe",
+  "question": "Czy bank może zablokować mi konto firmowe?"
+ },
+ {
+  "id": "ho_19",
+  "domain": "upadlosciowe",
+  "question": "Mój kontrahent ogłosił upadłość, co z moją fakturą?"
+ }
+]

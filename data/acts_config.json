@@ -354,6 +354,7 @@
   {
     "_comment": "Krok 129: własna dziedzina 'prawo_przedsiebiorcow' (podejmowanie, wykonywanie i zakończenie działalności gospodarczej, CEIDG, zawieszenie działalności, kontrole przedsiębiorców, zasady ogólne, pełnomocnik, ogólne warunki prowadzenia działalności). Zweryfikowano przez ELI API (Dz.U. 2018 poz. 646): 'Ustawa z dnia 6 marca 2018 r. - Prawo przedsiębiorców' (status: akt posiada tekst jednolity).",
     "short": "prawo_przedsiebiorcow",
+    "router_description": "Prawo polskie: Prawo przedsiębiorców (zawieszenie działalności, kontrole przedsiębiorców, interpretacje), ustawa o CEIDG",
     "publisher": "DU",
     "year": 2018,
     "position": 646,

@@ -25,6 +25,16 @@ def test_build_criteria_uses_act_names_sorted():
     assert criteria["podatkowe"] == "Prawo polskie: ustawa o pit, ustawa o vat"
 
 
+def test_build_criteria_router_description_overrides_whole_domain():
+    acts = ACTS + [
+        {"short": "ustawa_x", "domains": ["x"], "router_description": "Prawo polskie: X (opis ręczny)"},
+        {"short": "ustawa_y", "domains": ["x"]},
+    ]
+    criteria = build_criteria(acts)
+    assert criteria["x"] == "Prawo polskie: X (opis ręczny)"
+    assert criteria["podatkowe"] == "Prawo polskie: ustawa o pit, ustawa o vat"  # inne dziedziny bez zmian
+
+
 def test_build_criteria_restricts_to_available_domains():
     assert list(build_criteria(ACTS, domains=["podatkowe"])) == ["podatkowe"]
 

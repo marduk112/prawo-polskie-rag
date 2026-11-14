@@ -52,15 +52,24 @@ def build_criteria(acts_config: list[dict], domains: list[str] | None = None) ->
     """Opis dziedziny = nazwy ustaw w niej (z acts_config.json). Ręcznie napisane,
     tematyczne opisy NIE poprawiły wyniku w pomiarze (a wydłużały prompt), więc
     zostajemy przy nazwach ustaw. `domains`: ogranicza do dziedzin z zbudowanym
-    indeksem RAG (router nie może wskazać dziedziny, której nie ma jak przeszukać)."""
+    indeksem RAG (router nie może wskazać dziedziny, której nie ma jak przeszukać).
+
+    Wyjątek (Krok 130): wpis w acts_config.json może mieć pole `router_description` --
+    wtedy ten tekst zastępuje automatyczny opis CAŁEJ jego dziedziny (potrzebne tam, gdzie
+    sama nazwa ustawy nie wystarcza routerowi; użyj oszczędnie i mierz na pytaniach spoza
+    zbioru, na którym go pisano -- patrz PROGRESS.md, Krok 130)."""
     acts_by_domain: dict[str, set[str]] = {}
+    overrides: dict[str, str] = {}
     for act in acts_config:
         for domain in act["domains"]:
             acts_by_domain.setdefault(domain, set()).add(act["short"])
+            if act.get("router_description"):
+                overrides[domain] = act["router_description"]
     if domains is not None:
         acts_by_domain = {d: v for d, v in acts_by_domain.items() if d in set(domains)}
     return {
-        domain: "Prawo polskie: " + ", ".join(s.replace("_", " ") for s in sorted(shorts))
+        domain: overrides.get(domain)
+        or "Prawo polskie: " + ", ".join(s.replace("_", " ") for s in sorted(shorts))
         for domain, shorts in acts_by_domain.items()
     }
 
