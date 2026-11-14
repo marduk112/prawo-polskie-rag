@@ -1,0 +1,207 @@
+[
+ {
+  "id": "v_00",
+  "domain": "wodne",
+  "question": "Czy mogę wybudować staw na swojej działce bez zgody?"
+ },
+ {
+  "id": "v_01",
+  "domain": "wodne",
+  "question": "Kto odpowiada za utrzymanie rowu melioracyjnego przy mojej działce?"
+ },
+ {
+  "id": "v_02",
+  "domain": "wodne",
+  "question": "Czy mogę pobierać wodę z pobliskiej rzeki do podlewania ogrodu?"
+ },
+ {
+  "id": "v_03",
+  "domain": "wodne",
+  "question": "Ile płaci się za usługi wodne za pobór wody z własnego ujęcia?"
+ },
+ {
+  "id": "v_04",
+  "domain": "wodne",
+  "question": "Czy wolno zagrodzić dostęp do jeziora na swojej posesji?"
+ },
+ {
+  "id": "v_05",
+  "domain": "wodne",
+  "question": "Kto odpowiada za szkody z zalania spowodowanego źle utrzymaną rzeką?"
+ },
+ {
+  "id": "v_06",
+  "domain": "wodne",
+  "question": "Jak uzyskać pozwolenie wodnoprawne na odprowadzanie ścieków do wody?"
+ },
+ {
+  "id": "v_07",
+  "domain": "wodne",
+  "question": "Czy mogę zbudować pomost nad rzeką przy swojej działce?"
+ },
+ {
+  "id": "v_08",
+  "domain": "wykroczenia",
+  "question": "Policjant chce mnie ukarać mandatem za zakłócanie ciszy nocnej, czy mogę odmówić jego przyjęcia?"
+ },
+ {
+  "id": "v_09",
+  "domain": "wykroczenia",
+  "question": "Ile wynosi maksymalna grzywna za wykroczenie?"
+ },
+ {
+  "id": "v_10",
+  "domain": "wykroczenia",
+  "question": "Po jakim czasie przedawnia się wykroczenie?"
+ },
+ {
+  "id": "v_11",
+  "domain": "wykroczenia",
+  "question": "Czy za kradzież rzeczy o małej wartości odpowiada się z kodeksu karnego czy wykroczeń?"
+ },
+ {
+  "id": "v_12",
+  "domain": "wykroczenia",
+  "question": "Jak wnieść sprzeciw od wyroku nakazowego w sprawie o wykroczenie?"
+ },
+ {
+  "id": "v_13",
+  "domain": "wykroczenia",
+  "question": "Co oznacza ukaranie naganą zamiast grzywny za wykroczenie?"
+ },
+ {
+  "id": "v_14",
+  "domain": "wykroczenia",
+  "question": "Czy obwiniony o wykroczenie ma prawo do obrońcy?"
+ },
+ {
+  "id": "v_15",
+  "domain": "wykroczenia",
+  "question": "Kto może zostać ukarany za żebranie w miejscu publicznym?"
+ },
+ {
+  "id": "v_16",
+  "domain": "ochrona_srodowiska",
+  "question": "Czy trzeba mieć pozwolenie na emisję pyłów z kotłowni zakładowej?"
+ },
+ {
+  "id": "v_17",
+  "domain": "ochrona_srodowiska",
+  "question": "Jak ocenia się oddziaływanie inwestycji na środowisko?"
+ },
+ {
+  "id": "v_18",
+  "domain": "ochrona_srodowiska",
+  "question": "Co to jest strefa ograniczonej uciążliwości?"
+ },
+ {
+  "id": "v_19",
+  "domain": "geologia_i_gornictwo",
+  "question": "Kto wydaje koncesję na wydobywanie kopalin ze złoża?"
+ },
+ {
+  "id": "v_20",
+  "domain": "geologia_i_gornictwo",
+  "question": "Czy właściciel gruntu ma prawo do kopaliny pospolitej pod swoją działką?"
+ },
+ {
+  "id": "v_21",
+  "domain": "geologia_i_gornictwo",
+  "question": "Jakie obowiązki ma przedsiębiorca górniczy po zakończeniu eksploatacji?"
+ },
+ {
+  "id": "v_22",
+  "domain": "ruch_drogowy",
+  "question": "Czy trzeba ustąpić pierwszeństwa pieszemu na przejściu?"
+ },
+ {
+  "id": "v_23",
+  "domain": "ruch_drogowy",
+  "question": "Jak długo ważne jest prawo jazdy kategorii B?"
+ },
+ {
+  "id": "v_24",
+  "domain": "ruch_drogowy",
+  "question": "Ile punktów karnych grozi za jazdę bez zapiętych pasów?"
+ },
+ {
+  "id": "v_25",
+  "domain": "ruch_drogowy",
+  "question": "Za co policja może zatrzymać prawo jazdy?"
+ },
+ {
+  "id": "v_26",
+  "domain": "karne",
+  "question": "Jaka kara grozi za oszustwo na kwotę 50 tysięcy złotych?"
+ },
+ {
+  "id": "v_27",
+  "domain": "karne",
+  "question": "Co to jest obrona konieczna?"
+ },
+ {
+  "id": "v_28",
+  "domain": "karne",
+  "question": "Kiedy sprawca przestępstwa może liczyć na warunkowe zawieszenie kary?"
+ },
+ {
+  "id": "v_29",
+  "domain": "postepowanie_karne",
+  "question": "Czy mogę złożyć zażalenie na postanowienie prokuratora o umorzeniu śledztwa?"
+ },
+ {
+  "id": "v_30",
+  "domain": "postepowanie_karne",
+  "question": "Kto może być pełnomocnikiem pokrzywdzonego w procesie karnym?"
+ },
+ {
+  "id": "v_31",
+  "domain": "budowlane",
+  "question": "Jaki jest termin na zgłoszenie zakończenia budowy?"
+ },
+ {
+  "id": "v_32",
+  "domain": "budowlane",
+  "question": "Czy dla ogrodzenia o wysokości 2,2 m potrzebne jest zgłoszenie?"
+ },
+ {
+  "id": "v_33",
+  "domain": "kadry_i_place",
+  "question": "Czy pracodawca może nałożyć karę porządkową za spóźnienie?"
+ },
+ {
+  "id": "v_34",
+  "domain": "kadry_i_place",
+  "question": "Ile wynosi zasiłek chorobowy w pierwszych dniach choroby?"
+ },
+ {
+  "id": "v_35",
+  "domain": "administracyjne",
+  "question": "Jak wygląda postępowanie w sprawie wznowienia postępowania administracyjnego?"
+ },
+ {
+  "id": "v_36",
+  "domain": "administracyjne",
+  "question": "Czy mogę przeglądać akta swojej sprawy w urzędzie?"
+ },
+ {
+  "id": "v_37",
+  "domain": "cywilne",
+  "question": "Jak odzyskać pożyczkę od znajomego bez umowy?"
+ },
+ {
+  "id": "v_38",
+  "domain": "cywilne",
+  "question": "Czy sąsiad może zabronić mi korzystania z drogi dojazdowej do mojej działki?"
+ },
+ {
+  "id": "v_39",
+  "domain": "energetyczne",
+  "question": "Czy sprzedawca prądu może podnieść cenę w trakcie roku?"
+ },
+ {
+  "id": "v_40",
+  "domain": "prawo_przedsiebiorcow",
+  "question": "Co to jest zasada domniemania uczciwości przedsiębiorcy?"
+ }
+]
