@@ -350,5 +350,21 @@
     "year": 2013,
     "position": 1650,
     "domains": ["cudzoziemcy"]
+  },
+  {
+    "_comment": "Krok 129: własna dziedzina 'prawo_przedsiebiorcow' (podejmowanie, wykonywanie i zakończenie działalności gospodarczej, CEIDG, zawieszenie działalności, kontrole przedsiębiorców, zasady ogólne, pełnomocnik, ogólne warunki prowadzenia działalności). Zweryfikowano przez ELI API (Dz.U. 2018 poz. 646): 'Ustawa z dnia 6 marca 2018 r. - Prawo przedsiębiorców' (status: akt posiada tekst jednolity).",
+    "short": "prawo_przedsiebiorcow",
+    "publisher": "DU",
+    "year": 2018,
+    "position": 646,
+    "domains": ["prawo_przedsiebiorcow"]
+  },
+  {
+    "_comment": "Krok 129: ustawa towarzysząca Prawu przedsiębiorców -- rejestracja w CEIDG (wpis, zmiana, zawieszenie, wykreślenie), Punkt Informacji dla Przedsiębiorcy. Zweryfikowano przez ELI API (Dz.U. 2018 poz. 647): 'Ustawa z dnia 6 marca 2018 r. o Centralnej Ewidencji i Informacji o Działalności Gospodarczej i Punkcie Informacji dla Przedsiębiorcy' (status: akt posiada tekst jednolity).",
+    "short": "ustawa_o_ceidg",
+    "publisher": "DU",
+    "year": 2018,
+    "position": 647,
+    "domains": ["prawo_przedsiebiorcow"]
   }
 ]

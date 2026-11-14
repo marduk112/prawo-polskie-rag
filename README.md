@@ -1,7 +1,7 @@
 # Asystent prawa polskiego (Bielik + RAG + LoRA, wielodziedzinowy)
 
 > **English summary.** A local, multi-domain question-answering assistant for Polish law: retrieval-augmented
-> generation (RAG) over the official statute texts from the Sejm's ELI API (33 domains, 45 acts, with version
+> generation (RAG) over the official statute texts from the Sejm's ELI API (34 domains, 47 acts, with version
 > history so you can ask "as of date X"), a domain router, and Polish/multilingual LLMs run locally (Qwen3.8-27B via
 > LM Studio recommended; Bielik 11B on Apple Silicon/MLX or NVIDIA/CUDA, and Gemma as lighter modes). Documentation
 > and the development log (`PROGRESS.md`) are in Polish. **Not legal advice**: contents have not been verified
@@ -27,7 +27,7 @@ tego używać".
 
 ## Stan projektu (2026-11-14)
 
-**33 dziedziny, 45 aktów prawnych** (pobieranych z oficjalnego ELI API Sejmu, z historią wersji
+**34 dziedziny, 47 aktów prawnych** (pobieranych z oficjalnego ELI API Sejmu, z historią wersji
 dla odpowiedzi „na dany dzień"). Każda dziedzina ma własny indeks RAG. **Bielik 11B (domyślnie
 v3.1 8-bit od Kroku 118) działa na samej bazie, bez adapterów LoRA:** 4 adaptery z destylacji
 Qwena (`konsumenckie`, `budowlane`, `cywilne`, `mieszkaniowe`) są trenowane na v3.0 i z v3.1 się
@@ -73,6 +73,7 @@ wszystkim wyszukiwanie (RAG)**, nie fine-tuning.
 | `ubezpieczenia_obowiazkowe` | ustawa o ubezpieczeniach obowiązkowych, UFG i PBUK | baza |
 | `prawo_bankowe` | ustawa Prawo bankowe | baza |
 | `cudzoziemcy` | ustawa o cudzoziemcach | baza |
+| `prawo_przedsiebiorcow` | Prawo przedsiębiorców, ustawa o CEIDG | baza |
 
 **Czego ten projekt NIE gwarantuje (ważne przed użyciem):**
 - To narzędzie pomocnicze, **nie porada prawna**. Dane nie zostały zweryfikowane przez
