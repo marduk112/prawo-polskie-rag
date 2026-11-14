@@ -574,5 +574,208 @@
     ],
     "expect_not_contains": [],
     "note": "Krok 98 -- art. 6 ust. 1: obowiązek powstaje od pierwszego dnia miesiąca następującego po miesiącu, w którym powstały okoliczności (czyli od 1 kwietnia). Zweryfikowane (Krok 98): OK, odpowiedź przeczytana ręcznie i sprawdzona z tekstem art. 6 ust. 1, 5, 6, 7."
+  },
+  {
+    "history": [],
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "known_issue": null,
+    "expect_not_contains": [],
+    "id": "cud_195_pobyt_staly_odpowiedz",
+    "domain": "cudzoziemcy",
+    "question": "Kiedy cudzoziemiec może dostać zezwolenie na pobyt stały w Polsce?",
+    "expect_contains_any": [
+      "art. 195"
+    ],
+    "note": "Krok 132 (2026-11-14) -- pytanie o całą odpowiedź w nowej dziedzinie; art. 195 ust. 1 (dziecko cudzoziemca/obywatela, polskie pochodzenie, małżeństwo z obywatelem PL min. 3 lata...). Zweryfikowane ręcznie (Krok 132): odpowiedź zgodna z tekstem artykułów."
+  },
+  {
+    "history": [],
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "known_issue": null,
+    "expect_not_contains": [],
+    "id": "cud_108_legalny_pobyt_odpowiedz",
+    "domain": "cudzoziemcy",
+    "question": "Czy mogę legalnie przebywać w Polsce, gdy czekam na decyzję w sprawie pobytu czasowego?",
+    "expect_contains_any": [
+      "art. 108"
+    ],
+    "note": "Krok 132 (2026-11-14) -- pytanie o całą odpowiedź w nowej dziedzinie; art. 108 ust. 1: pobyt legalny od złożenia wniosku do ostateczności decyzji (warunki: termin zachowany, brak braków formalnych). Zweryfikowane ręcznie (Krok 132): odpowiedź zgodna z tekstem artykułów."
+  },
+  {
+    "history": [],
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "known_issue": null,
+    "expect_not_contains": [],
+    "id": "cud_238_oplata_zgubiona_karta_odpowiedz",
+    "domain": "cudzoziemcy",
+    "question": "Ile zapłacę za wymianę karty pobytu, jeśli ją zgubiłem z własnej winy?",
+    "expect_contains_any": [
+      "300"
+    ],
+    "note": "Krok 132 (2026-11-14) -- pytanie o całą odpowiedź w nowej dziedzinie; art. 238: opłata podwyższona do 300% opłat z rozporządzenia (art. 239); kwoty bazowej nie ma w ustawie -- model nie powinien jej zmyślać. Zweryfikowane ręcznie (Krok 132): OK; drobna nieścisłość: 'studentom' zamiast 'nauka w szkole ponadpodstawowej i wyższej' (art. 237 ust. 1 pkt 2)."
+  },
+  {
+    "history": [],
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "known_issue": null,
+    "expect_not_contains": [],
+    "id": "cud_302_zobowiazanie_do_powrotu_odpowiedz",
+    "domain": "cudzoziemcy",
+    "question": "W jakich przypadkach cudzoziemiec dostaje decyzję o zobowiązaniu do powrotu?",
+    "expect_contains_any": [
+      "art. 302"
+    ],
+    "note": "Krok 132 (2026-11-14) -- pytanie o całą odpowiedź w nowej dziedzinie; art. 302 ust. 1. Zweryfikowane ręcznie (Krok 132): odpowiedź zgodna z tekstem artykułów."
+  },
+  {
+    "history": [],
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "known_issue": null,
+    "expect_not_contains": [],
+    "id": "cud_pulapka_oplata_pobyt_czasowy",
+    "domain": "cudzoziemcy",
+    "question": "Ile złotych wynosi opłata za wniosek o zezwolenie na pobyt czasowy?",
+    "expect_contains_any": [
+      "rozporządzen",
+      "nie zawiera",
+      "nie znalaz",
+      "nie określa",
+      "art. 239",
+      "nie mogę"
+    ],
+    "note": "Krok 132 (2026-11-14) -- pytanie o całą odpowiedź w nowej dziedzinie; PUŁAPKA: kwota jest w rozporządzeniu, nie w ustawie -- poprawnie: odesłanie/brak informacji, nie zmyślona kwota (czytać ręcznie). Zweryfikowane ręcznie (Krok 132): odpowiedź zgodna z tekstem artykułów."
+  },
+  {
+    "history": [],
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "known_issue": null,
+    "expect_not_contains": [],
+    "id": "cud_refusal_pit37",
+    "domain": "cudzoziemcy",
+    "question": "Jak wypełnić PIT-37?",
+    "expect_contains_any": [
+      "nie dotyczy",
+      "poza zakresem",
+      "inna dziedzin",
+      "nie znalaz",
+      "podatk"
+    ],
+    "note": "Krok 132 (2026-11-14) -- pytanie o całą odpowiedź w nowej dziedzinie; pytanie spoza dziedziny -- oczekiwana uprzejma odmowa (czytać ręcznie). Zweryfikowane ręcznie (Krok 132): odpowiedź zgodna z tekstem artykułów."
+  },
+  {
+    "history": [],
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "known_issue": null,
+    "expect_not_contains": [],
+    "id": "pp_25_zawieszenie_przychody_odpowiedz",
+    "domain": "prawo_przedsiebiorcow",
+    "question": "Czy w czasie zawieszenia działalności mogę wystawiać faktury i zarabiać?",
+    "expect_contains_any": [
+      "art. 25"
+    ],
+    "note": "Krok 132 (2026-11-14) -- pytanie o całą odpowiedź w nowej dziedzinie; art. 25 ust. 1: w okresie zawieszenia nie można wykonywać działalności i osiągać bieżących przychodów z pozarolniczej działalności (z wyjątkami w ust. 2). Zweryfikowane ręcznie (Krok 132): odpowiedź zgodna z tekstem artykułów."
+  },
+  {
+    "history": [],
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "known_issue": null,
+    "expect_not_contains": [],
+    "id": "pp_54_jedna_kontrola_odpowiedz",
+    "domain": "prawo_przedsiebiorcow",
+    "question": "Czy dwa urzędy mogą kontrolować moją firmę w tym samym czasie?",
+    "expect_contains_any": [
+      "art. 54"
+    ],
+    "note": "Krok 132 (2026-11-14) -- pytanie o całą odpowiedź w nowej dziedzinie; art. 54 ust. 1: nie można równocześnie podejmować i prowadzić więcej niż jednej kontroli (wyjątki). Zweryfikowane ręcznie (Krok 132): odpowiedź zgodna z tekstem artykułów."
+  },
+  {
+    "history": [],
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "known_issue": null,
+    "expect_not_contains": [],
+    "id": "pp_ceidg_15_zmiana_wpisu_odpowiedz",
+    "domain": "prawo_przedsiebiorcow",
+    "question": "W jakim terminie muszę zgłosić zmianę danych firmy w CEIDG?",
+    "expect_contains_any": [
+      "7 dni",
+      "art. 15"
+    ],
+    "note": "Krok 132 (2026-11-14) -- pytanie o całą odpowiedź w nowej dziedzinie; ustawa o CEIDG art. 15 ust. 1 pkt 1: 7 dni od zmiany danych z art. 5 ust. 1 (dla pozostałych inne terminy). Zweryfikowane ręcznie (Krok 132): OK, uczciwie zaznacza brak art. 5 CEIDG w kontekście."
+  },
+  {
+    "history": [],
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "known_issue": null,
+    "expect_not_contains": [],
+    "id": "pp_ceidg_13_wpis_bezplatny_odpowiedz",
+    "domain": "prawo_przedsiebiorcow",
+    "question": "Czy za założenie działalności w CEIDG trzeba zapłacić?",
+    "expect_contains_any": [
+      "art. 13",
+      "bezpłat",
+      "wolny od opłat",
+      "nie trzeba",
+      "nie pobier"
+    ],
+    "note": "Krok 132 (2026-11-14) -- pytanie o całą odpowiedź w nowej dziedzinie; ustawa o CEIDG art. 13: wniosek o wpis jest wolny od opłat. Zweryfikowane ręcznie (Krok 132): odpowiedź zgodna z tekstem artykułów."
+  },
+  {
+    "history": [],
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "known_issue": null,
+    "expect_not_contains": [],
+    "id": "pp_pulapka_skladka_zus",
+    "domain": "prawo_przedsiebiorcow",
+    "question": "Ile wynosi składka ZUS dla początkującego przedsiębiorcy?",
+    "expect_contains_any": [
+      "nie dotyczy",
+      "poza zakresem",
+      "nie znalaz",
+      "nie zawiera",
+      "ustawa o systemie",
+      "nie mogę"
+    ],
+    "note": "Krok 132 (2026-11-14) -- pytanie o całą odpowiedź w nowej dziedzinie; PUŁAPKA: składki ZUS są w ustawie o systemie ubezpieczeń społecznych, spoza tej dziedziny -- oczekiwane: brak informacji/odesłanie, bez zmyślonej kwoty (czytać ręcznie). Zweryfikowane ręcznie (Krok 132): kwoty nie zmyślono, art. 18 ust. 1 i opłata 40 zł (art. 34 ust. 6) zgodne z tekstem; UPROSZCZENIE: 'nie płaci składek ZUS' -- art. 18 dotyczy ubezpieczeń SPOŁECZNYCH, składka zdrowotna pozostaje (przepis spoza kontekstu)."
+  },
+  {
+    "history": [],
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "known_issue": null,
+    "expect_not_contains": [],
+    "id": "pp_refusal_pozew",
+    "domain": "prawo_przedsiebiorcow",
+    "question": "Jak złożyć pozew o zapłatę do sądu?",
+    "expect_contains_any": [
+      "nie dotyczy",
+      "poza zakresem",
+      "inna dziedzin",
+      "nie znalaz",
+      "postępowani"
+    ],
+    "note": "Krok 132 (2026-11-14) -- pytanie o całą odpowiedź w nowej dziedzinie; pytanie spoza dziedziny -- oczekiwana uprzejma odmowa (czytać ręcznie). Zweryfikowane ręcznie (Krok 132): odpowiedź zgodna z tekstem artykułów."
   }
 ]

@@ -607,8 +607,14 @@ Reszta projektu (`download_acts.py`, `build_rag_index.py`, `rag_search.py`,
 
 Konto Hugging Face z zaakceptowaną licencją modelu (dotyczy wariantów
 MLX i CUDA):
-- [`speakleash/Bielik-11B-v3.0-Instruct`](https://huggingface.co/speakleash/Bielik-11B-v3.0-Instruct) (domyślny)
+- [`speakleash/Bielik-11B-v3.1-Instruct`](https://huggingface.co/speakleash/Bielik-11B-v3.1-Instruct) (model odpowiedzi w `chat.py` i `chat_cuda.py`)
+- [`speakleash/Bielik-11B-v3.0-Instruct`](https://huggingface.co/speakleash/Bielik-11B-v3.0-Instruct) (ekspansja zapytań w `chat.py`; potrzebny też do starych adapterów)
 - [`speakleash/Bielik-4.5B-v3.0-Instruct`](https://huggingface.co/speakleash/Bielik-4.5B-v3.0-Instruct) (szybszy wariant, opcjonalny)
+
+Tryb zalecany (Qwen w LM Studio, `chat_lmstudio.py`) nie wymaga konta HF. Routera Basal (`--domain auto`)
+nie ma na PyPI pod tą nazwą (`pip install basal` zainstaluje INNY pakiet) -- instaluj z GitHuba:
+`pip install https://github.com/rkinas/basal/archive/refs/tags/v2.4.1.tar.gz mlx-lm` (macOS; model
+`Remek/basal-2.0-4.5B-MLX-8bit` pobiera się sam przy pierwszym `basal-serve`).
 
 ## Instalacja
 
@@ -626,6 +632,21 @@ python3.12 -m venv .venv
 
 .venv/bin/hf auth login  # pomiń, jeśli używasz tylko chat_lmstudio.py
 ```
+
+## Szybki start (bez modelu językowego)
+
+Najkrótsza droga, żeby zobaczyć działanie samego wyszukiwania w ustawach (sprawdzona na świeżym
+klonie, bez GPU, bez konta Hugging Face; pierwsze uruchomienie pobiera ok. 1,5 GB modeli
+embeddingów i rerankera `sdadas/*`):
+
+```bash
+.venv/bin/pip install -r requirements-common.txt
+.venv/bin/python scripts/download_acts.py --domain cudzoziemcy
+.venv/bin/python scripts/build_rag_index.py --domain cudzoziemcy
+.venv/bin/python scripts/rag_search.py --domain cudzoziemcy "Kiedy cudzoziemiec może dostać zezwolenie na pobyt stały?"
+```
+
+Odpowiedzi generowane przez model: patrz "Użycie" (zalecany Qwen w LM Studio) i "Odtworzenie pipeline'u".
 
 ## Odtworzenie pipeline'u od zera
 
@@ -662,7 +683,14 @@ niecommitowane (w pełni odtwarzalne, patrz `.gitignore`; wyjątek:
 .venv/bin/python scripts/download_zus_limit_regulations.py
 .venv/bin/python scripts/download_avg_wage_regulations.py
 
-# 3. [macOS/MLX] Pobranie i konwersja Bielika do MLX (kwantyzacja 4-bit) -> models/
+# 3. [macOS/MLX] Pobranie i konwersja Bielika do MLX -> models/
+#    (a) model ODPOWIEDZI chat.py: v3.1, 8-bit
+.venv/bin/hf download speakleash/Bielik-11B-v3.1-Instruct
+.venv/bin/mlx_lm.convert \
+  --hf-path speakleash/Bielik-11B-v3.1-Instruct \
+  --mlx-path models/Bielik-11B-v3.1-Instruct-mlx-8bit \
+  -q --q-bits 8
+#    (b) model EKSPANSJI zapytań chat.py: v3.0, 4-bit
 .venv/bin/hf download speakleash/Bielik-11B-v3.0-Instruct
 .venv/bin/mlx_lm.convert \
   --hf-path speakleash/Bielik-11B-v3.0-Instruct \

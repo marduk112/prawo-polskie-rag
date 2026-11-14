@@ -49,8 +49,12 @@ ROOT = Path(__file__).resolve().parent.parent
 CASES_PATH = ROOT / "data" / "qwen_answer_reference_cases.json"
 
 
-def load_cases(case_id: str | None = None) -> list[dict]:
+def load_cases(case_id: str | None = None, domain: str | None = None) -> list[dict]:
     cases = json.loads(CASES_PATH.read_text(encoding="utf-8"))
+    if domain:
+        cases = [c for c in cases if c["domain"] == domain]
+        if not cases:
+            raise SystemExit(f"Brak przypadków dla dziedziny {domain!r} w {CASES_PATH}")
     if case_id:
         cases = [c for c in cases if c["id"] == case_id]
         if not cases:
@@ -117,6 +121,7 @@ def run_case(
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--case", type=str, default=None, help="Ogranicz do jednego przypadku (pole 'id' w danych)")
+    parser.add_argument("--domain", type=str, default=None, help="Ogranicz do przypadków jednej dziedziny")
     parser.add_argument("--url", type=str, default=chat_lmstudio.DEFAULT_URL, help="Bazowy URL serwera LM Studio")
     parser.add_argument("--model", type=str, default=None, help="ID modelu w LM Studio (domyślnie: auto-wykrycie)")
     parser.add_argument("--routing-file", type=Path, default=None,
@@ -131,7 +136,7 @@ def main():
     template_kwargs = json.loads(args.template_kwargs) if args.template_kwargs else None
     routing = json.loads(args.routing_file.read_text(encoding="utf-8")) if args.routing_file else None
 
-    cases = load_cases(args.case)
+    cases = load_cases(args.case, args.domain)
     if routing is not None and args.only_changed:
         cases = [c for c in cases if effective_domains(routing[c["id"]], args.secondary_below) != [c["domain"]]]
         print(f"[INFO] Przypadki ze zmienionymi dziedzinami: {len(cases)}")
