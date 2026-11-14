@@ -47,6 +47,7 @@ DOMAIN_DESCRIPTIONS = {
     "pcc": "polskiego podatku od czynności cywilnoprawnych (ustawa o podatku od czynności cywilnoprawnych)",
     "prawa_pacjenta": "polskiego prawa pacjenta (ustawy o prawach pacjenta i Rzeczniku Praw Pacjenta)",
     "prawo_bankowe": "polskiego prawa bankowego (rachunki bankowe, tajemnica bankowa, kredyty bankowe; ustawa Prawo bankowe)",
+    "rachunkowosc": "polskiej rachunkowości (księgi rachunkowe, sprawozdanie finansowe, inwentaryzacja, wycena aktywów i pasywów, badanie sprawozdań, przechowywanie dokumentacji; ustawa o rachunkowości)",
     "prawo_przedsiebiorcow": "polskiego prawa przedsiębiorców (podejmowanie, wykonywanie i zawieszanie działalności gospodarczej, kontrole przedsiębiorców, rejestracja w CEIDG; Prawo przedsiębiorców i ustawa o CEIDG)",
     "cudzoziemcy": "polskiego prawa o cudzoziemcach (wjazd, wizy, zezwolenia na pobyt, karty pobytu, zobowiązanie do powrotu; ustawa o cudzoziemcach)",
 }

@@ -1,7 +1,7 @@
 # Asystent prawa polskiego (Bielik + RAG + LoRA, wielodziedzinowy)
 
 > **English summary.** A local, multi-domain question-answering assistant for Polish law: retrieval-augmented
-> generation (RAG) over the official statute texts from the Sejm's ELI API (34 domains, 47 acts, with version
+> generation (RAG) over the official statute texts from the Sejm's ELI API (35 domains, 48 acts, with version
 > history so you can ask "as of date X"), a domain router, and Polish/multilingual LLMs run locally (Qwen3.8-27B via
 > LM Studio recommended; Bielik 11B on Apple Silicon/MLX or NVIDIA/CUDA, and Gemma as lighter modes). Documentation
 > and the development log (`PROGRESS.md`) are in Polish. **Not legal advice**: contents have not been verified
@@ -21,13 +21,16 @@ i mierzonych osobno. Architektura RAG, parsowanie PDF-ów z ELI API i cały
 pipeline pochodzą z tamtego projektu — zmienił się sposób, w jaki wybiera
 się, które ustawy wchodzą w skład bazy (patrz "Dziedziny prawa" niżej).
 
+Krótki opis, co ten projekt robi i jak (dla kogoś, kto widzi go pierwszy raz):
+[JAK_TO_DZIALA.md](JAK_TO_DZIALA.md).
+
 Dziennik decyzji i znalezisk (co, dlaczego i jakie pułapki po drodze)
 jest w [PROGRESS.md](PROGRESS.md). Ten plik to skrócona instrukcja "jak
 tego używać".
 
 ## Stan projektu (2026-11-14)
 
-**34 dziedziny, 47 aktów prawnych** (pobieranych z oficjalnego ELI API Sejmu, z historią wersji
+**35 dziedzin, 48 aktów prawnych** (pobieranych z oficjalnego ELI API Sejmu, z historią wersji
 dla odpowiedzi „na dany dzień"). Każda dziedzina ma własny indeks RAG. **Bielik 11B (domyślnie
 v3.1 8-bit od Kroku 118) działa na samej bazie, bez adapterów LoRA:** 4 adaptery z destylacji
 Qwena (`konsumenckie`, `budowlane`, `cywilne`, `mieszkaniowe`) są trenowane na v3.0 i z v3.1 się
@@ -74,6 +77,7 @@ wszystkim wyszukiwanie (RAG)**, nie fine-tuning.
 | `prawo_bankowe` | ustawa Prawo bankowe | baza |
 | `cudzoziemcy` | ustawa o cudzoziemcach | baza |
 | `prawo_przedsiebiorcow` | Prawo przedsiębiorców, ustawa o CEIDG | baza |
+| `rachunkowosc` | ustawa o rachunkowości | baza |
 
 **Czego ten projekt NIE gwarantuje (ważne przed użyciem):**
 - To narzędzie pomocnicze, **nie porada prawna**. Dane nie zostały zweryfikowane przez

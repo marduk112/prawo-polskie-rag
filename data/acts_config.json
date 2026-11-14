@@ -367,5 +367,13 @@
     "year": 2018,
     "position": 647,
     "domains": ["prawo_przedsiebiorcow"]
+  },
+  {
+    "_comment": "Krok 135: własna dziedzina 'rachunkowosc' (księgi rachunkowe, sprawozdanie finansowe, inwentaryzacja, zasady wyceny, roczne zamknięcie ksiąg, obowiązek badania sprawozdań, przechowywanie dokumentacji, odpowiedzialność kierownika jednostki). Zweryfikowano przez ELI API (Dz.U. 1994 poz. 591): 'Ustawa z dnia 29 września 1994 r. o rachunkowości.' (status: akt posiada tekst jednolity). UWAGA: Dz.U. 1994 poz. 694 to INNY akt (rozporządzenie o kontyngencie celnym) -- poprawny identyfikator to 591.",
+    "short": "ustawa_o_rachunkowosci",
+    "publisher": "DU",
+    "year": 1994,
+    "position": 591,
+    "domains": ["rachunkowosc"]
   }
 ]
