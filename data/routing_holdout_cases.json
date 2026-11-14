@@ -1,0 +1,362 @@
+[
+ {
+  "id": "kp_36_okres_wypowiedzenia",
+  "domain": "kadry_i_place",
+  "act_short": "kodeks_pracy",
+  "article": "36",
+  "question": "Pracuję w firmie od czterech lat na umowie na czas nieokreślony. Ile mam okresu wypowiedzenia, jak chcę odejść?",
+  "max_acceptable_rank": 8,
+  "known_issue": null,
+  "note": "Krok 101 -- zbiór kontrolny routera (poza baterią 129); artykuł sprawdzony z tekstem w indeksie."
+ },
+ {
+  "id": "kp_1511_dodatek_nadgodziny",
+  "domain": "kadry_i_place",
+  "act_short": "kodeks_pracy",
+  "article": "151¹",
+  "question": "Szef kazał mi zostać po godzinach we wtorek. Jaki dodatek mi się za to należy?",
+  "max_acceptable_rank": 8,
+  "known_issue": null,
+  "note": "Krok 101 -- zbiór kontrolny routera (poza baterią 129); artykuł sprawdzony z tekstem w indeksie."
+ },
+ {
+  "id": "zus_6_obowiazkowe_ubezpieczenia",
+  "domain": "kadry_i_place",
+  "act_short": "ustawa_o_systemie_ubezpieczen_spolecznych",
+  "article": "6",
+  "question": "Kto podlega obowiązkowo ubezpieczeniu emerytalnemu i rentowemu?",
+  "max_acceptable_rank": 8,
+  "known_issue": null,
+  "note": "Krok 101 -- zbiór kontrolny routera (poza baterią 129); artykuł sprawdzony z tekstem w indeksie."
+ },
+ {
+  "id": "op_53_odsetki_zwloka",
+  "domain": "podatkowe",
+  "act_short": "ordynacja_podatkowa",
+  "article": "53",
+  "question": "Od kiedy naliczane są odsetki od zaległości podatkowej, jeśli spóźnię się z płatnością?",
+  "max_acceptable_rank": 8,
+  "known_issue": null,
+  "note": "Krok 101 -- zbiór kontrolny routera (poza baterią 129); artykuł sprawdzony z tekstem w indeksie."
+ },
+ {
+  "id": "vat_106b_faktura_osobie_fizycznej",
+  "domain": "podatkowe",
+  "act_short": "ustawa_o_vat",
+  "article": "106b",
+  "question": "Czy muszę wystawić fakturę klientowi, który kupił u mnie towar jako osoba prywatna?",
+  "max_acceptable_rank": 8,
+  "known_issue": null,
+  "note": "Krok 101 -- zbiór kontrolny routera (poza baterią 129); artykuł sprawdzony z tekstem w indeksie."
+ },
+ {
+  "id": "pcc_3_obowiazek_podatkowy",
+  "domain": "pcc",
+  "act_short": "ustawa_o_pcc",
+  "article": "3",
+  "question": "Kiedy dokładnie powstaje obowiązek zapłaty podatku od czynności cywilnoprawnych?",
+  "max_acceptable_rank": 8,
+  "known_issue": null,
+  "note": "Krok 101 -- zbiór kontrolny routera (poza baterią 129); artykuł sprawdzony z tekstem w indeksie."
+ },
+ {
+  "id": "kpa_35_termin_zalatwienia",
+  "domain": "administracyjne",
+  "act_short": "kpa",
+  "article": "35",
+  "question": "Ile urząd ma czasu na załatwienie mojej sprawy?",
+  "max_acceptable_rank": 8,
+  "known_issue": null,
+  "note": "Krok 101 -- zbiór kontrolny routera (poza baterią 129); artykuł sprawdzony z tekstem w indeksie."
+ },
+ {
+  "id": "kpa_63_podanie",
+  "domain": "administracyjne",
+  "act_short": "kpa",
+  "article": "63",
+  "question": "Co powinno zawierać podanie wnoszone do urzędu i w jakiej formie można je złożyć?",
+  "max_acceptable_rank": 8,
+  "known_issue": null,
+  "note": "Krok 101 -- zbiór kontrolny routera (poza baterią 129); artykuł sprawdzony z tekstem w indeksie."
+ },
+ {
+  "id": "kc_535_sprzedaz",
+  "domain": "cywilne",
+  "act_short": "kodeks_cywilny",
+  "article": "535",
+  "question": "Na czym polega umowa sprzedaży i co muszą zrobić obie strony?",
+  "max_acceptable_rank": 8,
+  "known_issue": null,
+  "note": "Krok 101 -- zbiór kontrolny routera (poza baterią 129); artykuł sprawdzony z tekstem w indeksie."
+ },
+ {
+  "id": "kro_133_alimenty_dziecko",
+  "domain": "rodzinne",
+  "act_short": "kodeks_rodzinny_i_opiekunczy",
+  "article": "133",
+  "question": "Do kiedy rodzice muszą utrzymywać dziecko i płacić na nie alimenty?",
+  "max_acceptable_rank": 8,
+  "known_issue": null,
+  "note": "Krok 101 -- zbiór kontrolny routera (poza baterią 129); artykuł sprawdzony z tekstem w indeksie."
+ },
+ {
+  "id": "kk_278_kradziez",
+  "domain": "karne",
+  "act_short": "kodeks_karny",
+  "article": "278",
+  "question": "Co grozi za kradzież cudzej rzeczy?",
+  "max_acceptable_rank": 8,
+  "known_issue": null,
+  "note": "Krok 101 -- zbiór kontrolny routera (poza baterią 129); artykuł sprawdzony z tekstem w indeksie."
+ },
+ {
+  "id": "kw_86_spowodowanie_zagrozenia",
+  "domain": "wykroczenia",
+  "act_short": "kodeks_wykroczen",
+  "article": "86",
+  "question": "Co grozi kierowcy, który spowodował zagrożenie bezpieczeństwa na drodze lub kolizję?",
+  "max_acceptable_rank": 8,
+  "known_issue": null,
+  "note": "Krok 101 -- zbiór kontrolny routera (poza baterią 129); artykuł sprawdzony z tekstem w indeksie."
+ },
+ {
+  "id": "kpsw_97_mandat_odmowa",
+  "domain": "wykroczenia",
+  "act_short": "kodeks_postepowania_w_sprawach_o_wykroczenia",
+  "article": "97",
+  "question": "Dostałem mandat i się z nim nie zgadzam. Co mogę zrobić?",
+  "max_acceptable_rank": 8,
+  "known_issue": null,
+  "note": "Krok 101 -- zbiór kontrolny routera (poza baterią 129); artykuł sprawdzony z tekstem w indeksie."
+ },
+ {
+  "id": "kpk_23a_mediacja",
+  "domain": "postepowanie_karne",
+  "act_short": "kodeks_postepowania_karnego",
+  "article": "23a",
+  "question": "Czy w sprawie karnej mogę skorzystać z mediacji z pokrzywdzonym?",
+  "max_acceptable_rank": 8,
+  "known_issue": null,
+  "note": "Krok 101 -- zbiór kontrolny routera (poza baterią 129); artykuł sprawdzony z tekstem w indeksie."
+ },
+ {
+  "id": "kpc_187_pozew",
+  "domain": "postepowanie_cywilne",
+  "act_short": "kodeks_postepowania_cywilnego",
+  "article": "187",
+  "question": "Co musi zawierać pozew składany do sądu?",
+  "max_acceptable_rank": 8,
+  "known_issue": null,
+  "note": "Krok 101 -- zbiór kontrolny routera (poza baterią 129); artykuł sprawdzony z tekstem w indeksie."
+ },
+ {
+  "id": "uk_27_odstapienie_14_dni",
+  "domain": "konsumenckie",
+  "act_short": "ustawa_o_prawach_konsumenta",
+  "article": "27",
+  "question": "W ciągu ilu dni mogę zwrócić towar kupiony przez internet bez podawania przyczyny?",
+  "max_acceptable_rank": 8,
+  "known_issue": null,
+  "note": "Krok 101 -- zbiór kontrolny routera (poza baterią 129); artykuł sprawdzony z tekstem w indeksie."
+ },
+ {
+  "id": "pac_9_informacja",
+  "domain": "prawa_pacjenta",
+  "act_short": "ustawa_o_prawach_pacjenta",
+  "article": "9",
+  "question": "Czy lekarz musi mi wyjaśnić, na co jestem chory i jakie mam opcje leczenia?",
+  "max_acceptable_rank": 8,
+  "known_issue": null,
+  "note": "Krok 101 -- zbiór kontrolny routera (poza baterią 129); artykuł sprawdzony z tekstem w indeksie."
+ },
+ {
+  "id": "pe_7_przylaczenie",
+  "domain": "energetyczne",
+  "act_short": "prawo_energetyczne",
+  "article": "7",
+  "question": "Czy zakład energetyczny musi mnie podłączyć do sieci, jeśli buduję dom?",
+  "max_acceptable_rank": 8,
+  "known_issue": null,
+  "note": "Krok 101 -- zbiór kontrolny routera (poza baterią 129); artykuł sprawdzony z tekstem w indeksie."
+ },
+ {
+  "id": "upad_21_obowiazek_wniosku",
+  "domain": "upadlosciowe",
+  "act_short": "prawo_upadlosciowe",
+  "article": "21",
+  "question": "W jakim terminie dłużnik musi złożyć wniosek o ogłoszenie upadłości?",
+  "max_acceptable_rank": 8,
+  "known_issue": null,
+  "note": "Krok 101 -- zbiór kontrolny routera (poza baterią 129); artykuł sprawdzony z tekstem w indeksie."
+ },
+ {
+  "id": "pa_1_przedmiot",
+  "domain": "autorskie",
+  "act_short": "prawo_autorskie",
+  "article": "1",
+  "question": "Co jest utworem chronionym prawem autorskim?",
+  "max_acceptable_rank": 8,
+  "known_issue": null,
+  "note": "Krok 101 -- zbiór kontrolny routera (poza baterią 129); artykuł sprawdzony z tekstem w indeksie."
+ },
+ {
+  "id": "pzp_17_zasady",
+  "domain": "zamowienia_publiczne",
+  "act_short": "prawo_zamowien_publicznych",
+  "article": "17",
+  "question": "Jakimi zasadami musi kierować się zamawiający przy zamówieniu publicznym?",
+  "max_acceptable_rank": 8,
+  "known_issue": null,
+  "note": "Krok 101 -- zbiór kontrolny routera (poza baterią 129); artykuł sprawdzony z tekstem w indeksie."
+ },
+ {
+  "id": "pos_3_definicje",
+  "domain": "ochrona_srodowiska",
+  "act_short": "prawo_ochrony_srodowiska",
+  "article": "3",
+  "question": "Co ustawa rozumie przez zanieczyszczenie środowiska?",
+  "max_acceptable_rank": 8,
+  "known_issue": null,
+  "note": "Krok 101 -- zbiór kontrolny routera (poza baterią 129); artykuł sprawdzony z tekstem w indeksie."
+ },
+ {
+  "id": "pgg_22_koncesja",
+  "domain": "geologia_i_gornictwo",
+  "act_short": "prawo_geologiczne_i_gornicze",
+  "article": "22",
+  "question": "Czy do wydobywania kopalin potrzebna jest koncesja?",
+  "max_acceptable_rank": 8,
+  "known_issue": null,
+  "note": "Krok 101 -- zbiór kontrolny routera (poza baterią 129); artykuł sprawdzony z tekstem w indeksie."
+ },
+ {
+  "id": "kk_36a_limit_kosztow",
+  "domain": "kredyt_konsumencki",
+  "act_short": "ustawa_o_kredycie_konsumenckim",
+  "article": "36a",
+  "question": "Czy bank może doliczać dowolne prowizje, czy jest limit pozaodsetkowych kosztów kredytu?",
+  "max_acceptable_rank": 8,
+  "known_issue": null,
+  "note": "Krok 101 -- zbiór kontrolny routera (poza baterią 129); artykuł sprawdzony z tekstem w indeksie."
+ },
+ {
+  "id": "ksh_154_kapital_min",
+  "domain": "gospodarcze",
+  "act_short": "kodeks_spolek_handlowych",
+  "article": "154",
+  "question": "Ile minimalnie musi wynosić kapitał zakładowy spółki z ograniczoną odpowiedzialnością?",
+  "max_acceptable_rank": 8,
+  "known_issue": null,
+  "note": "Krok 101 -- zbiór kontrolny routera (poza baterią 129); artykuł sprawdzony z tekstem w indeksie."
+ },
+ {
+  "id": "lok_8a_podwyzka_czynszu",
+  "domain": "mieszkaniowe",
+  "act_short": "ustawa_o_ochronie_praw_lokatorow",
+  "article": "8a",
+  "question": "Czy właściciel może mi podnieść czynsz najmu i z jakim wyprzedzeniem?",
+  "max_acceptable_rank": 8,
+  "known_issue": null,
+  "note": "Krok 101 -- zbiór kontrolny routera (poza baterią 129); artykuł sprawdzony z tekstem w indeksie."
+ },
+ {
+  "id": "kpc_796_wszczecie_egzekucji",
+  "domain": "postepowanie_cywilne",
+  "act_short": "kodeks_postepowania_cywilnego",
+  "article": "796",
+  "question": "Wygrałem sprawę o zapłatę, a dłużnik nie płaci. Jak zacząć egzekucję przez komornika?",
+  "max_acceptable_rank": 8,
+  "known_issue": null,
+  "note": "Krok 101 -- zbiór kontrolny routera (poza baterią 129); artykuł sprawdzony z tekstem w indeksie."
+ },
+ {
+  "id": "kc_6_ciezar_dowodu",
+  "domain": "cywilne",
+  "act_short": "kodeks_cywilny",
+  "article": "6",
+  "question": "Kto musi udowodnić swoje racje w sporze cywilnym, jeśli twierdzi, że ktoś jest mu winien pieniądze?",
+  "max_acceptable_rank": 8,
+  "known_issue": null,
+  "note": "Krok 101 -- zbiór kontrolny routera (poza baterią 129); artykuł sprawdzony z tekstem w indeksie."
+ },
+ {
+  "id": "kc_556_rekojmia",
+  "domain": "cywilne",
+  "act_short": "kodeks_cywilny",
+  "article": "556",
+  "question": "Sprzedawca sprzedał mi wadliwy sprzęt od osoby prywatnej. Co mogę zrobić na podstawie rękojmi?",
+  "max_acceptable_rank": 8,
+  "known_issue": null,
+  "note": "Krok 101 -- zbiór kontrolny routera (poza baterią 129); artykuł sprawdzony z tekstem w indeksie."
+ },
+ {
+  "id": "kk_286_oszustwo",
+  "domain": "karne",
+  "act_short": "kodeks_karny",
+  "article": "286",
+  "question": "Co grozi za oszustwo, np. wyłudzenie pieniędzy przez ogłoszenie w internecie?",
+  "max_acceptable_rank": 8,
+  "known_issue": null,
+  "note": "Krok 101 -- zbiór kontrolny routera (poza baterią 129); artykuł sprawdzony z tekstem w indeksie."
+ },
+ {
+  "id": "kpk_78_obronca_z_urzedu",
+  "domain": "postepowanie_karne",
+  "act_short": "kodeks_postepowania_karnego",
+  "article": "78",
+  "question": "Nie stać mnie na adwokata. Czy mogę dostać obrońcę z urzędu w sprawie karnej?",
+  "max_acceptable_rank": 8,
+  "known_issue": null,
+  "note": "Krok 101 -- zbiór kontrolny routera (poza baterią 129); artykuł sprawdzony z tekstem w indeksie."
+ },
+ {
+  "id": "kpk_303_wszczecie_sledztwa",
+  "domain": "postepowanie_karne",
+  "act_short": "kodeks_postepowania_karnego",
+  "article": "303",
+  "question": "Kto i w jaki sposób wszczyna postępowanie przygotowawcze po zawiadomieniu o przestępstwie?",
+  "max_acceptable_rank": 8,
+  "known_issue": null,
+  "note": "Krok 101 -- zbiór kontrolny routera (poza baterią 129); artykuł sprawdzony z tekstem w indeksie."
+ },
+ {
+  "id": "pit_27_skala",
+  "domain": "podatkowe",
+  "act_short": "ustawa_o_pit",
+  "article": "27",
+  "question": "Jakie są progi i stawki podatku dochodowego od osób fizycznych według skali podatkowej?",
+  "max_acceptable_rank": 8,
+  "known_issue": null,
+  "note": "Krok 101 -- zbiór kontrolny routera (poza baterią 129); artykuł sprawdzony z tekstem w indeksie."
+ },
+ {
+  "id": "pw_33_zwykle_korzystanie",
+  "domain": "wodne",
+  "act_short": "prawo_wodne",
+  "article": "33",
+  "question": "Czy właściciel działki może swobodnie czerpać wodę ze studni i stawu na swoim gruncie?",
+  "max_acceptable_rank": 8,
+  "known_issue": null,
+  "note": "Krok 101 -- zbiór kontrolny routera (poza baterią 129); artykuł sprawdzony z tekstem w indeksie."
+ },
+ {
+  "id": "ppk_26_wplata_pracodawcy",
+  "domain": "kadry_i_place",
+  "act_short": "ustawa_o_ppk",
+  "article": "26",
+  "question": "Ile pracodawca musi wpłacać do pracowniczych planów kapitałowych za pracownika?",
+  "max_acceptable_rank": 8,
+  "known_issue": null,
+  "note": "Krok 101 -- zbiór kontrolny routera (poza baterią 129); artykuł sprawdzony z tekstem w indeksie."
+ },
+ {
+  "id": "ppk_27_wplata_uczestnika",
+  "domain": "kadry_i_place",
+  "act_short": "ustawa_o_ppk",
+  "article": "27",
+  "question": "Ile mi odliczają z pensji na PPK?",
+  "max_acceptable_rank": 8,
+  "known_issue": null,
+  "note": "Krok 101 -- zbiór kontrolny routera (poza baterią 129); artykuł sprawdzony z tekstem w indeksie."
+ }
+]

@@ -1,0 +1,640 @@
+{
+  "address": "WDU20000941037",
+  "announcementDate": "2000-09-15",
+  "changeDate": "2026-06-03T14:55:21",
+  "displayAddress": "Dz.U. 2000 nr 94 poz. 1037",
+  "pos": 1037,
+  "promulgation": "2000-11-08",
+  "publisher": "DU",
+  "status": "akt posiada tekst jednolity",
+  "textHTML": true,
+  "textPDF": true,
+  "title": "Ustawa z dnia 15 września 2000 r. Kodeks spółek handlowych.",
+  "type": "Ustawa",
+  "volume": 94,
+  "year": 2000,
+  "authorizedBody": [],
+  "directives": [
+    {
+      "address": "31968L0151",
+      "date": "1968-09-03",
+      "title": "PIERWSZA DYREKTYWA RADY z dnia 9 marca 1968 r. w sprawie koordynacji gwarancji, jakie są wymagane w Państwach Członkowskich od spółek w rozumieniu art. 58 akapit drugi Traktatu, w celu uzyskania ich równoważności w całej Wspólnocie, dla zapewnienia ochrony interesów zarówno wspólników jak i osób trzecich"
+    },
+    {
+      "address": "31977L0091",
+      "date": "1976-12-13",
+      "title": "DRUGA DYREKTYWA RADY z dnia 13 grudnia 1976 r. w sprawie koordynacji gwarancji, jakie są wymagane w Państwach Członkowskich od spółek w rozumieniu art. 58 akapit drugi Traktatu, w celu uzyskania ich równoważności, dla ochrony interesów zarówno wspólników, jak i osób trzecich w zakresie tworzenia spółki akcyjnej, jak również utrzymania i zmian jej kapitału"
+    },
+    {
+      "address": "31978L0855",
+      "date": "1978-09-10",
+      "title": "Trzecia dyrektywa Rady 78/855/EWG z dnia 9 października 1978 r. wydana na podstawie art. 54 ust. 3 lit. g) Traktatu, dotycząca łączenia się spółek akcyjnych"
+    },
+    {
+      "address": "31982L0891",
+      "date": "1982-12-17",
+      "title": "Szósta dyrektywa Rady 82/891/EWG z dnia 17 grudnia 1982 r. wydana na podstawie art. 54 ust. 3 lit. g) Traktatu dotycząca podziału spółek akcyjnych"
+    },
+    {
+      "address": "31989L0666",
+      "date": "1989-12-21",
+      "title": "Jedenasta Dyrektywa Rady z dnia 21 grudnia 1989 r. dotycząca wymogów ujawniania informacji odnośnie do oddziałów utworzonych w Państwie Członkowskim przez niektóre rodzaje spółek podlegające prawu innego państwa"
+    },
+    {
+      "address": "31989L0667",
+      "date": "1989-12-21",
+      "title": "Dwunasta dyrektywa Rady w Sprawie Prawa Spółek z dnia 21 grudnia 1989 r. dotycząca jednoosobowych spółek z ograniczoną odpowiedzialnością"
+    },
+    {
+      "address": "32001L0017",
+      "date": "2001-03-19",
+      "title": "DYREKTYWA 2001/17/WE PARLAMENTU EUROPEJSKIEGO I RADY z dnia 19 marca 2001 r. w sprawie reorganizacji i likwidacji zakładów ubezpieczeń"
+    },
+    {
+      "address": "32001L0024",
+      "date": "2001-04-04",
+      "title": "Dyrektywa 2001/24/WE Parlamentu Europejskiego i Rady z dnia 4 kwietnia 2001 r. w sprawie reorganizacji i likwidacji instytucji kredytowych"
+    },
+    {
+      "address": "32005L0056",
+      "date": "2005-10-26",
+      "title": "Dyrektywa 2005/56/WE Parlamentu Europejskiego i Rady z dnia 26 października 2005 r. w sprawie transgranicznego łączenia się spółek kapitałowych (Tekst mający znaczenie dla EOG)"
+    }
+  ],
+  "entryIntoForce": "2001-01-01",
+  "inForce": "IN_FORCE",
+  "keywords": [
+    "spółki",
+    "spółki osobowe",
+    "kodeks spółek handlowych",
+    "rejestry sądowe",
+    "papiery wartościowe",
+    "upadłościowe prawo",
+    "spółki kapitałowe"
+  ],
+  "keywordsNames": [],
+  "obligated": [],
+  "previousTitle": [],
+  "prints": [
+    {
+      "link": "https://orka.sejm.gov.pl/proc3.nsf/opisy/1687.htm",
+      "linkPrintAPI": "https://api.sejm.gov.pl/sejm/term3/prints/1687",
+      "linkProcessAPI": "https://api.sejm.gov.pl/sejm/term3/processes/1687",
+      "number": "1687",
+      "term": 3
+    }
+  ],
+  "references": {
+    "Akty uchylone": [
+      {
+        "id": "DU/1996/43",
+        "date": "2001-01-01"
+      },
+      {
+        "id": "DU/1991/418",
+        "date": "2001-01-01"
+      },
+      {
+        "id": "DU/1990/98",
+        "date": "2001-01-01"
+      },
+      {
+        "id": "DU/1988/326",
+        "date": "2001-01-01"
+      },
+      {
+        "id": "DU/1934/503",
+        "date": "2001-01-01"
+      },
+      {
+        "id": "DU/1934/502",
+        "date": "2001-01-01"
+      }
+    ],
+    "Akty wykonawcze": [
+      {
+        "id": "DU/2021/1191"
+      },
+      {
+        "id": "DU/2018/1565"
+      },
+      {
+        "id": "DU/2017/29"
+      },
+      {
+        "id": "DU/2017/1367"
+      },
+      {
+        "id": "DU/2016/420"
+      },
+      {
+        "id": "DU/2016/1628"
+      },
+      {
+        "id": "DU/2016/1620"
+      },
+      {
+        "id": "DU/2016/1619"
+      },
+      {
+        "id": "DU/2016/133"
+      },
+      {
+        "id": "DU/2016/111"
+      },
+      {
+        "id": "DU/2016/110"
+      },
+      {
+        "id": "DU/2015/70"
+      },
+      {
+        "id": "DU/2015/69"
+      },
+      {
+        "id": "DU/2015/68"
+      },
+      {
+        "id": "DU/2015/64"
+      },
+      {
+        "id": "DU/2015/63"
+      },
+      {
+        "id": "DU/2011/1774"
+      },
+      {
+        "id": "DU/2011/1762"
+      }
+    ],
+    "Akty zmieniające": [
+      {
+        "id": "DU/2026/644",
+        "date": "2030-01-10"
+      },
+      {
+        "id": "DU/2026/187",
+        "date": "2028-05-19"
+      },
+      {
+        "id": "DU/2026/176",
+        "date": "2027-02-18"
+      },
+      {
+        "id": "DU/2024/96",
+        "date": "2024-01-26"
+      },
+      {
+        "id": "DU/2023/825",
+        "date": "2023-10-01"
+      },
+      {
+        "id": "DU/2023/739",
+        "date": "2023-04-19"
+      },
+      {
+        "id": "DU/2023/1705",
+        "date": "2023-09-15"
+      },
+      {
+        "id": "DU/2022/807",
+        "date": "2022-10-13"
+      },
+      {
+        "id": "DU/2022/2436",
+        "date": "2022-12-15"
+      },
+      {
+        "id": "DU/2022/2280",
+        "date": "2022-12-10"
+      },
+      {
+        "id": "DU/2022/1488",
+        "date": "2023-11-10"
+      },
+      {
+        "id": "DU/2021/2052",
+        "date": "2021-11-30"
+      },
+      {
+        "id": "DU/2020/695",
+        "date": "2020-04-18"
+      },
+      {
+        "id": "DU/2020/568",
+        "date": "2020-03-31"
+      },
+      {
+        "id": "DU/2020/288",
+        "date": "2020-07-01"
+      },
+      {
+        "id": "DU/2020/2320",
+        "date": "2021-10-05"
+      },
+      {
+        "id": "DU/2019/60",
+        "date": "2019-03-04"
+      },
+      {
+        "id": "DU/2019/55",
+        "date": "2021-12-01"
+      },
+      {
+        "id": "DU/2019/2217",
+        "date": "2019-11-30"
+      },
+      {
+        "id": "DU/2019/1798",
+        "date": "2021-03-01"
+      },
+      {
+        "id": "DU/2019/1655",
+        "date": "2021-07-01"
+      },
+      {
+        "id": "DU/2019/1543",
+        "date": "2019-09-03"
+      },
+      {
+        "id": "DU/2018/650",
+        "date": "2018-04-30"
+      },
+      {
+        "id": "DU/2018/398",
+        "date": "2018-03-15"
+      },
+      {
+        "id": "DU/2018/2244",
+        "date": "2019-03-01"
+      },
+      {
+        "id": "DU/2018/2219",
+        "date": "2019-04-01"
+      },
+      {
+        "id": "DU/2018/1544",
+        "date": "2018-09-11"
+      },
+      {
+        "id": "DU/2017/791",
+        "date": "2017-04-29"
+      },
+      {
+        "id": "DU/2017/1133",
+        "date": "2017-07-13"
+      },
+      {
+        "id": "DU/2017/1089",
+        "date": "2017-06-21"
+      },
+      {
+        "id": "DU/2016/996",
+        "date": "2016-10-09"
+      },
+      {
+        "id": "DU/2016/615",
+        "date": "2016-06-04"
+      },
+      {
+        "id": "DU/2016/2260",
+        "date": "2017-01-01"
+      },
+      {
+        "id": "DU/2016/2255",
+        "date": "2017-01-01"
+      },
+      {
+        "id": "DU/2016/1579",
+        "date": "2016-10-07"
+      },
+      {
+        "id": "DU/2016/1202",
+        "date": "2016-09-09"
+      },
+      {
+        "id": "DU/2015/978",
+        "date": "2016-01-01"
+      },
+      {
+        "id": "DU/2015/4",
+        "date": "2015-01-15"
+      },
+      {
+        "id": "DU/2015/1830",
+        "date": "2016-01-01"
+      },
+      {
+        "id": "DU/2015/1333",
+        "date": "2015-09-23"
+      },
+      {
+        "id": "DU/2014/1161",
+        "date": "2014-12-01"
+      },
+      {
+        "id": "DU/2013/433",
+        "date": "2013-04-23"
+      },
+      {
+        "id": "DU/2012/596",
+        "date": "2013-01-01"
+      },
+      {
+        "id": "DU/2012/1529",
+        "date": "2013-01-01"
+      },
+      {
+        "id": "DU/2012/1342",
+        "date": "2013-01-01"
+      },
+      {
+        "id": "DU/2011/767",
+        "date": "2011-07-13"
+      },
+      {
+        "id": "DU/2011/622",
+        "date": "2011-07-01"
+      },
+      {
+        "id": "DU/2011/585",
+        "date": "2011-06-02"
+      },
+      {
+        "id": "DU/2011/531",
+        "date": "2012-01-01"
+      },
+      {
+        "id": "DU/2011/1391",
+        "date": "2012-01-01"
+      },
+      {
+        "id": "DU/2011/1182",
+        "date": "2011-10-27"
+      },
+      {
+        "id": "DU/2009/860",
+        "date": "2009-08-02"
+      },
+      {
+        "id": "DU/2009/69",
+        "date": "2009-08-03"
+      },
+      {
+        "id": "DU/2009/341",
+        "date": "2009-06-18"
+      },
+      {
+        "id": "DU/2008/747",
+        "date": "2008-10-05"
+      },
+      {
+        "id": "DU/2008/524",
+        "date": "2008-06-20"
+      },
+      {
+        "id": "DU/2008/1547",
+        "date": "2009-01-13"
+      },
+      {
+        "id": "DU/2008/1381",
+        "date": "2009-01-08"
+      },
+      {
+        "id": "DU/2006/935",
+        "date": "2006-08-05"
+      },
+      {
+        "id": "DU/2006/1540",
+        "date": "2007-01-01"
+      },
+      {
+        "id": "DU/2005/1539",
+        "date": "2005-10-24"
+      },
+      {
+        "id": "DU/2005/1538",
+        "date": "2005-10-24"
+      },
+      {
+        "id": "DU/2005/1108",
+        "date": "2005-08-19"
+      },
+      {
+        "id": "DU/2004/1808",
+        "date": "2004-08-21"
+      },
+      {
+        "id": "DU/2003/535",
+        "date": "2003-10-01"
+      },
+      {
+        "id": "DU/2003/408",
+        "date": "2003-09-25"
+      },
+      {
+        "id": "DU/2003/2276",
+        "date": "2004-01-15"
+      },
+      {
+        "id": "DU/2001/1117",
+        "date": "2001-10-06"
+      }
+    ],
+    "Akty zmienione": [
+      {
+        "id": "DU/2000/702",
+        "date": "2001-01-01"
+      },
+      {
+        "id": "DU/1999/1178",
+        "date": "2001-01-01"
+      },
+      {
+        "id": "DU/1997/939",
+        "date": "2001-01-01"
+      },
+      {
+        "id": "DU/1997/926",
+        "date": "2001-01-01"
+      },
+      {
+        "id": "DU/1997/770",
+        "date": "2001-01-01"
+      },
+      {
+        "id": "DU/1997/769",
+        "date": "2001-01-01"
+      },
+      {
+        "id": "DU/1997/754",
+        "date": "2001-01-01"
+      },
+      {
+        "id": "DU/1997/554",
+        "date": "2001-01-01"
+      },
+      {
+        "id": "DU/1997/152",
+        "date": "2001-01-01"
+      },
+      {
+        "id": "DU/1996/475",
+        "date": "2001-01-01"
+      },
+      {
+        "id": "DU/1996/410",
+        "date": "2001-01-01"
+      },
+      {
+        "id": "DU/1995/478",
+        "date": "2001-01-01"
+      },
+      {
+        "id": "DU/1995/420",
+        "date": "2001-01-01"
+      },
+      {
+        "id": "DU/1994/592",
+        "date": "2001-01-01"
+      },
+      {
+        "id": "DU/1994/591",
+        "date": "2001-01-01"
+      },
+      {
+        "id": "DU/1991/91",
+        "date": "2001-01-01"
+      },
+      {
+        "id": "DU/1991/480",
+        "date": "2001-01-01"
+      },
+      {
+        "id": "DU/1991/155",
+        "date": "2001-01-01"
+      },
+      {
+        "id": "DU/1990/298",
+        "date": "2001-01-01"
+      },
+      {
+        "id": "DU/1982/145",
+        "date": "2001-01-01"
+      },
+      {
+        "id": "DU/1982/124",
+        "date": "2001-01-01"
+      },
+      {
+        "id": "DU/1964/94",
+        "date": "2001-01-01"
+      },
+      {
+        "id": "DU/1964/296",
+        "date": "2001-01-01"
+      },
+      {
+        "id": "DU/1961/319",
+        "date": "2001-01-01"
+      },
+      {
+        "id": "DU/1950/312",
+        "date": "2001-01-01"
+      },
+      {
+        "id": "DU/1947/20",
+        "date": "2001-01-01"
+      },
+      {
+        "id": "DU/1946/329",
+        "date": "2001-01-01"
+      },
+      {
+        "id": "DU/1946/321",
+        "date": "2001-01-01"
+      },
+      {
+        "id": "DU/1946/197",
+        "date": "2001-01-01"
+      },
+      {
+        "id": "DU/1945/224",
+        "date": "2001-01-01"
+      },
+      {
+        "id": "DU/1934/834",
+        "date": "2001-01-01"
+      }
+    ],
+    "Inf. o tekście jednolitym": [
+      {
+        "id": "DU/2024/18"
+      },
+      {
+        "id": "DU/2022/1467"
+      },
+      {
+        "id": "DU/2020/1526"
+      },
+      {
+        "id": "DU/2019/505"
+      },
+      {
+        "id": "DU/2017/1577"
+      },
+      {
+        "id": "DU/2016/1578"
+      },
+      {
+        "id": "DU/2013/1030"
+      }
+    ],
+    "Odesłania": [
+      {
+        "id": "DU/1947/20"
+      }
+    ],
+    "Orzeczenie TK": [
+      {
+        "id": "DU/2024/96"
+      },
+      {
+        "id": "DU/2023/739"
+      },
+      {
+        "id": "DU/2009/752"
+      },
+      {
+        "id": "DU/2005/1043"
+      }
+    ]
+  },
+  "releasedBy": [
+    "SEJM"
+  ],
+  "texts": [
+    {
+      "fileName": "text.html",
+      "type": "H"
+    },
+    {
+      "fileName": "D20001037.pdf",
+      "type": "O"
+    },
+    {
+      "fileName": "D20001037.pdf",
+      "type": "I"
+    },
+    {
+      "fileName": "D20001037L.pdf",
+      "type": "T"
+    },
+    {
+      "fileName": "D20001037Lj.pdf",
+      "type": "U"
+    }
+  ],
+  "validFrom": "2001-01-01",
+  "ELI": "DU/2000/1037"
+}

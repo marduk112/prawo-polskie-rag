@@ -1,0 +1,200 @@
+{
+  "address": "WDU19940850388",
+  "announcementDate": "1994-06-24",
+  "changeDate": "2026-07-16T13:33:29",
+  "displayAddress": "Dz.U. 1994 nr 85 poz. 388",
+  "pos": 388,
+  "promulgation": "1994-07-27",
+  "publisher": "DU",
+  "status": "akt posiada tekst jednolity",
+  "textHTML": true,
+  "textPDF": true,
+  "title": "Ustawa z dnia 24 czerwca 1994 r. o własności lokali.",
+  "type": "Ustawa",
+  "volume": 85,
+  "year": 1994,
+  "authorizedBody": [],
+  "comments": "Art.40 ust.1 wchodzi w życie z dniem 27 lipca 1994 r.",
+  "directives": [],
+  "entryIntoForce": "1995-01-01",
+  "inForce": "IN_FORCE",
+  "keywords": [
+    "wywłaszczenia",
+    "księgi wieczyste i hipoteka",
+    "cywilne prawo",
+    "kodeks cywilny",
+    "cywilne postępowanie",
+    "lokalowe prawo"
+  ],
+  "keywordsNames": [],
+  "obligated": [
+    "MIN. SPRAWIEDLIWOŚCI",
+    "RADA MINISTRÓW"
+  ],
+  "previousTitle": [],
+  "prints": [],
+  "references": {
+    "Akty wykonawcze": [
+      {
+        "id": "DU/1994/710"
+      }
+    ],
+    "Akty zmieniające": [
+      {
+        "id": "DU/2026/39",
+        "date": "2026-01-28"
+      },
+      {
+        "id": "DU/2023/1688",
+        "date": "2026-01-01"
+      },
+      {
+        "id": "DU/2021/11",
+        "date": "2021-01-19"
+      },
+      {
+        "id": "DU/2020/568",
+        "date": "2020-03-31"
+      },
+      {
+        "id": "DU/2019/1469",
+        "date": "2019-11-07"
+      },
+      {
+        "id": "DU/2019/1309",
+        "date": "2019-08-15"
+      },
+      {
+        "id": "DU/2018/1506",
+        "date": "2018-08-23"
+      },
+      {
+        "id": "DU/2018/1496",
+        "date": "2018-08-22"
+      },
+      {
+        "id": "DU/2017/1529",
+        "date": "2017-09-11"
+      },
+      {
+        "id": "DU/2015/1168",
+        "date": "2015-08-29"
+      },
+      {
+        "id": "DU/2004/1492",
+        "date": "2004-09-22"
+      },
+      {
+        "id": "DU/2000/355",
+        "date": "2000-05-19"
+      },
+      {
+        "id": "DU/2000/136",
+        "date": "2000-02-23"
+      },
+      {
+        "id": "DU/1997/741",
+        "date": "1998-01-01"
+      },
+      {
+        "id": "DU/1997/682",
+        "date": "1997-09-26"
+      },
+      {
+        "id": "DU/1994/509",
+        "date": "1994-11-12"
+      }
+    ],
+    "Akty zmienione": [
+      {
+        "id": "DU/1985/99",
+        "date": "1995-01-01"
+      },
+      {
+        "id": "DU/1982/147",
+        "date": "1995-01-01"
+      },
+      {
+        "id": "DU/1974/84",
+        "date": "1995-01-01"
+      },
+      {
+        "id": "DU/1964/94",
+        "date": "1995-01-01"
+      },
+      {
+        "id": "DU/1964/93",
+        "date": "1995-01-01"
+      }
+    ],
+    "Inf. o tekście jednolitym": [
+      {
+        "id": "DU/2026/232"
+      },
+      {
+        "id": "DU/2021/1048"
+      },
+      {
+        "id": "DU/2020/532"
+      },
+      {
+        "id": "DU/2020/1910"
+      },
+      {
+        "id": "DU/2019/737"
+      },
+      {
+        "id": "DU/2018/716"
+      },
+      {
+        "id": "DU/2015/1892"
+      },
+      {
+        "id": "DU/2000/903"
+      }
+    ],
+    "Odesłania": [
+      {
+        "id": "DU/1992/128"
+      },
+      {
+        "id": "DU/1964/296"
+      }
+    ],
+    "Orzeczenie TK": [
+      {
+        "id": "DU/2013/1006"
+      },
+      {
+        "id": "DU/2002/241"
+      }
+    ]
+  },
+  "releasedBy": [
+    "SEJM"
+  ],
+  "texts": [
+    {
+      "fileName": "text.html",
+      "type": "H"
+    },
+    {
+      "fileName": "D19940388.pdf",
+      "type": "O"
+    },
+    {
+      "fileName": "D19940388.pdf",
+      "type": "I"
+    },
+    {
+      "fileName": "D19940388L.pdf",
+      "type": "T"
+    },
+    {
+      "fileName": "D19940388Lj.pdf",
+      "type": "U"
+    }
+  ],
+  "validFrom": "1995-01-01",
+  "ELI": "DU/1994/388"
+}

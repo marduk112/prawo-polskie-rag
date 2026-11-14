@@ -1,0 +1,469 @@
+{
+  "address": "WDU20090520417",
+  "announcementDate": "2008-11-06",
+  "changeDate": "2026-08-26T00:00:00",
+  "displayAddress": "Dz.U. 2009 nr 52 poz. 417",
+  "pos": 417,
+  "promulgation": "2009-03-31",
+  "publisher": "DU",
+  "status": "akt posiada tekst jednolity",
+  "textHTML": true,
+  "textPDF": true,
+  "title": "Ustawa z dnia 6 listopada 2008 r. o prawach pacjenta i Rzeczniku Praw Pacjenta",
+  "type": "Ustawa",
+  "volume": 52,
+  "year": 2009,
+  "authorizedBody": [],
+  "directives": [],
+  "entryIntoForce": "2009-05-21",
+  "inForce": "IN_FORCE",
+  "keywords": [
+    "ochrona danych osobowych",
+    "lekarze",
+    "komisje lekarskie",
+    "ochrona zdrowia",
+    "naczelne i centralne organy administracji",
+    "informacja publiczna",
+    "pacjenci",
+    "świadczenia lecznicze",
+    "lekarze dentyści",
+    "kary pieniężne i porządkowe",
+    "zakłady opieki zdrowotnej",
+    "opieka zdrowotna",
+    "ochrona praw człowieka",
+    "dokumentacja medyczna"
+  ],
+  "keywordsNames": [
+    "Rzecznik Praw Pacjenta"
+  ],
+  "obligated": [
+    "MIN. WŁAŚCIWY DS ZDROWIA",
+    "MIN. WŁAŚCIWY DS WEWNĘTRZNYCH",
+    "MIN. SPRAWIEDLIWOŚCI",
+    "MIN. OBRONY NARODOWEJ"
+  ],
+  "previousTitle": [],
+  "prints": [
+    {
+      "link": "https://orka.sejm.gov.pl/proc6.nsf/opisy/283.htm",
+      "linkPrintAPI": "https://api.sejm.gov.pl/sejm/term6/prints/283",
+      "linkProcessAPI": "https://api.sejm.gov.pl/sejm/term6/processes/283",
+      "number": "283",
+      "term": 6
+    }
+  ],
+  "references": {
+    "Akty wykonawcze": [
+      {
+        "id": "MP/2023/961"
+      },
+      {
+        "id": "MP/2022/1046"
+      },
+      {
+        "id": "MP/2018/53"
+      },
+      {
+        "id": "MP/2015/355"
+      },
+      {
+        "id": "MP/2013/192"
+      },
+      {
+        "id": "MP/2011/938"
+      },
+      {
+        "id": "MP/2010/796"
+      },
+      {
+        "id": "MP/2010/238"
+      },
+      {
+        "id": "MP/2009/778"
+      },
+      {
+        "id": "DU/2026/876"
+      },
+      {
+        "id": "DU/2026/865"
+      },
+      {
+        "id": "DU/2026/758"
+      },
+      {
+        "id": "DU/2026/700"
+      },
+      {
+        "id": "DU/2026/1132"
+      },
+      {
+        "id": "DU/2025/931"
+      },
+      {
+        "id": "DU/2025/1853"
+      },
+      {
+        "id": "DU/2024/890"
+      },
+      {
+        "id": "DU/2024/883"
+      },
+      {
+        "id": "DU/2024/252"
+      },
+      {
+        "id": "DU/2024/1189"
+      },
+      {
+        "id": "DU/2023/2359"
+      },
+      {
+        "id": "DU/2023/1486"
+      },
+      {
+        "id": "DU/2022/833"
+      },
+      {
+        "id": "DU/2022/1990"
+      },
+      {
+        "id": "DU/2022/1659"
+      },
+      {
+        "id": "DU/2021/916"
+      },
+      {
+        "id": "DU/2021/302"
+      },
+      {
+        "id": "DU/2021/2477"
+      },
+      {
+        "id": "DU/2021/1825"
+      },
+      {
+        "id": "DU/2021/1468"
+      },
+      {
+        "id": "DU/2020/788"
+      },
+      {
+        "id": "DU/2020/666"
+      },
+      {
+        "id": "DU/2020/2350"
+      },
+      {
+        "id": "DU/2020/2288"
+      },
+      {
+        "id": "DU/2020/1981"
+      },
+      {
+        "id": "DU/2019/1984"
+      },
+      {
+        "id": "DU/2018/1108"
+      },
+      {
+        "id": "DU/2016/258"
+      },
+      {
+        "id": "DU/2016/249"
+      },
+      {
+        "id": "DU/2015/2069"
+      },
+      {
+        "id": "DU/2015/1261"
+      },
+      {
+        "id": "DU/2014/968"
+      },
+      {
+        "id": "DU/2014/1508"
+      },
+      {
+        "id": "DU/2013/750"
+      },
+      {
+        "id": "DU/2013/1524"
+      },
+      {
+        "id": "DU/2012/583"
+      },
+      {
+        "id": "DU/2012/207"
+      },
+      {
+        "id": "DU/2012/1531"
+      },
+      {
+        "id": "DU/2011/712"
+      },
+      {
+        "id": "DU/2011/203"
+      },
+      {
+        "id": "DU/2011/1740"
+      },
+      {
+        "id": "DU/2011/1625"
+      },
+      {
+        "id": "DU/2010/244"
+      },
+      {
+        "id": "DU/2010/1697"
+      },
+      {
+        "id": "DU/2009/1765"
+      },
+      {
+        "id": "DU/2009/1068"
+      }
+    ],
+    "Akty zmieniające": [
+      {
+        "id": "DU/2026/791",
+        "date": "2026-07-01"
+      },
+      {
+        "id": "DU/2026/26",
+        "date": "2027-01-01"
+      },
+      {
+        "id": "DU/2023/605",
+        "date": "2023-04-14"
+      },
+      {
+        "id": "DU/2023/1972",
+        "date": "2023-06-22"
+      },
+      {
+        "id": "DU/2023/1692",
+        "date": "2024-01-01"
+      },
+      {
+        "id": "DU/2023/1675",
+        "date": "2023-09-06"
+      },
+      {
+        "id": "DU/2022/974",
+        "date": "2022-05-26"
+      },
+      {
+        "id": "DU/2022/64",
+        "date": "2022-01-27"
+      },
+      {
+        "id": "DU/2022/2705",
+        "date": "2023-06-22"
+      },
+      {
+        "id": "DU/2022/2280",
+        "date": "2022-12-10"
+      },
+      {
+        "id": "DU/2019/730",
+        "date": "2019-05-04"
+      },
+      {
+        "id": "DU/2019/447",
+        "date": "2019-03-22"
+      },
+      {
+        "id": "DU/2019/1696",
+        "date": "2021-09-06"
+      },
+      {
+        "id": "DU/2019/1655",
+        "date": "2021-07-01"
+      },
+      {
+        "id": "DU/2019/1590",
+        "date": "2019-09-07"
+      },
+      {
+        "id": "DU/2019/150",
+        "date": "2019-02-09"
+      },
+      {
+        "id": "DU/2019/1128",
+        "date": "2019-07-03"
+      },
+      {
+        "id": "DU/2018/2429",
+        "date": "2019-01-11"
+      },
+      {
+        "id": "DU/2018/2219",
+        "date": "2019-04-01"
+      },
+      {
+        "id": "DU/2018/1515",
+        "date": "2018-08-23"
+      },
+      {
+        "id": "DU/2018/1115",
+        "date": "2018-06-26"
+      },
+      {
+        "id": "DU/2017/836",
+        "date": "2017-05-11"
+      },
+      {
+        "id": "DU/2017/1524",
+        "date": "2017-08-25"
+      },
+      {
+        "id": "DU/2016/960",
+        "date": "2016-07-15"
+      },
+      {
+        "id": "DU/2016/823",
+        "date": "2016-09-11"
+      },
+      {
+        "id": "DU/2016/1070",
+        "date": "2016-08-05"
+      },
+      {
+        "id": "DU/2015/1991",
+        "date": "2015-12-12"
+      },
+      {
+        "id": "DU/2015/1163",
+        "date": "2015-08-28"
+      },
+      {
+        "id": "DU/2014/1822",
+        "date": "2015-01-01"
+      },
+      {
+        "id": "DU/2013/1245",
+        "date": "2013-11-25"
+      },
+      {
+        "id": "DU/2012/742",
+        "date": "2012-06-30"
+      },
+      {
+        "id": "DU/2011/660",
+        "date": "2012-01-01"
+      },
+      {
+        "id": "DU/2011/657",
+        "date": "2012-01-01"
+      },
+      {
+        "id": "DU/2011/654",
+        "date": "2011-07-01"
+      },
+      {
+        "id": "DU/2011/1388",
+        "date": "2011-11-18"
+      },
+      {
+        "id": "DU/2010/620",
+        "date": "2010-10-01"
+      },
+      {
+        "id": "DU/2009/641",
+        "date": "2009-06-05"
+      }
+    ],
+    "Inf. o tekście jednolitym": [
+      {
+        "id": "DU/2024/581"
+      },
+      {
+        "id": "DU/2023/1545"
+      },
+      {
+        "id": "DU/2022/1876"
+      },
+      {
+        "id": "DU/2020/849"
+      },
+      {
+        "id": "DU/2019/1127"
+      },
+      {
+        "id": "DU/2017/1318"
+      },
+      {
+        "id": "DU/2016/186"
+      },
+      {
+        "id": "DU/2012/159"
+      }
+    ],
+    "Odesłania": [
+      {
+        "id": "DU/2001/1198"
+      },
+      {
+        "id": "DU/1998/887"
+      },
+      {
+        "id": "DU/1998/1118"
+      },
+      {
+        "id": "DU/1997/152"
+      },
+      {
+        "id": "DU/1994/535"
+      },
+      {
+        "id": "DU/1985/170"
+      },
+      {
+        "id": "DU/1964/93"
+      },
+      {
+        "id": "DU/1960/168"
+      }
+    ],
+    "Orzeczenie TK": [
+      {
+        "id": "DU/2014/372"
+      },
+      {
+        "id": "DU/2011/1436"
+      }
+    ],
+    "Przepisy wprowadzające": [
+      {
+        "id": "DU/2009/641"
+      }
+    ]
+  },
+  "releasedBy": [
+    "SEJM"
+  ],
+  "texts": [
+    {
+      "fileName": "text.html",
+      "type": "H"
+    },
+    {
+      "fileName": "D20090417.pdf",
+      "type": "O"
+    },
+    {
+      "fileName": "D20090417.pdf",
+      "type": "I"
+    },
+    {
+      "fileName": "D20090417L.pdf",
+      "type": "T"
+    },
+    {
+      "fileName": "D20090417Lj.pdf",
+      "type": "U"
+    }
+  ],
+  "validFrom": "2009-05-21",
+  "ELI": "DU/2009/417"
+}

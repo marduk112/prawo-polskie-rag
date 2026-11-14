@@ -1,0 +1,10 @@
+# Zależności wspólne dla wszystkich wariantów (RAG, pobieranie ustaw,
+# kontrola aktualności) -- działają na każdej platformie (macOS,
+# Linux, Windows).
+sentence-transformers==5.7.0
+pypdf==6.16.1
+pdfplumber==0.11.10
+numpy==2.5.2
+huggingface_hub==1.27.0
+requests==2.34.2
+psutil==7.2.2  # opcjonalne: dobór liczby procesów parsujących do WOLNEJ pamięci (download_acts.default_parse_workers)

@@ -1,0 +1,74 @@
+[
+ {
+  "id": "tele_01",
+  "domain": "telekomunikacyjne",
+  "question": "Chcę zmienić operatora internetu i zachować swój numer telefonu. Jak to wygląda i ile to potrwa?",
+  "note": "Krok 103 -- pytanie o telekomunikację; zgodność dziedziny sprawdzona z aktem, bez numeru artykułu (tylko test routera)"
+ },
+ {
+  "id": "tele_02",
+  "domain": "telekomunikacyjne",
+  "question": "Operator podniósł mi cenę abonamentu w trakcie umowy na czas określony. Czy mogę wypowiedzieć umowę bez kary?",
+  "note": "Krok 103 -- pytanie o telekomunikację; zgodność dziedziny sprawdzona z aktem, bez numeru artykułu (tylko test routera)"
+ },
+ {
+  "id": "tele_03",
+  "domain": "telekomunikacyjne",
+  "question": "Internet światłowodowy działa od tygodni bardzo wolno, wielokrotnie niższa prędkość niż w umowie. Co mogę zrobić wobec dostawcy?",
+  "note": "Krok 103 -- pytanie o telekomunikację; zgodność dziedziny sprawdzona z aktem, bez numeru artykułu (tylko test routera)"
+ },
+ {
+  "id": "tele_04",
+  "domain": "telekomunikacyjne",
+  "question": "Wyjeżdżam do Włoch, czy operator może mi naliczać dodatkowe opłaty za roaming w UE?",
+  "note": "Krok 103 -- pytanie o telekomunikację; zgodność dziedziny sprawdzona z aktem, bez numeru artykułu (tylko test routera)"
+ },
+ {
+  "id": "tele_05",
+  "domain": "telekomunikacyjne",
+  "question": "Dostawca internetu nie zrealizował usługi w terminie, bo nie miał technicznej możliwości podłączenia. Czy należy mi się odszkodowanie?",
+  "note": "Krok 103 -- pytanie o telekomunikację; zgodność dziedziny sprawdzona z aktem, bez numeru artykułu (tylko test routera)"
+ },
+ {
+  "id": "tele_06",
+  "domain": "telekomunikacyjne",
+  "question": "Czy operator telefoniczny może zablokować mój numer za spóźnienie z zapłatą faktury o kilka dni?",
+  "note": "Krok 103 -- pytanie o telekomunikację; zgodność dziedziny sprawdzona z aktem, bez numeru artykułu (tylko test routera)"
+ },
+ {
+  "id": "tele_07",
+  "domain": "konsumenckie",
+  "question": "Podpisałem umowę z kurierem operatora w domu, teraz chcę się z niej wycofać. Mam 14 dni?",
+  "note": "Krok 103 -- odstąpienie poza lokalem to art. 27 ustawy o prawach konsumenta, więc złota dziedzina = konsumenckie"
+ },
+ {
+  "id": "tele_08",
+  "domain": "telekomunikacyjne",
+  "question": "Złożyłem reklamację do operatora komórkowego na zawyżony rachunek. Jak długo ma na odpowiedź i co jeśli jej nie udzieli?",
+  "note": "Krok 103 -- pytanie o telekomunikację; zgodność dziedziny sprawdzona z aktem, bez numeru artykułu (tylko test routera)"
+ },
+ {
+  "id": "tele_09",
+  "domain": "telekomunikacyjne",
+  "question": "Czy operator może udostępnić moje billingi i lokalizację policji bez nakazu sądu?",
+  "note": "Krok 103 -- pytanie o telekomunikację; zgodność dziedziny sprawdzona z aktem, bez numeru artykułu (tylko test routera)"
+ },
+ {
+  "id": "tele_10",
+  "domain": "telekomunikacyjne",
+  "question": "Umowa abonamentowa przedłuża mi się automatycznie po 24 miesiącach. Czy to legalne i jak się wypisać?",
+  "note": "Krok 103 -- pytanie o telekomunikację; zgodność dziedziny sprawdzona z aktem, bez numeru artykułu (tylko test routera)"
+ },
+ {
+  "id": "tele_11",
+  "domain": "telekomunikacyjne",
+  "question": "Dostawca telewizji kablowej i internetu zmienił pakiet kanałów bez mojej zgody. Czy mogę odejść bez opłat?",
+  "note": "Krok 103 -- pytanie o telekomunikację; zgodność dziedziny sprawdzona z aktem, bez numeru artykułu (tylko test routera)"
+ },
+ {
+  "id": "tele_12",
+  "domain": "telekomunikacyjne",
+  "question": "Mam awarię łącza od trzech dni i nie mogę pracować zdalnie. Czy operator musi obniżyć abonament za ten czas?",
+  "note": "Krok 103 -- pytanie o telekomunikację; zgodność dziedziny sprawdzona z aktem, bez numeru artykułu (tylko test routera)"
+ }
+]

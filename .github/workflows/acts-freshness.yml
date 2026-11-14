@@ -1,0 +1,32 @@
+name: Aktualność ustaw
+
+on:
+  schedule:
+    # Co poniedziałek o 6:00 UTC -- patrz PROGRESS.md, krok 8/16 ("Co dalej").
+    - cron: "0 6 * * 1"
+  workflow_dispatch: {}
+
+jobs:
+  check-freshness:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: Zainstaluj zależności
+        # check_acts_freshness.py importuje download_acts.py (dla listy
+        # ACTS i pick_text_file), które na poziomie modułu ciągnie za
+        # sobą pdfplumber/pypdf, mimo że sam skrypt freshness potrzebuje
+        # tylko requests. Świadomie NIE instalujemy tu całego
+        # requirements-common.txt -- sentence-transformers (RAG,
+        # niepotrzebny w tym jobie) ciągnie za sobą torch, a na
+        # Linuksie domyślnie CUDA-owe wheele NVIDIA (>1GB), mimo że nic
+        # tu nie dotyka GPU. Wersje zsynchronizowane ręcznie z
+        # requirements-common.txt.
+        run: pip install pdfplumber==0.11.10 pypdf==6.16.1 requests==2.34.2
+
+      - name: Sprawdź aktualność ustaw względem ELI API
+        run: python scripts/check_acts_freshness.py

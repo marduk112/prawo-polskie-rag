@@ -1,0 +1,354 @@
+[
+  {
+    "short": "kodeks_pracy",
+    "publisher": "DU",
+    "year": 1974,
+    "position": 141,
+    "domains": ["kadry_i_place"]
+  },
+  {
+    "short": "ustawa_o_systemie_ubezpieczen_spolecznych",
+    "publisher": "DU",
+    "year": 1998,
+    "position": 887,
+    "domains": ["kadry_i_place"]
+  },
+  {
+    "short": "ustawa_o_minimalnym_wynagrodzeniu",
+    "publisher": "DU",
+    "year": 2002,
+    "position": 1679,
+    "domains": ["kadry_i_place"]
+  },
+  {
+    "short": "ustawa_zasilkowa",
+    "publisher": "DU",
+    "year": 1999,
+    "position": 636,
+    "domains": ["kadry_i_place"]
+  },
+  {
+    "short": "ustawa_o_pit",
+    "publisher": "DU",
+    "year": 1991,
+    "position": 350,
+    "domains": ["kadry_i_place", "podatkowe"]
+  },
+  {
+    "short": "ustawa_o_ppk",
+    "publisher": "DU",
+    "year": 2018,
+    "position": 2215,
+    "domains": ["kadry_i_place"]
+  },
+  {
+    "_comment": "Następczyni uchylonej z dniem 2025-06-01 ustawy o promocji zatrudnienia i instytucjach rynku pracy (DU/2004/1001) -- zweryfikowane przez pole 'references'.'Akty uchylające' w ELI API.",
+    "short": "ustawa_o_rynku_pracy",
+    "publisher": "DU",
+    "year": 2025,
+    "position": 620,
+    "domains": ["kadry_i_place"]
+  },
+  {
+    "short": "ordynacja_podatkowa",
+    "publisher": "DU",
+    "year": 1997,
+    "position": 926,
+    "domains": ["podatkowe"]
+  },
+  {
+    "short": "ustawa_o_vat",
+    "publisher": "DU",
+    "year": 2004,
+    "position": 535,
+    "domains": ["podatkowe"]
+  },
+  {
+    "_comment": "Krok 94: dołączona do 'podatkowe' (nie osobna dziedzina) -- pytania o spadki/darowizny mieszają się z PIT (sprzedaż odziedziczonej nieruchomości). Zweryfikowano przez ELI API (Dz.U. 1983 poz. 207): 'Ustawa z dnia 28 lipca 1983 r. o podatku od spadków i darowizn.' (status: akt posiada tekst jednolity).",
+    "short": "ustawa_o_podatku_od_spadkow_i_darowizn",
+    "publisher": "DU",
+    "year": 1983,
+    "position": 207,
+    "domains": ["podatkowe"]
+  },
+  {
+    "_comment": "Krok 95: własna dziedzina 'pcc' -- po dołączeniu do 'podatkowe' regresja starych przypadków (pit_10 #5->#11, sd_9 poza pulą) i 3 z 7 nowych poza top-8. Zweryfikowano przez ELI API (Dz.U. 2000 poz. 959): 'Ustawa z dnia 9 września 2000 r. o podatku od czynności cywilnoprawnych.' (status: akt posiada tekst jednolity).",
+    "short": "ustawa_o_pcc",
+    "publisher": "DU",
+    "year": 2000,
+    "position": 959,
+    "domains": ["pcc"]
+  },
+  {
+    "_comment": "Krok 96: własna dziedzina 'cit' (od razu osobna -- wniosek z Kroku 95). Zweryfikowano przez ELI API (Dz.U. 1992 poz. 86): 'Ustawa z dnia 15 lutego 1992 r. o podatku dochodowym od osób prawnych' (status: akt posiada tekst jednolity).",
+    "short": "ustawa_o_cit",
+    "publisher": "DU",
+    "year": 1992,
+    "position": 86,
+    "domains": ["cit"]
+  },
+  {
+    "_comment": "Krok 97: własna dziedzina 'podatki_lokalne' (od razu osobna -- wniosek z Kroku 95): podatek od nieruchomości, od środków transportowych, opłata targowa, miejscowa, uzdrowiskowa, klimatyczna, reklamowa. Zweryfikowano przez ELI API (Dz.U. 1991 poz. 31): 'Ustawa z dnia 12 stycznia 1991 r. o podatkach i opłatach lokalnych' (status: akt posiada tekst jednolity). UWAGA: Dz.U. 1991 nr 9 poz. 9 to INNY akt.",
+    "short": "ustawa_o_podatkach_i_oplatach_lokalnych",
+    "publisher": "DU",
+    "year": 1991,
+    "position": 31,
+    "domains": ["podatki_lokalne"]
+  },
+  {
+    "short": "kpa",
+    "publisher": "DU",
+    "year": 1960,
+    "position": 168,
+    "domains": ["administracyjne"]
+  },
+  {
+    "_comment": "Świadomie odłożone jako pilotaż -- jedyna dziedzina z realnym tematycznym nakładaniem się na kadry_i_place (umowa o pracę odwołuje się do przepisów KC, np. o formie oświadczeń woli, przedawnieniu).",
+    "short": "kodeks_cywilny",
+    "publisher": "DU",
+    "year": 1964,
+    "position": 93,
+    "domains": ["cywilne"]
+  },
+  {
+    "_comment": "Piąta dziedzina, wybrana celowo jako kolejny 'czysty' test (pojedynczy akt, słownictwo odrębne od pozostałych) -- ma dać drugi punkt danych dla hipotezy o 'gęstości tematycznej' w rerankingu z pilotażu kodeks_cywilny (patrz PROGRESS.md).",
+    "short": "kodeks_rodzinny_i_opiekunczy",
+    "publisher": "DU",
+    "year": 1964,
+    "position": 59,
+    "domains": ["rodzinne"]
+  },
+  {
+    "_comment": "Szósta dziedzina -- prawo karne, wybrane jako naturalne rozszerzenie zgodne z pierwotnym celem (całe polskie prawo) i trzeci punkt danych dla hipotezy o gęstości tematycznej z pilotażu kodeks_cywilny.",
+    "short": "kodeks_karny",
+    "publisher": "DU",
+    "year": 1997,
+    "position": 553,
+    "domains": ["karne"]
+  },
+  {
+    "_comment": "Siódma dziedzina -- prawo gospodarcze/spółki, wybrana jako naturalny dalszy pilot (patrz PROGRESS.md 'Co dalej'). Zweryfikowano wprost przez ELI API (WDU20000941037), żeby uniknąć błędu z pilotażu karne (przypadkowe trafienie na inny akt o zbliżonym tytule).",
+    "short": "kodeks_spolek_handlowych",
+    "publisher": "DU",
+    "year": 2000,
+    "position": 1037,
+    "domains": ["gospodarcze"]
+  },
+  {
+    "_comment": "Ósma dziedzina -- prawo budowlane, wybrana jako naturalny dalszy pilot (patrz PROGRESS.md 'Co dalej'). Zweryfikowano wprost przez ELI API (WDU19940890414), tytuł potwierdzony przed pobraniem.",
+    "short": "prawo_budowlane",
+    "publisher": "DU",
+    "year": 1994,
+    "position": 414,
+    "domains": ["budowlane"]
+  },
+  {
+    "_comment": "Dziewiąta dziedzina -- prawo autorskie, wybrana jako naturalny dalszy pilot (patrz PROGRESS.md 'Co dalej'). Zweryfikowano wprost przez ELI API (WDU19940240083, Dz.U. 1994 nr 24 poz. 83), tytuł potwierdzony przed pobraniem: 'Ustawa z dnia 4 lutego 1994 r. o prawie autorskim i prawach pokrewnych.'",
+    "short": "prawo_autorskie",
+    "publisher": "DU",
+    "year": 1994,
+    "position": 83,
+    "domains": ["autorskie"]
+  },
+  {
+    "_comment": "Dziesiąta dziedzina -- prawo własności przemysłowej, naturalne uzupełnienie prawa autorskiego (patrz PROGRESS.md 'Co dalej'). Zweryfikowano wprost przez ELI API (WDU20010490508, Dz.U. 2001 nr 49 poz. 508), tytuł potwierdzony przed pobraniem: 'Ustawa z dnia 30 czerwca 2000 r. Prawo własności przemysłowej.'",
+    "short": "prawo_wlasnosci_przemyslowej",
+    "publisher": "DU",
+    "year": 2001,
+    "position": 508,
+    "domains": ["wlasnosc_przemyslowa"]
+  },
+  {
+    "_comment": "Jedenasta dziedzina -- ochrona danych osobowych, naturalny dalszy pilot (patrz PROGRESS.md 'Co dalej'). Zweryfikowano wprost przez ELI API (WDU20180001000, Dz.U. 2018 poz. 1000), tytuł potwierdzony przed pobraniem: 'Ustawa z dnia 10 maja 2018 r. o ochronie danych osobowych'. Krajowa ustawa wdrażająca RODO -- sprawdzono, że ma wystarczającą samodzielną treść merytoryczną (IOD, akredytacja/certyfikacja, Prezes UODO, postępowanie w sprawie naruszeń, kontrola, kary administracyjne i przepisy karne), nie jest samym powtórzeniem rozporządzenia UE.",
+    "short": "ustawa_o_ochronie_danych_osobowych",
+    "publisher": "DU",
+    "year": 2018,
+    "position": 1000,
+    "domains": ["ochrona_danych"]
+  },
+  {
+    "_comment": "Dwunasta dziedzina -- prawo zamówień publicznych, naturalny dalszy pilot (patrz PROGRESS.md 'Co dalej'). Zweryfikowano wprost przez ELI API (WDU20190002019, Dz.U. 2019 poz. 2019), tytuł potwierdzony przed pobraniem: 'Ustawa z dnia 11 września 2019 r. - Prawo zamówień publicznych' (status: akt posiada tekst jednolity, 5 obwieszczeń o tekście jednolitym w historii). Zastępuje uchyloną ustawę z 2004 r. (DU/2004/177 poz. 1655) -- ta STARSZA ustawa NIE jest tu dodawana, bo od 2021-01-01 nie obowiązuje.",
+    "short": "prawo_zamowien_publicznych",
+    "publisher": "DU",
+    "year": 2019,
+    "position": 2019,
+    "domains": ["zamowienia_publiczne"]
+  },
+  {
+    "_comment": "Trzynasta dziedzina -- prawo ochrony środowiska. Zweryfikowano wprost przez ELI API (WDU20010620627, Dz.U. 2001 nr 62 poz. 627), tytuł potwierdzony przed pobraniem: 'Ustawa z dnia 27 kwietnia 2001 r. Prawo ochrony środowiska.' (status: akt posiada tekst jednolity, 12 obwieszczeń o tekście jednolitym w historii).",
+    "short": "prawo_ochrony_srodowiska",
+    "publisher": "DU",
+    "year": 2001,
+    "position": 627,
+    "domains": ["ochrona_srodowiska"]
+  },
+  {
+    "_comment": "Czternasta dziedzina -- prawo o ruchu drogowym. Zweryfikowano wprost przez ELI API (WDU19970980602, Dz.U. 1997 nr 98 poz. 602), tytuł potwierdzony przed pobraniem: 'Ustawa z dnia 20 czerwca 1997 r. - Prawo o ruchu drogowym.' (status: akt posiada tekst jednolity, 11 obwieszczeń o tekście jednolitym w historii).",
+    "short": "prawo_o_ruchu_drogowym",
+    "publisher": "DU",
+    "year": 1997,
+    "position": 602,
+    "domains": ["ruch_drogowy"]
+  },
+  {
+    "_comment": "Piętnasta dziedzina -- prawo upadłościowe i restrukturyzacyjne (dwa powiązane akty, ten sam wzorzec co 'podatkowe'). Zweryfikowano wprost przez ELI API (WDU20030600535, Dz.U. 2003 nr 60 poz. 535), tytuł potwierdzony przed pobraniem: 'Ustawa z dnia 28 lutego 2003 r. Prawo upadłościowe' (status: akt posiada tekst jednolity, 11 obwieszczeń o tekście jednolitym w historii).",
+    "short": "prawo_upadlosciowe",
+    "publisher": "DU",
+    "year": 2003,
+    "position": 535,
+    "domains": ["upadlosciowe"]
+  },
+  {
+    "_comment": "Drugi akt piętnastej dziedziny -- Prawo restrukturyzacyjne, uzupełnienie Prawa upadłościowego (od 2016 r. postępowania restrukturyzacyjne są wydzielone z dawnego 'Prawa upadłościowego i naprawczego' do osobnej ustawy). Zweryfikowano wprost przez ELI API (WDU20150000978, Dz.U. 2015 poz. 978), tytuł potwierdzony przed pobraniem: 'Ustawa z dnia 15 maja 2015 r. - Prawo restrukturyzacyjne' (status: akt posiada tekst jednolity, 8 obwieszczeń o tekście jednolitym w historii).",
+    "short": "prawo_restrukturyzacyjne",
+    "publisher": "DU",
+    "year": 2015,
+    "position": 978,
+    "domains": ["upadlosciowe"]
+  },
+  {
+    "_comment": "Szesnasta dziedzina -- prawo lotnicze. Wybrane spośród trzech kandydatów bez jednoznacznego faworyta (geologiczne i górnicze, wodne, lotnicze) jako 'czysty' pilotaż w stylu KPA/KRO -- słownictwo lotnicze (statki powietrzne, przestrzeń powietrzna, licencje lotnicze) praktycznie nie nakłada się na żadną z 15 istniejących dziedzin, w przeciwieństwie do prawa wodnego i geologicznego i górniczego, które tematycznie stykają się z ochrona_srodowiska. Zweryfikowano wprost przez ELI API (WDU20021301112, Dz.U. 2002 nr 130 poz. 1112), tytuł potwierdzony przed pobraniem: 'Ustawa z dnia 3 lipca 2002 r. Prawo lotnicze' (status: akt posiada tekst jednolity, tekst ujednolicony typu U dostępny).",
+    "short": "prawo_lotnicze",
+    "publisher": "DU",
+    "year": 2002,
+    "position": 1112,
+    "domains": ["lotnicze"]
+  },
+  {
+    "_comment": "Siedemnasta dziedzina -- prawo geologiczne i górnicze. Ostatni z trzech kandydatów bez jednoznacznego faworyta odłożonych w Kroku 52 (obok prawa wodnego); wybrany nad prawem wodnym jako mniejszy i tematycznie węziej skoncentrowany (koncesje górnicze, dokumentacja geologiczna, plany ruchu zakładu górniczego) niż prawo wodne, którego słownictwo pozwoleń wodnoprawnych mocniej pokrywa się z ochrona_srodowiska. Zweryfikowano wprost przez ELI API (WDU20110000981, Dz.U. 2011 nr 163 poz. 981), tytuł potwierdzony przed pobraniem: 'Ustawa z dnia 9 czerwca 2011 r. - Prawo geologiczne i górnicze' (status: akt posiada tekst jednolity, tekst ujednolicony typu U dostępny).",
+    "short": "prawo_geologiczne_i_gornicze",
+    "publisher": "DU",
+    "year": 2011,
+    "position": 981,
+    "domains": ["geologia_i_gornictwo"]
+  },
+  {
+    "_comment": "Osiemnasta dziedzina -- prawo wodne. Ostatni z trzech pierwotnych kandydatów bez jednoznacznego faworyta z Kroku 52 (obok geologicznego i górniczego, wybranego jako 17. w Kroku 54). Zweryfikowano wprost przez ELI API (WDU20170001566, Dz.U. 2017 poz. 1566), tytuł potwierdzony przed pobraniem: 'Ustawa z dnia 20 lipca 2017 r. - Prawo wodne' (status: akt posiada tekst jednolity, tekst ujednolicony typu U dostępny, inForce: IN_FORCE). Zastępuje uchyloną ustawę z 2001 r. (DU/2001/1229) -- ta STARSZA ustawa NIE jest tu dodawana, bo od 2018-01-01 nie obowiązuje.",
+    "short": "prawo_wodne",
+    "publisher": "DU",
+    "year": 2017,
+    "position": 1566,
+    "domains": ["wodne"]
+  },
+  {
+    "_comment": "Dziewiętnasta dziedzina -- prawo mieszkaniowe (najem lokali, eksmisja, kaucja, podwyżki czynszu, wspólnoty mieszkaniowe). Zweryfikowano wprost przez ELI API (Dz.U. 2001 poz. 733), tytuł potwierdzony przed pobraniem: 'Ustawa z dnia 21 czerwca 2001 r. o ochronie praw lokatorów, mieszkaniowym zasobie gminy i o zmianie Kodeksu cywilnego.' (status: akt posiada tekst jednolity, inForce: IN_FORCE).",
+    "short": "ustawa_o_ochronie_praw_lokatorow",
+    "publisher": "DU",
+    "year": 2001,
+    "position": 733,
+    "domains": ["mieszkaniowe"]
+  },
+  {
+    "_comment": "Dziewiętnasta dziedzina -- prawo mieszkaniowe, druga ustawa (wspólnoty mieszkaniowe, zarząd nieruchomością wspólną, udziały). Zweryfikowano wprost przez ELI API (Dz.U. 1994 poz. 388): 'Ustawa z dnia 24 czerwca 1994 r. o własności lokali.' (status: akt posiada tekst jednolity, inForce: IN_FORCE).",
+    "short": "ustawa_o_wlasnosci_lokali",
+    "publisher": "DU",
+    "year": 1994,
+    "position": 388,
+    "domains": ["mieszkaniowe"]
+  },
+  {
+    "_comment": "Dwudziesta dziedzina -- prawo energetyczne (przyłączenie do sieci, taryfy, zmiana sprzedawcy, wstrzymanie dostaw, koncesje, prosument). Zweryfikowano wprost przez ELI API (Dz.U. 1997 poz. 348), tytuł potwierdzony przed pobraniem: 'Ustawa z dnia 10 kwietnia 1997 r. - Prawo energetyczne.' (status: akt posiada tekst jednolity, inForce: IN_FORCE).",
+    "short": "prawo_energetyczne",
+    "publisher": "DU",
+    "year": 1997,
+    "position": 348,
+    "domains": ["energetyczne"]
+  },
+  {
+    "_comment": "Dwudziesta pierwsza dziedzina -- prawo komunikacji elektronicznej (umowy z dostawcą internetu/telefonu, zmiana dostawcy i przeniesienie numeru, reklamacje, roaming, ochrona konsumenta usług telekomunikacyjnych, tajemnica komunikacji). Zweryfikowano wprost przez ELI API (Dz.U. 2024 poz. 1221), tytuł potwierdzony przed pobraniem: 'Ustawa z dnia 12 lipca 2024 r. - Prawo komunikacji elektronicznej' (status: obowiązujący, inForce: IN_FORCE, w mocy od 2024-11-10; brak obwieszczeń o tekście jednolitym -- tylko tekst ujednolicony 'U', historia pusta).",
+    "short": "prawo_komunikacji_elektronicznej",
+    "publisher": "DU",
+    "year": 2024,
+    "position": 1221,
+    "domains": ["telekomunikacyjne"]
+  },
+  {
+    "_comment": "Historia dla dziedziny telekomunikacyjne (Krok 67) -- poprzednik Prawa komunikacji elektronicznej. Zweryfikowano przez ELI API (Dz.U. 2004 nr 171 poz. 1800): 'Ustawa z dnia 16 lipca 2004 r. Prawo telekomunikacyjne' (status: uchylony, NOT_IN_FORCE, repealDate 2024-11-10, 8 obwieszczeń o tekście jednolitym). Bieżący tekst 'U' dostaje valid_to=repealDate w build_rag_index.py, więc zwykłe pytania go nie zwracają -- tylko --as-of sprzed 2024-11-10.",
+    "short": "prawo_telekomunikacyjne",
+    "historical": true,
+    "publisher": "DU",
+    "year": 2004,
+    "position": 1800,
+    "domains": ["telekomunikacyjne"]
+  },
+  {
+    "_comment": "Dwudziesta druga dziedzina -- prawa konsumenta (odstąpienie od umowy zawartej na odległość/poza lokalem, obowiązki informacyjne, niezgodność towaru z umową -- rozdział 5a od 2023-01-01, który dla konsumentów zastąpił rękojmię z KC). Zweryfikowano wprost przez ELI API (Dz.U. 2014 poz. 827): 'Ustawa z dnia 30 maja 2014 r. o prawach konsumenta' (status: akt posiada tekst jednolity, inForce: IN_FORCE, 6 obwieszczeń).",
+    "short": "ustawa_o_prawach_konsumenta",
+    "publisher": "DU",
+    "year": 2014,
+    "position": 827,
+    "domains": ["konsumenckie", "cywilne"]
+  },
+  {
+    "_comment": "Dwudziesta trzecia dziedzina -- kredyt konsumencki (Krok 74): całkowity koszt kredytu, RRSO, odstąpienie od umowy kredytu (14 dni), wcześniejsza spłata i obniżenie kosztów, sankcja kredytu darmowego, limit pozaodsetkowych kosztów. Zweryfikowano przez ELI API (Dz.U. 2011 poz. 715): 'Ustawa z dnia 12 maja 2011 r. o kredycie konsumenckim' (status: akt posiada tekst jednolity, inForce: IN_FORCE, 20 aktów zmieniających). Uwaga: dyrektywa (UE) 2023/2225 (CCD2) ma być stosowana od 20.11.2026 -- możliwa nowa ustawa zastępująca ten akt; sprawdzić check_acts_freshness.",
+    "short": "ustawa_o_kredycie_konsumenckim",
+    "publisher": "DU",
+    "year": 2011,
+    "position": 715,
+    "domains": ["kredyt_konsumencki"]
+  },
+  {
+    "_comment": "Dwudziesta czwarta dziedzina -- wykroczenia (Krok 80): Kodeks wykroczeń. Motywacja: Krok 43 -- kradzież do 800 zł to wykroczenie (art. 119), a baza cytowała Kodeks karny, bo wykroczenia nie były w indeksie. Zweryfikowano przez ELI API (Dz.U. 1971 poz. 114): 'Ustawa z dnia 20 maja 1971 r. Kodeks wykroczeń.' (status: akt posiada tekst jednolity, inForce: IN_FORCE; tekst jednolity Dz.U. 2025 poz. 734, nowelizacje po nim m.in. Dz.U. 2025 poz. 1814, 1818, 1872).",
+    "short": "kodeks_wykroczen",
+    "publisher": "DU",
+    "year": 1971,
+    "position": 114,
+    "domains": ["wykroczenia"]
+  },
+  {
+    "_comment": "Dwudziesta czwarta dziedzina, drugi akt (Krok 81): Kodeks postępowania w sprawach o wykroczenia -- tryb mandatowy, odmowa przyjęcia mandatu, wniosek o ukaranie, odwołanie od orzeczenia, przedawnienie. Zweryfikowano przez ELI API (Dz.U. 2001 poz. 1148): 'Ustawa z dnia 24 sierpnia 2001 r - Kodeks postępowania w sprawach o wykroczenia.' (status: akt posiada tekst jednolity, inForce: IN_FORCE). UWAGA: Dz.U. 2001 poz. 1149 to INNY akt ('Przepisy wprowadzające') -- nie mylić.",
+    "short": "kodeks_postepowania_w_sprawach_o_wykroczenia",
+    "publisher": "DU",
+    "year": 2001,
+    "position": 1148,
+    "domains": ["wykroczenia"]
+  },
+  {
+    "_comment": "Dwudziesta piąta dziedzina -- postępowanie cywilne (Krok 84): Kodeks postępowania cywilnego -- pozew, terminy, apelacja, koszty sądowe, egzekucja (komornik), nakaz zapłaty, zabezpieczenie. Luka: dotąd tylko prawo materialne (KC, KRO). Zweryfikowano przez ELI API (Dz.U. 1964 poz. 296): 'Ustawa z dnia 17 listopada 1964 r. - Kodeks postępowania cywilnego.' (status: akt posiada tekst jednolity, inForce: IN_FORCE). UWAGA: Dz.U. 1964 poz. 297 to INNY akt ('Przepisy wprowadzające') -- nie mylić.",
+    "short": "kodeks_postepowania_cywilnego",
+    "publisher": "DU",
+    "year": 1964,
+    "position": 296,
+    "domains": ["postepowanie_cywilne"]
+  },
+  {
+    "_comment": "Dwudziesta szósta dziedzina -- postępowanie karne (Krok 85): Kodeks postępowania karnego -- zawiadomienie o przestępstwie, pokrzywdzony i oskarżyciel posiłkowy, świadek, podejrzany i obrońca, środki zapobiegawcze (tymczasowe aresztowanie), terminy, apelacja. Dopełnienie Kodeksu karnego i wykroczeń. Zweryfikowano przez ELI API (Dz.U. 1997 poz. 555): 'Ustawa z dnia 6 czerwca 1997 r. - Kodeks postępowania karnego.' (status: akt posiada tekst jednolity, inForce: IN_FORCE). UWAGA: Dz.U. 1997 poz. 556 to INNY akt ('Przepisy wprowadzające') -- nie mylić.",
+    "short": "kodeks_postepowania_karnego",
+    "publisher": "DU",
+    "year": 1997,
+    "position": 555,
+    "domains": ["postepowanie_karne"]
+  },
+  {
+    "_comment": "Dwudziesta siódma dziedzina -- prawa pacjenta (Krok 91): prawo do informacji, zgoda na zabieg, tajemnica, dokumentacja medyczna (wgląd, kopie, opłaty), prawo do dodatkowej opinii, zgłaszanie zdarzeń niepożądanych, Rzecznik Praw Pacjenta, komisje ds. orzekania o zdarzeniach medycznych (odszkodowania). Zweryfikowano przez ELI API (Dz.U. 2009 poz. 417): 'Ustawa z dnia 6 listopada 2008 r. o prawach pacjenta i Rzeczniku Praw Pacjenta' (status: akt posiada tekst jednolity, inForce: IN_FORCE).",
+    "short": "ustawa_o_prawach_pacjenta",
+    "publisher": "DU",
+    "year": 2009,
+    "position": 417,
+    "domains": ["prawa_pacjenta"]
+  },
+  {
+    "_comment": "Krok 111: własna dziedzina 'ubezpieczenia_obowiazkowe' (OC posiadaczy pojazdów, OC rolników, UFG, PBUK, odszkodowania z OC). Zweryfikowano przez ELI API (Dz.U. 2003 poz. 1152): 'Ustawa z dnia 22 maja 2003 r. o ubezpieczeniach obowiązkowych, Ubezpieczeniowym Funduszu Gwarancyjnym i Polskim Biurze Ubezpieczycieli Komunikacyjnych' (status: akt posiada tekst jednolity).",
+    "short": "ustawa_o_ubezpieczeniach_obowiazkowych",
+    "publisher": "DU",
+    "year": 2003,
+    "position": 1152,
+    "domains": ["ubezpieczenia_obowiazkowe"]
+  },
+  {
+    "_comment": "Krok 114: własna dziedzina 'prawo_bankowe' (rachunki bankowe, tajemnica bankowa, kredyty bankowe, BFG, zdolność kredytowa, umowy z bankiem). Zweryfikowano przez ELI API (Dz.U. 1997 poz. 939): 'Ustawa z dnia 29 sierpnia 1997 r. - Prawo bankowe.' (status: akt posiada tekst jednolity).",
+    "short": "prawo_bankowe",
+    "publisher": "DU",
+    "year": 1997,
+    "position": 939,
+    "domains": ["prawo_bankowe"]
+  },
+  {
+    "_comment": "Krok 123: własna dziedzina 'cudzoziemcy' (wjazd, pobyt, karty pobytu, zezwolenia na pobyt czasowy/stały, wizy, zobowiązanie do powrotu). Zweryfikowano przez ELI API (Dz.U. 2013 poz. 1650): 'Ustawa z dnia 12 grudnia 2013 r. o cudzoziemcach' (status: akt posiada tekst jednolity).",
+    "short": "ustawa_o_cudzoziemcach",
+    "publisher": "DU",
+    "year": 2013,
+    "position": 1650,
+    "domains": ["cudzoziemcy"]
+  }
+]

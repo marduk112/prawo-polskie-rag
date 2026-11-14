@@ -1,0 +1,578 @@
+[
+  {
+    "id": "cywilne_obraz_kopia_zasada6",
+    "domain": "cywilne",
+    "history": [],
+    "question": "Kupiłem obraz opisany jako oryginał znanego malarza, po roku okazało się, że to kopia. Ani ja, ani sprzedawca nie wiedzieliśmy o tym w momencie sprzedaży. Czy mogę coś zrobić?",
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "expect_contains_any": [
+      "rękojmi",
+      "błęd",
+      "błąd"
+    ],
+    "expect_not_contains": [],
+    "known_issue": "Krok 15/16/30 (PROGRESS.md): baza + oba adaptery `cywilne-rule6` konsekwentnie idą ścieżką rękojmi zamiast \"podręcznikowej\" ścieżki błąd (art. 84 KC) + roczny termin -- to nie jest samo w sobie źle (rękojmia też jest poprawną podstawą), ale pokazuje, że model nie stosuje niezawodnie Zasady 6 (rozróżnienie cytatu od wniosku) do wyboru między dwiema ścieżkami prawnymi.",
+    "note": "Sonda Zasady 6 z Kroku 30/32/34, odtworzona tu z pamięci projektu (oryginalny scratch-skrypt nie był w repo) -- automatyczny check tylko potwierdza, że odpowiedź w ogóle powołuje się na jedną ze znanych, poprawnych podstaw prawnych (rękojmia LUB błąd); NIE sprawdza automatycznie, którą ścieżkę wybrał model ani czy poprawnie zaznaczył, że art. 556 KC (\"wada fizyczna\") nie znajduje się wśród dostarczonych fragmentów -- to wymaga ręcznego przeczytania wydruku."
+  },
+  {
+    "id": "karne_148_kara_zabojstwo_odpowiedz",
+    "domain": "karne",
+    "history": [],
+    "question": "Jaka jest kara za zabójstwo człowieka?",
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "expect_contains_any": [
+      "148",
+      "10 lat",
+      "dożywoc"
+    ],
+    "expect_not_contains": [
+      "8 lat"
+    ],
+    "known_issue": null,
+    "note": "Krok 35 -- ta sama sonda co wpis kk_148_kara_zabojstwo w expand_query_reference_cases.json, ale tu sprawdzana jest KOŃCOWA ODPOWIEDŹ modelu, nie tylko ranking. Krok 35 wykrył, że KK art.148 §1 był nowelizowany (\"nie mniej niż 8 lat...\" -> \"nie mniej niż 10 lat\") -- Qwen poprawnie użył aktualnego brzmienia z indeksu zamiast ewentualnie zapamiętanej starszej wersji; `expect_not_contains: 8 lat` pilnuje regresji do przestarzałej wiedzy własnej modelu."
+  },
+  {
+    "id": "ochrona_danych_101_kara_wyciek_odpowiedz",
+    "domain": "ochrona_danych",
+    "history": [],
+    "question": "Jakie kary grożą za wyciek danych osobowych z firmy, i kto je nakłada?",
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "expect_contains_any": [
+      "101",
+      "Prezes"
+    ],
+    "expect_not_contains": [
+      "art. 107",
+      "art. 108"
+    ],
+    "known_issue": "Krok 25/28/29 (PROGRESS.md): `expand_query()` dla tego pytania łamie zakaz odpowiadania wprost -- zaakceptowany kompromis, nie naprawiać. Ten test sprawdza tylko KOŃCOWĄ odpowiedź (po fuzji/generacji), nie samo przeformułowanie.",
+    "note": "Krok 35 -- ta sama sonda co wpis ochrona_danych_101_kara_wyciek w expand_query_reference_cases.json, tu na poziomie odpowiedzi. Odtworzona z dokumentacji Kroku 28 (poprawna odpowiedź: art. 101 -- Prezes UODO nakłada karę -- ze spontanicznym art. 101a i poprawnym odróżnieniem art. 108 jako osobnego przestępstwa, więc art. 108 MOŻE się pojawić w tekście jako poprawnie odróżniona wzmianka -- `expect_not_contains` tu sprawdza tylko, że nie jest cytowany jako PODSTAWA kary, co jest zbyt subtelne dla prostego substring-checku; traktuj to pole jako wskazówkę do ręcznego czytania, nie twardy automat)."
+  },
+  {
+    "id": "cywilne_refusal_vat_w_domenie",
+    "domain": "cywilne",
+    "history": [],
+    "question": "Czy mogę odliczyć VAT od zakupów prywatnych?",
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "expect_contains_any": [
+      "nie dotyczy",
+      "poza zakresem",
+      "inna dziedzin",
+      "prawa podatkow",
+      "VAT",
+      "podatkowe"
+    ],
+    "expect_not_contains": [],
+    "known_issue": null,
+    "note": "Krok 35 -- test odmowy: pytanie z zupełnie innej dziedziny (`podatkowe`) zadane w kontekście `cywilne`. Oczekiwany wzorzec to jasna odmowa/przekierowanie, a nie próba odpowiedzi z fragmentów cywilnoprawnych. `expect_contains_any` jest celowo szerokie (różne sformułowania odmowy) -- realna weryfikacja jakości odmowy (czy nazwała właściwą ustawę z konkretną datą, jak w oryginalnym Kroku 35) wymaga ręcznego przeczytania."
+  },
+  {
+    "id": "kadry_urlop_wieloturowa_elliptyczna",
+    "domain": "kadry_i_place",
+    "history": [
+      {
+        "question": "Ile dni urlopu wypoczynkowego przysługuje pracownikowi zatrudnionemu krócej niż 10 lat?",
+        "expect_contains_any": [
+          "20 dni"
+        ]
+      }
+    ],
+    "question": "A jeśli jest zatrudniony dłużej?",
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "expect_contains_any": [
+      "26 dni"
+    ],
+    "expect_not_contains": [
+      "art. 25",
+      "art.25",
+      "czas określony"
+    ],
+    "known_issue": null,
+    "note": "Krok 36/37 -- flagowy przypadek bugu w `search_with_history()` dla pytań eliptycznych bez powtórzenia słowa \"urlop\". Przed Krokiem 37 retrieval trafiał w KP art.25(1) (umowy na czas określony, zupełnie nietrafione) zamiast art.154 (wymiar urlopu) -- sprawdza się to zarówno przez `expect_not_contains` (ślad błędnej ścieżki: numer artykułu lub \"czas określony\") jak i wymóg poprawnej liczby dni w drugiej turze. UWAGA (znaleziono przy pierwszym realnym uruchomieniu na Qwenie): pierwotne krótkie substringi \"25\"/\"umow\" dawały fałszywe alarmy (\"25\" łapało rok w dacie stanu prawnego typu \"2025-02-07\", \"umow\" łapało środek słowa \"Podsumowując\") -- zawsze używaj substringów wystarczająco specyficznych, żeby nie trafiać przypadkiem w niepowiązany tekst. `expect_contains_any` w pierwszym elemencie `history` to WŁASNE pole tego pliku (nie standard chat_lmstudio) -- checker generuje pierwszą turę i sam sprawdza jej wynik przed przejściem do turze docelowej, żeby regresja widoczna była na właściwym kroku."
+  },
+  {
+    "id": "budowlane_as_of_stan_prawny",
+    "domain": "budowlane",
+    "history": [],
+    "question": "Czy inwestor musi ustanowić kierownika budowy?",
+    "as_of": "2010-01-01",
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "expect_contains_any": [
+      "2010-01-01",
+      "na dzień",
+      "stan prawny"
+    ],
+    "expect_not_contains": [],
+    "known_issue": null,
+    "note": "Krok 36 -- test `--as-of`: sprawdza, że odpowiedź w ogóle sygnalizuje, że dotyczy przeszłego stanu prawnego (wymaga indeksu `budowlane` zbudowanego z `--include-history`, patrz Krok 19). Nie sprawdza automatycznie POPRAWNOŚCI treści na tę datę -- tylko że model w ogóle zauważa i komunikuje datowanie, zgodnie z `build_user_message(as_of=...)`."
+  },
+  {
+    "id": "pzp_515_odwolanie_odpowiedz",
+    "domain": "zamowienia_publiczne",
+    "history": [],
+    "question": "przegrałem przetarg i chcę się odwołać, ile mam na to czasu",
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "expect_contains_any": [
+      "515",
+      "10 dni",
+      "5 dni"
+    ],
+    "expect_not_contains": [],
+    "known_issue": null,
+    "note": "Dodane 2026-09-13 przy porządkowaniu baterii po Kroku 50 -- pierwsza sonda Qwena dla `zamowienia_publiczne` (dwunasta dziedzina, dodana po Kroku 38, nigdy dotąd nietestowana na Qwenie). Ta sama kolokwialna sonda co `pzp_515_termin_odwolania` w `expand_query_reference_cases.json` (tam ranga #1)."
+  },
+  {
+    "id": "pos_188_okres_pozwolenia_odpowiedz",
+    "domain": "ochrona_srodowiska",
+    "history": [],
+    "question": "na jak długo dostanę pozwolenie na moją instalację",
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "expect_contains_any": [
+      "188",
+      "10 lat"
+    ],
+    "expect_not_contains": [],
+    "known_issue": null,
+    "note": "Dodane 2026-09-13 przy porządkowaniu baterii po Kroku 50 -- pierwsza sonda Qwena dla `ochrona_srodowiska` (trzynasta dziedzina, dodana po Kroku 38, nigdy dotąd nietestowana na Qwenie). Ta sama kolokwialna sonda co `pos_188_okres_pozwolenia` w `expand_query_reference_cases.json` (tam ranga #1)."
+  },
+  {
+    "id": "rd_20_predkosc_odpowiedz",
+    "domain": "ruch_drogowy",
+    "history": [],
+    "question": "jak szybko mogę jechać w mieście",
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "expect_contains_any": [
+      "20",
+      "50 km"
+    ],
+    "expect_not_contains": [],
+    "known_issue": null,
+    "note": "Dodane 2026-09-13 przy porządkowaniu baterii po Kroku 50 -- pierwsza sonda Qwena dla `ruch_drogowy` (czternasta dziedzina, dodana po Kroku 38, nigdy dotąd nietestowana na Qwenie). Ta sama kolokwialna sonda co `rd_20_predkosc_w_miescie` w `expand_query_reference_cases.json` (tam ranga #1)."
+  },
+  {
+    "id": "up_11_niewyplacalnosc_odpowiedz",
+    "domain": "upadlosciowe",
+    "history": [],
+    "question": "kiedy uznaje się że ktoś jest niewypłacalny",
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "expect_contains_any": [
+      "11",
+      "niewypłacal",
+      "trzy miesiące",
+      "3 miesiące"
+    ],
+    "expect_not_contains": [],
+    "known_issue": null,
+    "note": "Dodane 2026-09-13 przy porządkowaniu baterii po Kroku 50 -- pierwsza sonda Qwena dla `upadlosciowe` (piętnasta dziedzina, dodana w Kroku 46, po Kroku 38, nigdy dotąd nietestowana na Qwenie). Ta sama kolokwialna sonda co `up_11_niewyplacalnosc` w `expand_query_reference_cases.json` (tam ranga #1)."
+  },
+  {
+    "id": "kpa_129_termin_odwolania_odpowiedz",
+    "domain": "administracyjne",
+    "history": [],
+    "question": "w jakim terminie mogę się odwołać od decyzji administracyjnej",
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "expect_contains_any": [
+      "129",
+      "14 dni",
+      "czternastu dni"
+    ],
+    "expect_not_contains": [],
+    "known_issue": null,
+    "note": "Krok 52 -- pierwsza sonda Qwena dla `administracyjne` (czwarta dziedzina projektu, dodana w Kroku 4, nigdy dotąd nietestowana na Qwenie mimo że jest jedną z najstarszych). Ta sama kolokwialna sonda co `kpa_129_termin_odwolania` w `expand_query_reference_cases.json` (tam ranga #1/#2)."
+  },
+  {
+    "id": "vat_86_zakupy_prywatne_odpowiedz",
+    "domain": "podatkowe",
+    "history": [],
+    "question": "Czy mogę odliczyć VAT od zakupów prywatnych?",
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "expect_contains_any": [
+      "art. 86"
+    ],
+    "expect_not_contains": [
+      "nie został uwzględniony",
+      "nie znalazłem przepisu",
+      "nie znajduje się w dostarczonych",
+      "nie znajduje się w dostarczonym"
+    ],
+    "known_issue": null,
+    "note": "Krok 52 -- pierwsza sonda Qwena dla `podatkowe` (druga dziedzina projektu, pilotaż z Kroku 3, nigdy dotąd nietestowana na Qwenie). Ta sama sonda co flagowy przypadek VAT art.86 z Kroku 7/14 (tam w `expand_query_reference_cases.json` jako `vat_86_zakupy_prywatne`, ranga #2). PIERWSZE uruchomienie (2026-09-19) wykryło realny bug: chat_lmstudio.expand_query() mial hardcoded max_tokens=80, za malo dla Qwena z reasoning_effort=low (cale rozumowanie zuzywalo caly budzet, zwracajac pusty string, co po cichu WYLACZALO rozszerzanie zapytania -- patrz Krok 52 w PROGRESS.md). Naprawione podniesieniem do max_tokens=500 w chat_lmstudio.expand_query() -- po naprawie odpowiedz poprawnie cytuje art. 86 i daje jednoznaczne NIE."
+  },
+  {
+    "id": "kro_37_zgoda_wspolmalzonka_odpowiedz",
+    "domain": "rodzinne",
+    "history": [],
+    "question": "czy mogę sprzedać nieruchomość należącą do majątku wspólnego bez zgody współmałżonka",
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "expect_contains_any": [
+      "37",
+      "zgod"
+    ],
+    "expect_not_contains": [],
+    "known_issue": null,
+    "note": "Krok 52 -- pierwsza sonda Qwena dla `rodzinne` (piąta dziedzina, dodana w Kroku 9, nigdy dotąd nietestowana na Qwenie). Ta sama kolokwialna sonda co `rodzinne_zgoda_wspolmalzonka` w `expand_query_reference_cases.json` (tam ranga #1)."
+  },
+  {
+    "id": "ksh_210_umowa_z_czlonkiem_zarzadu_odpowiedz",
+    "domain": "gospodarcze",
+    "history": [],
+    "question": "czy członek zarządu spółki z o.o. może głosować nad umową między spółką a nim samym",
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "expect_contains_any": [
+      "art. 210"
+    ],
+    "expect_not_contains": [
+      "nie znalazłem przepisu",
+      "nie mogę jednoznacznie odpowiedzieć",
+      "nie zostały włączone do dostarczonego"
+    ],
+    "known_issue": "Krok 52: PIERWOTNA przyczyna (chat_lmstudio.expand_query() hardcoded max_tokens=80, za malo dla Qwena z reasoning_effort=low -- calkowita utrata parafrazy) naprawiona podniesieniem do max_tokens=800. Po naprawie: 2/3 powtorzonych uruchomien poprawnie cytuje art. 210 (bezposrednio zweryfikowano tez, ze SAMA parafraza + retrieval trafia art.210 w top-8 w kazdej z wielu prob z niepustym expand_query -- wiec pozostala rezydualna zawodnosc lezy albo w rzadkich, nadal zbyt krotkich odpowiedziach expand_query, albo w tym, ze generacja czasem nie cytuje art.210 mimo obecnosci w kontekscie). To i tak historycznie najtrudniejszy przypadek recall w calym projekcie (Krok 41: wymagal dedykowanej naprawy DOMAIN_QUERY_EXPANSION_HINTS, ranga #12 bez niej) -- ~2/3 skutecznosc na modelu z niezerowa temperatura (0.2) i rozumowaniem \"thinking\" jest realna poprawa wzgledem sprzed Kroku 52 (wtedy: 0/2 z powodu calkowicie pustej parafrazy), nie regresja. Nie dalej naprawiane w tej sesji -- podnoszenie budzetu ponad 800 nie gwarantuje 100% (temperatura>0), a stroic dalej wymagaloby wiecej danych.",
+    "note": "Krok 52 -- pierwsza sonda Qwena dla `gospodarcze` (siodma dziedzina, KSH, nigdy dotad nietestowana na Qwenie). Ta sama kolokwialna sonda co `ksh_210_umowa_z_czlonkiem_zarzadu` w `expand_query_reference_cases.json`. PIERWSZE uruchomienie (2026-09-19) wykrylo realny bug: chat_lmstudio.expand_query() mial hardcoded max_tokens=80, za malo dla Qwena z reasoning_effort=low, wiec DOMAIN_QUERY_EXPANSION_HINTS dla gospodarcze (Krok 41, juz istniejacy fix dla dokladnie tego przypadku) nigdy nie mial szansy zadzialac -- Qwen zwracal pusty string zamiast parafrazy. Naprawione podniesieniem do max_tokens=500 (Krok 52) -- zweryfikowano bezposrednio: Qwen teraz poprawnie generuje \"Kto reprezentuje spolke z ograniczona odpowiedzialnoscia w umowie zawartej miedzy spolka a czlonkiem zarzadu?\", dokladnie sformulowanie z podpowiedzi domenowej."
+  },
+  {
+    "id": "autorskie_freelancer_logo_odpowiedz",
+    "domain": "autorskie",
+    "history": [],
+    "question": "zleciłem freelancerowi na umowie o dzieło zaprojektowanie logo, czy prawa autorskie należą teraz do mnie",
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "expect_contains_any": [
+      "art. 52",
+      "art. 41"
+    ],
+    "expect_not_contains": [],
+    "known_issue": null,
+    "note": "Krok 52 -- pierwsza sonda Qwena dla `autorskie` (dziedzina z Kroku 17 lub okolic, nigdy dotąd nietestowana na Qwenie). Ta sama sonda co `autorskie_freelancer_logo` w `expand_query_reference_cases.json`, gdzie art. 12 prawa autorskiego (utwór pracowniczy, umowa O PRACĘ) jest CELOWĄ pułapką rankingu -- test, czy model poprawnie NIE stosuje go do umowy o dzieło. `expect_contains_any` jest celowo szerokie (różne sformułowania poprawnej konkluzji: prawa zostają przy twórcy, bo brak pisemnego przeniesienia zgodnie z art. 53); realna ocena, czy model wprost odróżnił art. 12 (nietrafiony) od właściwej podstawy, wymaga ręcznego przeczytania odpowiedzi -- zbyt subtelne dla prostego substring-checku (ten sam typ zastrzeżenia co `ochrona_danych_101_kara_wyciek_odpowiedz`). UWAGA (2026-09-19): pierwotne expect_contains_any (oparte na jednym uruchomieniu) okazalo sie zbyt waskie -- drugie uruchomienie (temperature=0.2, wiec niezerowa wariancja) dalo INNA, rownie poprawna (a nawet pelniejsza) parafraze bez zadnej z oczekiwanych fraz, falszywie oznaczone jako NOWA REGRESJA. Naprawione zakotwiczeniem na art. 52 / art. 41 -- oba faktycznie cytowane w OBU uruchomieniach (model konsekwentnie identyfikuje te dwa przepisy jako istotne, nawet gdy brakuje ich w dostarczonym kontekscie), wiec to bardziej odporny wskaznik niz konkretna fraza wniosku."
+  },
+  {
+    "id": "wp_120_ksztalt_opakowania_odpowiedz",
+    "domain": "wlasnosc_przemyslowa",
+    "history": [],
+    "question": "chcę zarejestrować jako znak towarowy charakterystyczny kształt opakowania mojego produktu",
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "expect_contains_any": [
+      "120",
+      "kształt"
+    ],
+    "expect_not_contains": [],
+    "known_issue": null,
+    "note": "Krok 52 -- pierwsza sonda Qwena dla `wlasnosc_przemyslowa` (dziedzina z okolic Kroku 17-18, nigdy dotąd nietestowana na Qwenie). Ta sama kolokwialna sonda co `wlasnosc_przemyslowa_ksztalt_opakowania` w `expand_query_reference_cases.json` (tam ranga #2). Art. 120 ust. 2 wprost wymienia kształt towaru lub opakowania jako coś, co może być znakiem towarowym."
+  },
+  {
+    "id": "lotnicze_2_definicja_statku_powietrznego_odpowiedz",
+    "domain": "lotnicze",
+    "history": [],
+    "question": "co się liczy jako statek powietrzny według przepisów",
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "expect_contains_any": [
+      "atmosferz",
+      "unosić się",
+      "art. 2"
+    ],
+    "expect_not_contains": [],
+    "known_issue": null,
+    "note": "Krok 52 -- pierwsza sonda Qwena dla `lotnicze` (szesnasta, najnowsza dziedzina). Ta sama sonda co `lotnicze_2_definicja_statku_powietrznego` w `expand_query_reference_cases.json` (tam ranga #1). Bez bare '2' w `expect_contains_any` (zbyt generyczna, ryzyko fałszywego trafienia w dowolną liczbę -- lekcja z Kroku 36)."
+  },
+  {
+    "id": "geo_10_wlasnosc_gornicza_odpowiedz",
+    "domain": "geologia_i_gornictwo",
+    "history": [],
+    "question": "czyje sa zloza wegla kamiennego pod moja dzialka",
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "expect_contains_any": [
+      "Skarb",
+      "górnicza"
+    ],
+    "expect_not_contains": [],
+    "known_issue": null,
+    "note": "Krok 55 -- pierwsza sonda Qwena dla `geologia_i_gornictwo` (siedemnasta, najnowsza dziedzina, Krok 54). Ta sama sonda co `geo_10_wlasnosc_gornicza` w `expand_query_reference_cases.json` (tam ranga #1). Art. 10 ust. 1 i 5: złoża węgla kamiennego (i innych wymienionych kopalin) są objęte własnością górniczą, która przysługuje Skarbowi Państwa, niezależnie od właściciela gruntu."
+  },
+  {
+    "id": "wodne_211_wlasnosc_wod_plynacych_odpowiedz",
+    "domain": "wodne",
+    "history": [],
+    "question": "czyja jest rzeka przepływająca przez moją działkę",
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "expect_contains_any": [
+      "Skarb",
+      "211"
+    ],
+    "expect_not_contains": [],
+    "known_issue": null,
+    "note": "Krok 56 -- pierwsza sonda Qwena dla `wodne` (osiemnasta dziedzina, Krok 56). Ta sama sonda co `wodne_211_wlasnosc_wod_plynacych` w `expand_query_reference_cases.json`. Art. 211 ust. 2: śródlądowe wody płynące i wody podziemne stanowią własność Skarbu Państwa niezależnie od właściciela gruntu. Zweryfikowana na potwierdzonym 8-bit `mlx-community/Qwen3.8-27B-8bit` (Krok 34 -- wariant rekomendowany; sesja przypadkowo najpierw uruchomiła 4-bit, wynik odrzucony i powtórzony po przełączeniu na 8-bit) -- odpowiedź poprawna i dobrze ugruntowana, cytuje dosłownie art. 211 ust. 2/3/4, art. 216, art. 212 ust. 1 pkt 1."
+  },
+  {
+    "id": "wodne_394_staw_deszczowka_zgloszenie",
+    "domain": "wodne",
+    "history": [],
+    "question": "Chcę wykonać mały staw na swojej działce zasilany tylko wodami opadowymi z dachu, bez żadnego połączenia z rzeką. Czy to wymaga jakiegokolwiek zezwolenia?",
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "expect_contains_any": [
+      "394",
+      "zgłoszeni"
+    ],
+    "expect_not_contains": [
+      "art. 395 pkt 9",
+      "art. 395 ust. 1 pkt 9"
+    ],
+    "known_issue": "Krok 56 -- baza Bielika (z i bez adaptera `wodne`, deterministycznie, zweryfikowane 2x) błędnie cytuje TĘ SAMĄ, poprawną co do treści odpowiedź (zgłoszenie wodnoprawne wymagane dla stawu <=5000 m2/<=3 m głębokości zasilanego tylko deszczówką) pod NIEWŁAŚCIWYM numerem artykułu (art. 395 pkt 9 -- w rzeczywistości o urządzeniach pomiarowych) zamiast poprawnego art. 394 ust. 1 pkt 9 -- MIMO że art. 394 z poprawną treścią był faktycznie obecny w kontekście RAG (ranga #3 po rozszerzeniu zapytania, potwierdzone przez bezpośrednie wywołanie search_with_history()). Dodatkowo Bielik błędnie wywnioskował konkluzję 'nie wymaga ani pozwolenia, ani zgłoszenia' zamiast poprawnego 'wymaga zgłoszenia wodnoprawnego'. Prawdopodobna przyczyna: art. 394 i art. 395 sąsiadują w tekście i mają niemal lustrzane, łatwe do pomylenia nagłówki ('Zgłoszenia wodnoprawnego WYMAGA:' vs 'Pozwolenia... ANI zgłoszenia NIE WYMAGA:'). To NIE jest luka recall (poprawny artykuł był w kontekście) ani znany wcześniej wzorzec 'Pattern 1' z Kroku 42/43 (tam artykuł w ogóle nie istniał w indeksowanym akcie) -- to nowy, precyzyjnie zdiagnozowany przypadek: błędne przypisanie numeru artykułu do poprawnej treści przy pomyleniu dwóch sąsiadujących, strukturalnie podobnych, ale znaczeniowo przeciwstawnych przepisów. Qwen (8-bit, ten sam kontekst) cytuje poprawnie art. 394 ust. 1 pkt 9 niemal dosłownie -- spójne z wcześniejszymi obserwacjami (Krok 31/32), że większy model ma solidniejszą dyscyplinę cytowania. Jeden potwierdzony przypadek -- świadomie NIE naprawiane teraz (ten sam rygor co inne jednopunktowe znaleziska w tym projekcie), czeka na kolejny potwierdzony przypadek tego samego wzorca w przyszłej dziedzinie.",
+    "note": "Krok 56 -- druga sonda dla `wodne`, celowo wybrana jako test artykułu SPOZA zbioru treningowego, w gęstym klastrze podobnych przepisów (art. 389-395, wszystkie o pozwoleniach/zgłoszeniach wodnoprawnych)."
+  },
+  {
+    "id": "mieszkaniowe_18_odszkodowanie_bezumowne_zajmowanie",
+    "domain": "mieszkaniowe",
+    "history": [],
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "expect_not_contains": [],
+    "question": "Moja najemczyni przestała płacić, umowę wypowiedziałem, ale mimo upływu okresu wypowiedzenia nadal mieszka w lokalu i się nie wyprowadza. Czy mogę żądać od niej pieniędzy za czas, kiedy tam mieszka, i w jakiej wysokości?",
+    "expect_contains_any": [
+      "18",
+      "odszkodowani"
+    ],
+    "note": "Krok 59 -- sonda dla `mieszkaniowe` (odłożona z Kroku 58): art. 18 ust. 1-2 ustawy o ochronie praw lokatorów (odszkodowanie = czynsz, plus uzupełniające). Pytanie inne niż w weryfikacji Kroku 58 i w zbiorze fine-tune."
+  },
+  {
+    "id": "mieszkaniowe_wl_12_obciazenie_lokal_uzytkowy",
+    "domain": "mieszkaniowe",
+    "history": [],
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "expect_not_contains": [],
+    "question": "Jestem właścicielem lokalu użytkowego (sklep) w budynku, gdzie większość to mieszkania. Czy wspólnota może uchwalić, że będę płacić na utrzymanie nieruchomości wspólnej więcej, niż wynika z mojego udziału?",
+    "expect_contains_any": [
+      "12",
+      "zwiększeni"
+    ],
+    "note": "Krok 59 -- sonda dla `mieszkaniowe`: art. 12 ust. 2-3 ustawy o własności lokali (wydatki wg udziałów; uchwała może zwiększyć obciążenie właścicieli lokali użytkowych). Przypadek spoza zbioru fine-tune."
+  },
+  {
+    "id": "energetyczne_6d_wznowienie_po_reklamacji",
+    "domain": "energetyczne",
+    "history": [],
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "known_issue": null,
+    "question": "Odcięli mi gaz za rzekome zaległości, ale ja wszystko zapłaciłem, więc złożyłem reklamację. Kiedy muszą mi przywrócić gaz?",
+    "expect_contains_any": [
+      "6d",
+      "3 dni"
+    ],
+    "expect_not_contains": [
+      "6b ust. 4 (np. nielegalny"
+    ],
+    "note": "Krok 62 -- sonda dla `energetyczne`: art. 6d ust. 1 Prawa energetycznego (wznowienie dostaw w 3 dni od otrzymania reklamacji na wstrzymanie, kontynuacja do jej rozpatrzenia), wyjątki ust. 3. To samo pytanie, na którym adapter Bielika (Krok 60/61) błędnie opisał art. 6b ust. 4 jako 'nielegalny pobór' (w rzeczywistości: instalacja zagrażająca życiu) -- expect_not_contains łapie ten konkretny błąd, gdyby pojawił się też u Qwena."
+  },
+  {
+    "id": "energetyczne_6a_licznik_przedplatowy_brak_zgody",
+    "domain": "energetyczne",
+    "history": [],
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "known_issue": null,
+    "question": "Dwa razy w tym roku spóźniłem się z płatnością za prąd ponad miesiąc. Zakład chce mi założyć licznik przedpłatowy. Kto za to płaci i co jeśli się nie zgodzę?",
+    "expect_contains_any": [
+      "6a"
+    ],
+    "expect_not_contains": [],
+    "note": "Krok 62 -- sonda dla `energetyczne`: art. 6a ust. 1 pkt 1 (co najmniej dwukrotne opóźnienie >= 1 miesiąc w 12 miesiącach), ust. 2 (koszt instalacji po stronie przedsiębiorstwa), ust. 3 (brak zgody -> wstrzymanie dostaw lub rozwiązanie umowy). Spoza zbioru fine-tune."
+  },
+  {
+    "domain": "telekomunikacyjne",
+    "history": [],
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "known_issue": null,
+    "id": "telekomunikacyjne_382_zaleglosc_ograniczenie",
+    "question": "Spóźniam się z rachunkiem za internet dwa tygodnie. Czy operator może mi od razu odciąć usługę?",
+    "expect_contains_any": [
+      "382"
+    ],
+    "expect_not_contains": [],
+    "note": "Krok 66 -- sonda dla `telekomunikacyjne`: art. 382 ust. 1-4 Prawa komunikacji elektronicznej (powiadomienie + 7 dni -> ograniczenie, potem powiadomienie + 3 dni -> zawieszenie; połączenia alarmowe zawsze dostępne). Spoza zbioru fine-tune."
+  },
+  {
+    "domain": "telekomunikacyjne",
+    "history": [],
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "known_issue": null,
+    "id": "telekomunikacyjne_304_rezygnacja_telefon_promocyjny",
+    "question": "Kupiłem telefon na raty w promocji z abonamentem na 24 miesiące. Po 10 miesiącach chcę zrezygnować z abonamentu. Co z telefonem i ile zapłacę?",
+    "expect_contains_any": [
+      "304"
+    ],
+    "expect_not_contains": [],
+    "note": "Krok 66 -- sonda dla `telekomunikacyjne`: zwykła rezygnacja przed terminem -> art. 304 ust. 1 i ust. 3 pkt 1-2 (odszkodowanie ograniczone do pozostałych części opłaty abonamentowej za usługę i za promocyjne urządzenie). Art. 309 dotyczy TYLKO wypowiedzenia z art. 307 ust. 2 lub art. 380 -- Bielik (z adapterem i bez) błędnie zastosował tu art. 309 (#1 w kontekście RAG, art. 304 na #7). Kryterium '304' jest słabe (304 może paść tylko jako odesłanie z art. 309) -- odpowiedź wymaga ręcznego przeczytania."
+  },
+  {
+    "domain": "konsumenckie",
+    "history": [],
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "known_issue": null,
+    "id": "konsumenckie_43e_pralka_ponowna_wada",
+    "question": "Nowa pralka przecieka. Sklep raz już ją naprawiał, ale znowu cieknie. Czy mogę teraz zażądać zwrotu pieniędzy?",
+    "expect_contains_any": [
+      "43e"
+    ],
+    "expect_not_contains": [],
+    "note": "Krok 68 -- art. 43e ust. 1 pkt 3 (brak zgodności występuje nadal mimo próby naprawy -> obniżenie ceny albo odstąpienie), ust. 4 (domniemanie istotności). Adapter Bielika odpowiedział błędnie 'Nie' (nawet z art. 43e w kontekście), baza Bielika poprawnie 'Tak'. Odpowiedź wymaga ręcznego przeczytania -- kryterium '43e' nie łapie złego werdyktu."
+  },
+  {
+    "domain": "konsumenckie",
+    "history": [],
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "known_issue": null,
+    "id": "konsumenckie_32_zwrot_platnosci_po_odeslaniu",
+    "question": "Odstąpiłem od umowy i odesłałem kurtkę do sklepu internetowego 3 tygodnie temu, a sklep dalej nie oddał pieniędzy. Twierdzi, że zwróci dopiero, jak sprawdzi kurtkę. Czy może tak robić?",
+    "expect_contains_any": [
+      "32"
+    ],
+    "expect_not_contains": [],
+    "note": "Krok 68 -- art. 32 ust. 1 (14 dni od otrzymania oświadczenia), ust. 3 (wstrzymanie tylko do otrzymania towaru lub dowodu odesłania -- nie do 'sprawdzenia'). Spoza zbioru fine-tune."
+  },
+  {
+    "domain": "budowlane",
+    "history": [],
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "id": "budowlane_30_sprzeciw_od_zgloszenia",
+    "question": "Zgłosiłem w starostwie budowę garażu. Ile urząd ma czasu na sprzeciw i czy po tym czasie mogę zaczynać?",
+    "expect_contains_any": [
+      "21 dni"
+    ],
+    "expect_not_contains": [
+      "14 dni"
+    ],
+    "note": "Krok 73 -- art. 30 ust. 5 Prawa budowlanego: sprzeciw w drodze decyzji w terminie 21 dni od doręczenia zgłoszenia; po bezskutecznym upływie można rozpocząć roboty. Art. 30 był w kontekście (#1), a OBA warianty Bielika (z adapterem i bez) odpowiedziały terminem 14 dni z art. 54 (zawiadomienie o zakończeniu budowy / użytkowanie) -- błąd na poziomie odpowiedzi, nie retrievalu. Ta bateria sprawdza Qwena; dla Bielika przypadek jest w data/adapter_vs_base_questions.json. 'Nie zawiera 14 dni' może dać fałszywy alarm, jeśli Qwen poprawnie wspomni art. 54 jako osobny termin -- wtedy przeczytać odpowiedź. Krok 78: OK po wycinkach długich artykułów (Krok 77) -- art. 30 ust. 5 widoczny w kontekście, Qwen podaje 21 dni."
+  },
+  {
+    "domain": "kredyt_konsumencki",
+    "history": [],
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "known_issue": null,
+    "id": "kk_45_brak_rrso_sankcja_odpowiedz",
+    "question": "W mojej umowie pożyczki nie podano RRSO ani całkowitej kwoty do zapłaty. Czy coś mi z tego przysługuje?",
+    "expect_contains_any": [
+      "45"
+    ],
+    "expect_not_contains": [],
+    "note": "Krok 74 -- art. 45 ust. 1 (zwrot kredytu bez odsetek i kosztów po naruszeniu m.in. art. 30 ust. 1 pkt 7), ust. 5 (uprawnienie wygasa po roku od wykonania umowy). Zweryfikowane (Krok 74, drugie podejście): OK, odpowiedź przeczytana ręcznie. Krok 78 (vLLM FP8 na podzie): NIE przeszedł -- art. 45 poza kontekstem; wybór artykułów bez zmian od Kroku 74, przypadek niestabilny (już w Kroku 74 OK dopiero za drugim podejściem), prawdopodobnie inne rozszerzenie zapytania Qwena FP8. Krok 82 (LM Studio, Qwen 8-bit, kontekst 24576): OK -- odpowiedź przeczytana i sprawdzona z tekstem art. 45 (ust. 1, 2, 4, 5 zgodne). Porażka z Kroku 78 to artefakt vLLM FP8 (inne rozszerzenie zapytania), nie błąd danych."
+  },
+  {
+    "domain": "kredyt_konsumencki",
+    "history": [],
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "known_issue": null,
+    "id": "kk_49_wczesniejsza_splata_odpowiedz",
+    "question": "Spłaciłem kredyt dwa lata przed czasem. Czy bank musi mi oddać część prowizji?",
+    "expect_contains_any": [
+      "49"
+    ],
+    "expect_not_contains": [],
+    "note": "Krok 74 -- art. 49 ust. 1: całkowity koszt kredytu (także prowizja pobrana z góry) ulega obniżeniu o koszty dotyczące okresu, o który skrócono umowę. Zweryfikowane (Krok 74, drugie podejście): OK, odpowiedź przeczytana ręcznie."
+  },
+  {
+    "domain": "wykroczenia",
+    "history": [],
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "known_issue": null,
+    "id": "wykroczenia_119_kradziez_300zl_odpowiedz",
+    "question": "Ktoś ukradł mi rower warty 300 zł. Czy to przestępstwo czy wykroczenie, co grozi złodziejowi?",
+    "expect_contains_any": [
+      "119"
+    ],
+    "expect_not_contains": [
+      "stanowi przestępstwo",
+      "jest przestępstwem",
+      "art. 278 § 1 kodeksu karnego podlega"
+    ],
+    "note": "Krok 82 -- luka z Kroku 43: kradzież do 800 zł to wykroczenie (KW art. 119), nie KK art. 278. Odpowiedź Bielika (baza) sprawdzona z tekstem art. 119 w Kroku 80. Krok 94: zakaz samego 'art. 278' dawał fałszywy alarm -- Qwen poprawnie kwalifikował jako wykroczenie, a art. 278 wymieniał tylko w zastrzeżeniu ('nie ma w fragmentach'); sprawdzamy wniosek, nie wzmiankę."
+  },
+  {
+    "domain": "podatki_lokalne",
+    "history": [],
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "known_issue": null,
+    "id": "pl_3_podatnik_najem_odpowiedz",
+    "question": "Wynajmuję lokal firmie. Kto płaci podatek od nieruchomości – ja jako właściciel czy najemca?",
+    "expect_contains_any": [
+      "art. 3"
+    ],
+    "expect_not_contains": [],
+    "note": "Krok 98 -- art. 3 ust. 1: podatnikiem jest właściciel (lub posiadacz samoistny, użytkownik wieczysty); najemca co do zasady nie. Zweryfikowane (Krok 98): OK, odpowiedź przeczytana ręcznie i sprawdzona z tekstem art. 3 (ust. 1 pkt 1 i 4, ust. 3) i art. 1c."
+  },
+  {
+    "domain": "podatki_lokalne",
+    "history": [],
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "known_issue": null,
+    "id": "pl_6_poczatek_obowiazku_odpowiedz",
+    "question": "Kupiłem mieszkanie 15 marca. Od kiedy muszę płacić podatek od nieruchomości?",
+    "expect_contains_any": [
+      "art. 6",
+      "następując"
+    ],
+    "expect_not_contains": [],
+    "note": "Krok 98 -- art. 6 ust. 1: obowiązek powstaje od pierwszego dnia miesiąca następującego po miesiącu, w którym powstały okoliczności (czyli od 1 kwietnia). Zweryfikowane (Krok 98): OK, odpowiedź przeczytana ręcznie i sprawdzona z tekstem art. 6 ust. 1, 5, 6, 7."
+  }
+]

@@ -1,0 +1,54 @@
+# Środowisko Python (odtwarzalne przez requirements.txt) -- bez końcowego
+# "/" celowo: u nas .venv bywa symlinkiem do współdzielonego katalogu
+# (bielik-venv-shared/), a wzorzec z "/" pasuje tylko do prawdziwych
+# katalogów, nie do symlinków.
+.venv
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Wagi modeli -- za duże na git (kilka-kilkanaście GB), pobieralne
+# ponownie przez `mlx_lm.convert` (patrz README.md, sekcja "Odtworzenie
+# pipeline'u"). Modele Bielika są też objęte licencją wymagającą
+# osobnej akceptacji na Hugging Face -- nie dystrybuujemy ich tutaj.
+models/
+
+# Adaptery LoRA -- checkpointy z treningu (setki MB, wiele wersji
+# pośrednich). Odtwarzalne przez `mlx_lm.lora` (patrz PROGRESS.md,
+# krok 4b/6). Jeśli chcesz pokazać konkretny, finalny adapter w repo,
+# dodaj go świadomie przez `git add -f`.
+adapters/
+adapters-cuda/
+
+# Dane pobrane/wygenerowane -- odtwarzalne przez
+# download_acts.py + build_rag_index.py. rag_index_meta.json bywa
+# duży (dziesiątki MB, duplikuje pełny tekst artykułu w każdym
+# fragmencie). data/finetune/ (ręcznie napisany zbiór do LoRA) NIE
+# jest tu ignorowany -- to jest właściwa praca, a nie pochodna danych.
+#
+# Wyjątek: data/raw/*_meta.json (metadane z ELI API, kilkadziesiąt KB
+# na akt, bez treści PDF) SĄ commitowane -- to "ostatni znany stan"
+# ustaw, względem którego scripts/check_acts_freshness.py porównuje
+# API w CI (.github/workflows/acts-freshness.yml). Bez tego CI nie
+# miałoby punktu odniesienia (dane raw/processed nie są w repo).
+data/raw/*
+!data/raw/*_meta.json
+data/processed/
+# Destylacja (Krok 72): prompts.jsonl = pełne wiadomości z kontekstem RAG
+# (~5 MB/dziedzinę), odtwarzalne etapem `contexts`; te same wiadomości są
+# już w data/finetune/<dziedzina>_distill/ (minus odrzucone przez filtr).
+data/distill/*/prompts.jsonl
+
+# System
+.DS_Store
+
+# Lokalne ustawienia/stan Claude Code (specyficzne dla tej maszyny/sesji
+# -- nie do współdzielenia)
+.claude/settings.local.json
+.claude/scheduled_tasks.lock
+
+# Sekrety (na wszelki wypadek -- token HF trzymamy poza repo, w
+# ~/.cache/huggingface/, ale gdyby ktoś kiedyś dodał lokalny plik z
+# kluczem):
+.env
+*.env.local

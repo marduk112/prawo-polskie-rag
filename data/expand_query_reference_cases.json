@@ -1,0 +1,1525 @@
+[
+  {
+    "id": "kpa_129_termin_odwolania",
+    "domain": "administracyjne",
+    "act_short": "kpa",
+    "article": "129",
+    "question": "w jakim terminie mogę się odwołać od decyzji administracyjnej",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Referencyjny przypadek od Kroku 6 -- zawsze #1/#2 niezależnie od parafrazy, odporny na dobór słów w rozszerzaniu zapytania."
+  },
+  {
+    "id": "kc_415_zalanie_mieszkania",
+    "domain": "cywilne",
+    "act_short": "kodeks_cywilny",
+    "article": "415",
+    "question": "sąsiad zalał mi mieszkanie, czy mogę żądać odszkodowania",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Flagowy przypadek gęstości tematycznej (Krok 8-12) -- ogólny przepis o odpowiedzialności deliktowej ginący wśród ~35 szczegółowych przepisów sąsiednich. Krok 26 zmierzył rangę #2 bez few-shot w build_query_expansion_messages() -- z few-shot spadał na #86, dlatego ta zmiana została odrzucona. Najbardziej wrażliwy znany przypadek na jakąkolwiek zmianę QUERY_EXPANSION_SYSTEM_PROMPT/build_query_expansion_messages -- traktuj jako kanarka. Krok 29: reformulacja dla tego pytania też 'łamie zakaz' (cytuje 'art. 415'), ale to KLUCZOWE dla trafności -- bez niej (fallback na samo pytanie) ranga spada do #119. Nie odrzucaj tej reformulacji nawet jeśli wygląda na 'niezgodną z instrukcją'."
+  },
+  {
+    "id": "kk_148_kara_zabojstwo",
+    "domain": "karne",
+    "act_short": "kodeks_karny",
+    "article": "148",
+    "question": "jaka jest kara za zabójstwo człowieka",
+    "max_acceptable_rank": 8,
+    "known_issue": "Krok 25/26 (PROGRESS.md): expand_query() dla tego pytania ŁAMIE zakaz odpowiadania wprost (cytuje art. 148 i jego treść zamiast zwrócić samo przeformułowanie) -- ale ranking mimo to zostaje #1, bo baza model przypadkiem cytuje WŁAŚCIWY artykuł niemal dosłownie (kara za zabójstwo to popularna wiedza). Ten test sprawdza tylko RANKING (nadal przechodzi) -- nie wykrywa samego naruszenia instrukcji, to osobny, nienaprawiony problem.",
+    "note": "Referencyjny przypadek gęstości tematycznej z Kroku 10 -- #1 kosinusowo, ale sam reranker spychał na #6 przed fuzją rang (Krok 11)."
+  },
+  {
+    "id": "ksh_230_zadluzenie",
+    "domain": "gospodarcze",
+    "act_short": "kodeks_spolek_handlowych",
+    "article": "230",
+    "question": "zwiększyć zadłużenie ponad dwukrotność kapitału",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Naprawiony w Kroku 23 (potoczne 'zadłużenie' -> precyzyjny termin 'zaciągnięcie zobowiązania do świadczenia') -- pierwszy przypadek naprawiony PAROWANYM przykładem w QUERY_EXPANSION_SYSTEM_PROMPT, węższym niż ogólna instrukcja z Kroku 14."
+  },
+  {
+    "id": "ksh_210_umowa_z_czlonkiem_zarzadu",
+    "domain": "gospodarcze",
+    "act_short": "kodeks_spolek_handlowych",
+    "article": "210",
+    "question": "czy członek zarządu spółki z o.o. może głosować nad umową między spółką a nim samym",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Klaster bliźniaczych przepisów o reprezentacji spółki w umowie z członkiem zarządu, powtórzonych dla różnych typów spółek (art.210 sp. z o.o., art.379 S.A., art.300⁶⁷ prosta S.A.). Historia: pierwsza wersja tego wpisu (poprzednia sesja, id `ksh_214_konflikt_interesow_zarzad`) błędnie wskazywała art.214 jako cel (niepołączalność funkcji -- inny temat) i błędnie diagnozowała rangę #151 jako głęboki problem gęstości. Po korekcie na art.210: prawdziwa ranga #12, spowodowana luką słownikową (\"głosowanie\" zamiast \"reprezentacja\") -- NAPRAWIONE metodą Kroku 28 (domenowo-specyficzna podpowiedź w `DOMAIN_QUERY_EXPANSION_HINTS['gospodarcze']`, `prompt.py`, Krok 41): #12 -> #2. Trzy próby dopisania tego samego przykładu wprost do współdzielonego QUERY_EXPANSION_SYSTEM_PROMPT regresowały niepowiązany `ochrona_danych_101` (#6 -> #50) niezależnie od dokładnych słów -- stąd domenowo-specyficzny mechanizm zamiast globalnej zmiany. Zweryfikowane end-to-end przez `chat.py --domain gospodarcze`: poprawnie cytuje art.210 (wcześniej: art.300⁶⁷, zły typ spółki)."
+  },
+  {
+    "id": "ksh_214_niepolaczalnosc_funkcji",
+    "domain": "gospodarcze",
+    "act_short": "kodeks_spolek_handlowych",
+    "article": "214",
+    "question": "czy prezes zarządu spółki z o.o. może jednocześnie zasiadać w radzie nadzorczej tej samej spółki",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Prawdziwy temat art.214 KSH (niepołączalność funkcji -- błędnie pomylony z art.210 w poprzedniej sesji, patrz `ksh_210_umowa_z_czlonkiem_zarzadu`). Dodany po korekcie, żeby ten realny przepis też miał własny punkt odniesienia. Dla poprawnie sformułowanego pytania o WŁAŚCIWY temat: ranga #4, bez żadnego problemu -- kontrolny przypadek, kontrastujący z ksh_210."
+  },
+  {
+    "id": "vat_86_zakupy_prywatne",
+    "domain": "podatkowe",
+    "act_short": "ustawa_o_vat",
+    "article": "86",
+    "question": "czy mogę odliczyć VAT od zakupów prywatnych",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Flagowy, pierwszy przypadek naprawiony metodą query expansion (Krok 14) -- zregresował (Krok 26, ranga #6->#27), naprawiony ponownie w Kroku 28 (kontekst nazw ustaw w wiadomości użytkownika, ranga #27->#2), tym razem inną metodą niż Krok 14 (domenowo-specyficzny kontekst zamiast globalnej zmiany promptu)."
+  },
+  {
+    "id": "budowlane_42_kierownik_budowy",
+    "domain": "budowlane",
+    "act_short": "prawo_budowlane",
+    "article": "42",
+    "question": "czy muszę ustanowić kierownika budowy",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Naprawiony w Kroku 21 (LoRA wyłączana na czas expand_query() -- to wyuczony nawyk cytowania adaptera budowlane, nie sam prompt, mylił reformulację z art. 12/13)."
+  },
+  {
+    "id": "autorskie_freelancer_logo",
+    "domain": "autorskie",
+    "act_short": "prawo_autorskie",
+    "article": "12",
+    "question": "zleciłem freelancerowi na umowie o dzieło zaprojektowanie logo, czy prawa autorskie należą teraz do mnie",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Nowo dodany w Kroku 27 (brak dokładnej historycznej rangi z Kroku 20 -- opisany tam tylko jako 'luka w recall bez rerankingu', naprawiony end-to-end przez pełny pipeline z adapterem). Cel: art. 12 (prawa autorskie pracownicze -- test, że NIE dotyczy umowy o dzieło, tylko o pracę) jako punkt odniesienia dla tego scenariusza."
+  },
+  {
+    "id": "wlasnosc_przemyslowa_ksztalt_opakowania",
+    "domain": "wlasnosc_przemyslowa",
+    "act_short": "prawo_wlasnosci_przemyslowej",
+    "article": "120",
+    "question": "chcę zarejestrować jako znak towarowy charakterystyczny kształt opakowania mojego produktu",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Nowo dodany w Kroku 27 (Krok 24 dziedziny -- pierwsza od Kroku 17 bez żadnej nowej luki, więc dobry 'czysty' punkt odniesienia)."
+  },
+  {
+    "id": "rodzinne_zgoda_wspolmalzonka",
+    "domain": "rodzinne",
+    "act_short": "kodeks_rodzinny_i_opiekunczy",
+    "article": "37",
+    "question": "czy mogę sprzedać nieruchomość należącą do majątku wspólnego bez zgody współmałżonka",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Nowo dodany w Kroku 27, odpowiada scenariuszowi z pilotażu `rodzinne` (zgoda współmałżonka na sprzedaż wspólnej nieruchomości, art. 37 KRO)."
+  },
+  {
+    "id": "kadry_urlop_wypoczynkowy",
+    "domain": "kadry_i_place",
+    "act_short": "kodeks_pracy",
+    "article": "154",
+    "question": "ile dni urlopu wypoczynkowego przysługuje pracownikowi w ciągu roku",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Nowo dodany w Kroku 27 -- pierwsza, najstarsza dziedzina projektu, dotąd bez osobnego wpisu w tym zestawie. Poprawiono art. 152 -> 154 (Krok 28): art. 152 to tylko ogólne prawo do urlopu, bez liczby dni -- konkretny wymiar (20/26 dni) jest w art. 154 § 1, wykryte przy diagnozie pozornej regresji przy próbie naprawy VAT art. 86."
+  },
+  {
+    "id": "ochrona_danych_iod_wyznaczenie",
+    "domain": "ochrona_danych",
+    "act_short": "ustawa_o_ochronie_danych_osobowych",
+    "article": "8",
+    "question": "kto musi wyznaczyć inspektora ochrony danych",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Nowo dodany w Kroku 27 (jedenasta dziedzina, Krok 24) -- kontrolny przypadek DZIAŁAJĄCY poprawnie, dla kontrastu z ochrona_danych_101_kara_wyciek niżej."
+  },
+  {
+    "id": "ochrona_danych_101_kara_wyciek",
+    "domain": "ochrona_danych",
+    "act_short": "ustawa_o_ochronie_danych_osobowych",
+    "article": "101",
+    "question": "jakie kary grożą za wyciek danych osobowych z firmy, i kto je nakłada",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Docelowy przypadek Kroku 25 -- naprawiony (ranga) w Kroku 28 kontekstem nazw ustaw (#46->#6), zweryfikowany też end-to-end przez chat.py (poprawnie cytuje art. 101 + spontanicznie art. 101a, poprawnie odróżnia art. 108 jako osobne przestępstwo). UWAGA: sama usterka z Kroku 25 (expand_query() odpowiada wprost zamiast przeformułować) NADAL WYSTĘPUJE w tym wywołaniu (reformulacja nadal zaczyna się od 'Zgodnie z art. 107...', z błędnym numerem artykułu) -- Krok 28 naprawił tylko WIDOCZNY DLA UŻYTKOWNIKA SKUTEK (ranking/finalna odpowiedź), nie samo źródłowe łamanie instrukcji przez model. Krok 29 potwierdził, że NIE należy tego 'naprawiać' odrzucaniem takich odpowiedzi -- bez tego dokładnego przeformułowania ranga spada do #41 (poza top-8). Zaakceptowany kompromis, nie usterka do naprawy."
+  },
+  {
+    "id": "pzp_515_termin_odwolania",
+    "domain": "zamowienia_publiczne",
+    "act_short": "prawo_zamowien_publicznych",
+    "article": "515",
+    "question": "przegrałem przetarg i chcę się odwołać, ile mam na to czasu",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Referencyjny przypadek dla dwunastej dziedziny (zamowienia_publiczne, Krok 42) -- art.515 (terminy na wniesienie odwołania) ląduje na #1 nawet bez rozszerzania zapytania (cos=0.823, fused=2.000). Dziedzina wygląda na \"czystą\" w sensie Kroku 17/23 -- brak znanej luki gęstości tematycznej jak dotąd sprawdzono."
+  },
+  {
+    "id": "pos_188_okres_pozwolenia",
+    "domain": "ochrona_srodowiska",
+    "act_short": "prawo_ochrony_srodowiska",
+    "article": "188",
+    "question": "na jak długo dostanę pozwolenie na moją instalację",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Referencyjny przypadek dla trzynastej dziedziny (ochrona_srodowiska, Krok 44) -- art.188 (czas trwania pozwolenia) ląduje na #1 nawet bez rozszerzania zapytania. Dwa inne kolokwialne sondy tej samej sesji (sąsiad-hałas -> art.363 #4; wykup działki -> art.129 #5) mieszczą się w top-8, ale nie na #1 -- łagodne odchylenie podobne do rodzinne, nie głęboki problem gęstości jak cywilne/karne."
+  },
+  {
+    "id": "rd_20_predkosc_w_miescie",
+    "domain": "ruch_drogowy",
+    "act_short": "prawo_o_ruchu_drogowym",
+    "article": "20",
+    "question": "jak szybko mogę jechać w mieście",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Referencyjny przypadek dla czternastej dziedziny (ruch_drogowy, Krok 45) -- art.20 (prędkość dopuszczalna) ląduje na #1 nawet bez rozszerzania zapytania. Osobno znaleziono kolokwialną lukę recall: 'sprzedałem auto komu mam to zgłosić' w ogóle nie trafia art.78 (obowiązek zawiadomienia starosty) w top-8 bez ekspansji, ale precyzyjne sformułowanie prawnicze ('obowiązek zawiadomienia starosty o zbyciu pojazdu') daje #1 -- klasyczny wzorzec z Kroku 7/14/22, oczekiwana rola query expansion w produkcyjnym chat.py, zweryfikowane end-to-end osobno."
+  },
+  {
+    "id": "up_11_niewyplacalnosc",
+    "domain": "upadlosciowe",
+    "act_short": "prawo_upadlosciowe",
+    "article": "11",
+    "question": "kiedy uznaje sie ze ktos jest niewyplacalny",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Referencyjny przypadek dla pietnastej dziedziny (upadlosciowe, dwa akty: Prawo upadlosciowe + Prawo restrukturyzacyjne, wzorzec 'podatkowe'). Art.11 (definicja niewyplacalnosci) laduje na #1 bez ekspansji. Dwie inne kolokwialne sondy tej samej sesji (kto zajmuje sie majatkiem po upadlosci -> art.156 syndyk; skutki ukladu dla egzekucji -> art.170 restrukturyzacyjne) w ogole nie trafialy w top-8 bez ekspansji, ale precyzyjne sformulowanie prawnicze dawalo #1 dla obu -- klasyczny wzorzec Kroku 7/14/22, nie potwierdzona glebsza kolizja miedzy dwoma aktami tej samej domeny."
+  },
+  {
+    "id": "restrukt_3_cel_postepowania",
+    "domain": "upadlosciowe",
+    "act_short": "prawo_restrukturyzacyjne",
+    "article": "3",
+    "question": "moja firma ma problemy finansowe ale chce uniknac upadlosci, po co jest to postepowanie restrukturyzacyjne",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Dodany 2026-09-13 (przy porzadkowaniu baterii regresyjnej po Kroku 50) -- domena upadlosciowe mial dotad case tylko dla prawo_upadlosciowe (up_11), zaden dla drugiego aktu tej domeny (prawo_restrukturyzacyjne). Art.3 (cel i rodzaje postepowan restrukturyzacyjnych) to analogiczny fundamentalny przepis do up_11 -- laduje na #2 z realnym expand_query()."
+  },
+  {
+    "id": "lotnicze_2_definicja_statku_powietrznego",
+    "domain": "lotnicze",
+    "act_short": "prawo_lotnicze",
+    "article": "2",
+    "question": "co się liczy jako statek powietrzny według przepisów",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Referencyjny przypadek dla szesnastej dziedziny (lotnicze, Krok 52). Art.2 pkt 1 (definicja statku powietrznego) to fundamentalny, krotki przepis definicyjny -- analogiczny wzorzec do KPA art.129/KP art.8, wybrany jako pierwszy punkt danych dla tej dziedziny w baterii regresyjnej."
+  },
+  {
+    "id": "geo_10_wlasnosc_gornicza",
+    "domain": "geologia_i_gornictwo",
+    "act_short": "prawo_geologiczne_i_gornicze",
+    "article": "10",
+    "question": "czyje sa zloza wegla kamiennego pod moja dzialka",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Referencyjny przypadek dla siedemnastej dziedziny (geologia_i_gornictwo, Krok 54). Art.10 (wlasnosc gornicza -- zloza wymienionych kopalin, w tym wegla kamiennego, przysluguja Skarbowi Panstwa niezaleznie od wlasciciela gruntu) to fundamentalny przepis, analogiczny wzorzec do KPA art.129/KP art.8/lotnicze art.2."
+  },
+  {
+    "id": "wodne_211_wlasnosc_wod_plynacych",
+    "domain": "wodne",
+    "act_short": "prawo_wodne",
+    "article": "211",
+    "question": "czyja jest rzeka przepływająca przez moją działkę",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Referencyjny przypadek dla osiemnastej dziedziny (wodne, Krok 56). Art. 211 ust. 2 (śródlądowe wody płynące i wody podziemne stanowią własność Skarbu Państwa, niezależnie od właściciela gruntu) to fundamentalny przepis, analogiczny wzorzec do KPA art.129/KP art.8/geo art.10. Bez fixa: kolokwialna fraza ('rzeka przepływająca przez działkę') nie trafiała w precyzyjny termin ustawowy ('wody płynące') -- cosine rank ~80, poza pulą 30 kandydatów do rerankingu (art.211 w ogóle nie w top-8), a domyślna (bazowa) reformulacja modelu też była za ogólna, żeby pomóc. Naprawione domenowym hintem słownikowym (DOMAIN_QUERY_EXPANSION_HINTS['wodne'], wzorzec Krok 28/41) -- z hintem: rank #2."
+  },
+  {
+    "id": "mieszkaniowe_19_mala_wspolnota_zarzad",
+    "domain": "mieszkaniowe",
+    "act_short": "ustawa_o_wlasnosci_lokali",
+    "article": "19",
+    "question": "W kamienicy są tylko 3 mieszkania, czy musimy mieć zarząd wspólnoty?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Referencyjny przypadek dla dziewiętnastej dziedziny (mieszkaniowe, Krok 58). Art. 19 ustawy o własności lokali (przy nie więcej niż trzech lokalach do zarządu nieruchomością wspólną stosuje się przepisy KC/KPC o współwłasności -- brak obowiązku wyboru zarządu z art. 20). Bez reformulacji: art. 19 poza pulą 30 kandydatów (na #1 art. 20 -- odwrotny przypadek, >3 lokale); formalna fraza 'zarząd nieruchomością wspólną gdy liczba lokali nie jest większa niż trzy' daje #1. Z prawdziwym expand_query() Bielika (bez żadnego hintu domenowego): rank #3 -- hint w DOMAIN_QUERY_EXPANSION_HINTS NIE jest potrzebny; przypadek zostaje jako strażnik na przyszłość (gdyby zmiana wspólnego promptu ekspansji zepsuła tę reformulację)."
+  },
+  {
+    "id": "energetyczne_6c_reklamacja_wstrzymanie",
+    "domain": "energetyczne",
+    "act_short": "prawo_energetyczne",
+    "article": "6c",
+    "question": "Złożyłem reklamację rachunku za gaz, a dostałem pismo, że odetną mi gaz. Czy mogą to zrobić zanim rozpatrzą reklamację?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Referencyjny przypadek dla dwudziestej dziedziny (energetyczne, Krok 60). Art. 6c ust. 1 Prawa energetycznego (reklamacja złożona w 14 dni od powiadomienia o zamiarze wstrzymania -> nie wstrzymuje się dostaw do czasu jej rozpatrzenia). Bez reformulacji: rank #3 (na #1 sąsiedni art. 6d -- wznowienie PO wstrzymaniu), najsłabszy z 10 sond retrievalu tej dziedziny -- strażnik gęstego klastra art. 6a-6g."
+  },
+  {
+    "id": "energetyczne_5a1_agregator_zgoda_sprzedawcy",
+    "domain": "energetyczne",
+    "act_short": "prawo_energetyczne",
+    "article": "5a¹",
+    "question": "Chcę podpisać umowę z agregatorem, który będzie zarządzał moim magazynem energii. Czy potrzebuję zgody mojego sprzedawcy prądu?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 60 -- strażnik poprawki parsera (indeks górny po literze, recover_letter_superscript_headers): przed poprawką art. 5a¹ (umowa agregacji, ust. 2: nie wymaga zgody sprzedawcy) w ogóle nie istniał jako osobny artykuł -- jego treść była doklejona do końca art. 5a. Bez reformulacji: rank #1."
+  },
+  {
+    "id": "wodne_32_wiadro_powszechne_korzystanie",
+    "domain": "wodne",
+    "act_short": "prawo_wodne",
+    "article": "32",
+    "question": "Czy mogę czerpać wodę wiadrem z rzeki, żeby podlewać ogródek?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 61 -- znalezione przy porównaniu z/bez adaptera: art. 32 (powszechne korzystanie z wód -- potrzeby osobiste/gospodarstwa domowego, bez specjalnych urządzeń technicznych) nie trafił do top-8 kontekstu; oba warianty modelu odpowiadały na podstawie art. 34 (szczególne korzystanie), adapter z błędną konkluzją 'Nie'."
+  },
+  {
+    "id": "telekomunikacyjne_307_podwyzka_w_trakcie_umowy",
+    "domain": "telekomunikacyjne",
+    "act_short": "prawo_komunikacji_elektronicznej",
+    "article": "307",
+    "question": "dostałem SMS że od przyszłego miesiąca abonament będzie droższy o 10 zł, a mam umowę jeszcze na rok",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 66 -- bez hintu domenowego art. 307 (jednostronna zmiana warunków umowy na czas określony z innych przyczyn -> wypowiedzenie BEZ odszkodowania) wypadał z top-8 w samym RAG i był na #7 z rozszerzeniem; z hintem 'telekomunikacyjne' #1-#3. Pytanie celowo inne niż przykład w hincie."
+  },
+  {
+    "id": "telekomunikacyjne_399_ciasteczka_zgoda",
+    "domain": "telekomunikacyjne",
+    "act_short": "prawo_komunikacji_elektronicznej",
+    "article": "399",
+    "question": "wchodzę na sklep internetowy i od razu instaluje mi ciasteczka reklamowe",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 66 -- ustawa nie używa słowa 'cookies' ('przechowywanie informacji ... w telekomunikacyjnym urządzeniu końcowym'); bez hintu art. 399 spadał na #15 z rozszerzeniem, z hintem #1. Strażnik hintu domenowego."
+  },
+  {
+    "id": "konsumenckie_28_bieg_terminu_odstapienia",
+    "domain": "konsumenckie",
+    "act_short": "ustawa_o_prawach_konsumenta",
+    "article": "28",
+    "question": "ile dni na oddanie rzeczy z allegro, licząc od zamówienia czy od dostawy",
+    "max_acceptable_rank": 8,
+    "known_issue": "Krok 68 -- #7 z pierwszą wersją hintu 'konsumenckie', #9 po dopisaniu do hintu pary 'zwrot pieniędzy za wadliwy towar -> odstąpienie z powodu braku zgodności' (naprawiło art. 43e #12 -> #1). Inne sformułowania o biegu terminu: #1. Celowo NIE dostrajane pod to jedno pytanie.",
+    "note": "Krok 68 -- bez hintu 'konsumenckie' art. 28 (bieg terminu do odstąpienia: od objęcia towaru w posiadanie) był #12 z rozszerzeniem; z hintem #1-#7 (to sformułowanie: #7 -- na granicy, obserwować). Pytanie inne niż przykład w hincie."
+  },
+  {
+    "id": "konsumenckie_29_brak_pouczenia_12_miesiecy",
+    "domain": "konsumenckie",
+    "act_short": "ustawa_o_prawach_konsumenta",
+    "article": "29",
+    "question": "sprzedawca w regulaminie nic nie napisał o odstąpieniu, a minęło pół roku od zakupu",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 68 -- art. 29 (brak pouczenia -> prawo odstąpienia wygasa po 12 miesiącach) był #8 bez hintu; z hintem #1-#3. Strażnik hintu domenowego."
+  },
+  {
+    "id": "konsumenckie_43c_wada_po_roku",
+    "domain": "konsumenckie",
+    "act_short": "ustawa_o_prawach_konsumenta",
+    "article": "43c",
+    "question": "telefon zepsuł się po roku od zakupu, czy sklep musi coś z tym zrobić",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 68 -- odpowiedzialność za brak zgodności towaru z umową (rozdział 5a, od 2023 zamiast rękojmi z KC dla konsumentów). #1 z rozszerzeniem; strażnik, że pytanie o wadę trafia w rozdział 5a."
+  },
+  {
+    "id": "konsumenckie_43e_ponowna_wada_zwrot",
+    "domain": "konsumenckie",
+    "act_short": "ustawa_o_prawach_konsumenta",
+    "article": "43e",
+    "question": "odkurzacz po trzeciej naprawie dalej się wyłącza, mam dość -- czy mogę go oddać i odzyskać kasę",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 68 -- 'zwrot pieniędzy' ściągał art. 32 (odstąpienie od umowy na odległość) i art. 55 (doklejone załączniki z wzorem pouczenia); art. 43e (obniżenie ceny/odstąpienie przy braku zgodności) był #12 dla pytania o pralkę -> po dopisaniu pary do hintu #1. Pytanie inne niż przykład w hincie."
+  },
+  {
+    "id": "cywilne_konsument_pralka_wymiana",
+    "domain": "cywilne",
+    "act_short": "ustawa_o_prawach_konsumenta",
+    "article": "43d",
+    "question": "Kupiłem w sklepie internetowym pralkę jako konsument. Po 8 miesiącach przestała prać. Czy mogę żądać wymiany na nową?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 71 -- konsument z wadliwym towarem zadaje pytanie w `cywilne`: od 2023-01-01 rękojmię z KC zastąpiły dla niego art. 43a-43q ustawy o prawach konsumenta (dołożonej do indeksu `cywilne`). Strażnik hintu domenowego `cywilne`."
+  },
+  {
+    "id": "cywilne_konsument_rower_zwrot_pieniedzy",
+    "domain": "cywilne",
+    "act_short": "ustawa_o_prawach_konsumenta",
+    "article": "43e",
+    "question": "rower kupiony w sklepie, rama pękła po pół roku, chcę oddać i dostać pieniądze z powrotem",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 71 -- konsument z wadliwym towarem zadaje pytanie w `cywilne`: od 2023-01-01 rękojmię z KC zastąpiły dla niego art. 43a-43q ustawy o prawach konsumenta (dołożonej do indeksu `cywilne`). Strażnik hintu domenowego `cywilne`."
+  },
+  {
+    "id": "cywilne_konsument_wina_uzytkownika",
+    "domain": "cywilne",
+    "act_short": "ustawa_o_prawach_konsumenta",
+    "article": "43c",
+    "question": "kupiłam telefon, po 4 miesiącach nie włącza się, a sprzedawca twierdzi, że to moja wina i ja mam udowodnić, że był wadliwy",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 71 -- konsument z wadliwym towarem zadaje pytanie w `cywilne`: od 2023-01-01 rękojmię z KC zastąpiły dla niego art. 43a-43q ustawy o prawach konsumenta (dołożonej do indeksu `cywilne`). Strażnik hintu domenowego `cywilne`."
+  },
+  {
+    "id": "cywilne_konsument_buty_wymiana_zamiast_naprawy",
+    "domain": "cywilne",
+    "act_short": "ustawa_o_prawach_konsumenta",
+    "article": "43d",
+    "question": "buty rozkleiły się po 3 tygodniach, sklep chce je tylko naprawić, a ja wolę nowe",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 71 -- pytanie spoza strojenia hintu `cywilne` (kontrola nadmiernego dopasowania). #1 przy wprowadzeniu."
+  },
+  {
+    "id": "cywilne_konsument_laptop_odsyla_do_producenta",
+    "domain": "cywilne",
+    "act_short": "ustawa_o_prawach_konsumenta",
+    "article": "43c",
+    "question": "kupiłem laptopa w markecie, po roku padła matryca, a sklep odsyła mnie do producenta",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 71 -- pytanie spoza strojenia hintu `cywilne` (kontrola nadmiernego dopasowania). #1 przy wprowadzeniu (43d też akceptowalny merytorycznie, bateria sprawdza jeden artykuł)."
+  },
+  {
+    "id": "cywilne_b2b_maszyna_rekojmia_kc",
+    "domain": "cywilne",
+    "act_short": "kodeks_cywilny",
+    "article": "560",
+    "question": "moja spółka kupiła od hurtowni wadliwą maszynę do produkcji, czy możemy odstąpić od umowy",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 71 -- pytanie spoza strojenia hintu `cywilne` (kontrola nadmiernego dopasowania). Kontrola odwrotna: kupujący-przedsiębiorca nadal podlega rękojmi z KC (art. 560), hint konsumencki nie może go wypchnąć. #2 przy wprowadzeniu."
+  },
+  {
+    "id": "cywilne_konsument_tv_bez_slowa_konsument",
+    "domain": "cywilne",
+    "act_short": "ustawa_o_prawach_konsumenta",
+    "article": "43e",
+    "question": "telewizor naprawiany już dwa razy i znowu nie działa, czy mogę zrezygnować z zakupu",
+    "max_acceptable_rank": 8,
+    "known_issue": "Krok 71 -- #22: pytanie nie mówi, że kupujący jest konsumentem, więc rękojmia z KC (art. 560) wygrywa -- formalnie niejednoznaczne, celowo NIE dostrajane.",
+    "note": "Krok 71 -- pytanie spoza strojenia hintu `cywilne` (kontrola nadmiernego dopasowania)."
+  },
+  {
+    "id": "kc_118_przedawnienie_pozyczki",
+    "domain": "cywilne",
+    "act_short": "kodeks_cywilny",
+    "article": "118",
+    "question": "Sąsiad pożyczył ode mnie 3000 zł pięć lat temu i do dziś nie oddał. Czy moje roszczenie już się przedawniło?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Gęstość tematyczna: przy słowie 'pożyczka' wygrywa przepis szczegółowy z rozdziału o pożyczce nad ogólnym art. 118 (por. kc_415). Krok 87: naprawione podpowiedzią włączaną słowem \"przedaw\" (DOMAIN_QUERY_EXPANSION_KEYWORD_HINTS): ranga 20 -> 3."
+  },
+  {
+    "id": "ksh_61_wystapienie_ze_spolki_jawnej",
+    "domain": "gospodarcze",
+    "act_short": "kodeks_spolek_handlowych",
+    "article": "61",
+    "question": "Jak mogę wystąpić ze spółki jawnej, jeśli pozostali wspólnicy się nie zgadzają?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Potoczne 'wystąpić ze spółki' vs ustawowe 'wypowiedzenie umowy spółki'. Krok 87: naprawione parą w podpowiedzi domeny `gospodarcze` (\"wypowiedzenie przez wspólnika umowy spółki jawnej zawartej na czas nieoznaczony\"): ranga 13 -> 1."
+  },
+  {
+    "id": "kk_45_brak_rrso_sankcja",
+    "domain": "kredyt_konsumencki",
+    "act_short": "ustawa_o_kredycie_konsumenckim",
+    "article": "45",
+    "question": "W mojej umowie pożyczki nie podano RRSO ani całkowitej kwoty do zapłaty. Czy coś mi z tego przysługuje?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 74 -- sankcja kredytu darmowego; bez hintu `kredyt_konsumencki` #23, z hintem #1."
+  },
+  {
+    "id": "kk_57_kredyt_wiazany_rower",
+    "domain": "kredyt_konsumencki",
+    "act_short": "ustawa_o_kredycie_konsumenckim",
+    "article": "57",
+    "question": "Kupiłem rower na raty w sklepie stacjonarnym, potem skorzystałem z odstąpienia i oddałem rower. Czy umowa ratalna też przestaje obowiązywać?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 74 -- pytanie spoza strojenia hintu (kontrola nadmiernego dopasowania); wariant 'laptop przez internet' bez hintu #12, z hintem #1; to pytanie #1."
+  },
+  {
+    "id": "kk_49_wczesniejsza_splata_prowizja",
+    "domain": "kredyt_konsumencki",
+    "act_short": "ustawa_o_kredycie_konsumenckim",
+    "article": "49",
+    "question": "Spłaciłem kredyt dwa lata przed czasem. Czy bank musi mi oddać część prowizji?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 74 -- obniżenie całkowitego kosztu kredytu przy wcześniejszej spłacie; #3-4 (art. 50/51 o prowizji ZA wcześniejszą spłatę leksykalnie bliżej)."
+  },
+  {
+    "id": "kk_44_cesja_windykacja",
+    "domain": "kredyt_konsumencki",
+    "act_short": "ustawa_o_kredycie_konsumenckim",
+    "article": "44",
+    "question": "Bank sprzedał mój dług firmie windykacyjnej. Czy mogę się bronić wobec niej tak samo jak wobec banku?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 74 -- zarzuty konsumenta po przelewie wierzytelności; #2-4."
+  },
+  {
+    "id": "wyk_119_kradziez_sklep",
+    "domain": "wykroczenia",
+    "act_short": "kodeks_wykroczen",
+    "article": "119",
+    "question": "Ukradłem w sklepie batonik za 20 zł, co mi grozi?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 80 -- kradzież do 800 zł to wykroczenie (Krok 43: baza cytowała KK art. 278)."
+  },
+  {
+    "id": "wyk_119_kradziez_300zl",
+    "domain": "wykroczenia",
+    "act_short": "kodeks_wykroczen",
+    "article": "119",
+    "question": "Ktoś ukradł mi rower warty 300 zł. Czy to przestępstwo czy wykroczenie, co grozi złodziejowi?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 80 -- dokładnie pytanie z luki z Kroku 43."
+  },
+  {
+    "id": "wyk_51_halas_nocny",
+    "domain": "wykroczenia",
+    "act_short": "kodeks_wykroczen",
+    "article": "51",
+    "question": "Sąsiad urządza głośne imprezy po 22 i nie daje spać. Czy to wykroczenie?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 80 -- zakłócanie spoczynku nocnego."
+  },
+  {
+    "id": "wyk_92a_predkosc",
+    "domain": "wykroczenia",
+    "act_short": "kodeks_wykroczen",
+    "article": "92a",
+    "question": "Przekroczyłem prędkość w terenie zabudowanym, jaki mandat mi grozi?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 80 -- surowe pytanie ranga 4 (97/94/98 przed 92a: sąsiednie przepisy drogowe)."
+  },
+  {
+    "id": "wyk_87_alkohol_rower",
+    "domain": "wykroczenia",
+    "act_short": "kodeks_wykroczen",
+    "article": "87",
+    "question": "Jechałem samochodem po wypiciu piwa, czy to przestępstwo czy wykroczenie?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 80 -- art. 87 (stan po użyciu alkoholu), granica z KK art. 178a."
+  },
+  {
+    "id": "wyk_77_pies_bez_smyczy",
+    "domain": "wykroczenia",
+    "act_short": "kodeks_wykroczen",
+    "article": "77",
+    "question": "Pies sąsiada biega bez smyczy i straszy ludzi. Co grozi właścicielowi?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 80 -- surowe pytanie ranga 5 (108/78/166/125 przed 77)."
+  },
+  {
+    "id": "wyk_124_zniszczenie_rzeczy",
+    "domain": "wykroczenia",
+    "act_short": "kodeks_wykroczen",
+    "article": "124",
+    "question": "Kolega zarysował mi samochód kluczykiem, szkoda to 500 zł. Co mu grozi?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 80 -- zniszczenie rzeczy do 800 zł."
+  },
+  {
+    "id": "wyk_66_falszywy_alarm",
+    "domain": "wykroczenia",
+    "act_short": "kodeks_wykroczen",
+    "article": "66",
+    "question": "Zadzwoniłem na policję z fałszywą informacją o włamaniu, żeby zrobić kawał. Jaka kara?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 80 -- fałszywy alarm."
+  },
+  {
+    "id": "kpsw_99_odmowa_mandatu",
+    "domain": "wykroczenia",
+    "act_short": "kodeks_postepowania_w_sprawach_o_wykroczenia",
+    "article": "99",
+    "question": "Policjant wystawił mi mandat, ale się z nim nie zgadzam i go nie przyjąłem. Co się stanie dalej?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 81 -- KPSW art. 99: odmowa przyjęcia mandatu -> wniosek o ukaranie do sądu."
+  },
+  {
+    "id": "kpsw_105_apelacja_termin",
+    "domain": "wykroczenia",
+    "act_short": "kodeks_postepowania_w_sprawach_o_wykroczenia",
+    "article": "105",
+    "question": "Sąd ukarał mnie wyrokiem za wykroczenie. Ile mam czasu na odwołanie?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 81 -- KPSW art. 105: apelacja w 7 dni; surowe pytanie ranga 6 (110/61/83 przed 105)."
+  },
+  {
+    "id": "kpsw_96_limit_mandatu",
+    "domain": "wykroczenia",
+    "act_short": "kodeks_postepowania_w_sprawach_o_wykroczenia",
+    "article": "96",
+    "question": "Do jakiej wysokości policja może nałożyć mandat?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 81 -- KPSW art. 96: limit 500 zł (art. 96 § 1); surowe pytanie ranga 1."
+  },
+  {
+    "id": "kpsw_101_uchylenie_mandatu",
+    "domain": "wykroczenia",
+    "act_short": "kodeks_postepowania_w_sprawach_o_wykroczenia",
+    "article": "101",
+    "question": "Zapłaciłem prawomocny mandat za coś, co w ogóle nie było wykroczeniem. Da się to cofnąć?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 81 -- KPSW art. 101: uchylenie prawomocnego mandatu."
+  },
+  {
+    "id": "kpc_27_wlasciwosc_miejscowa",
+    "domain": "postepowanie_cywilne",
+    "act_short": "kodeks_postepowania_cywilnego",
+    "article": "27",
+    "question": "Do którego sądu mam złożyć pozew, jeśli pozwany mieszka w innym mieście?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 84 -- KPC art. 27: właściwość ogólna (sąd pozwanego); surowe pytanie ranga 1."
+  },
+  {
+    "id": "kpc_344_sprzeciw_wyrok_zaoczny",
+    "domain": "postepowanie_cywilne",
+    "act_short": "kodeks_postepowania_cywilnego",
+    "article": "344",
+    "question": "Dostałem wyrok zaoczny. Ile mam czasu na sprzeciw?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 84 -- KPC art. 344: sprzeciw w 2 tygodnie od doręczenia; surowe ranga 1."
+  },
+  {
+    "id": "kpc_369_apelacja_termin",
+    "domain": "postepowanie_cywilne",
+    "act_short": "kodeks_postepowania_cywilnego",
+    "article": "369",
+    "question": "Sąd wydał wyrok w mojej sprawie cywilnej. W jakim terminie mogę złożyć apelację?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 84 -- KPC art. 369: apelacja w 2 tygodnie od doręczenia z uzasadnieniem; surowe ranga 1."
+  },
+  {
+    "id": "kpc_505_nakaz_zaplaty_sprzeciw",
+    "domain": "postepowanie_cywilne",
+    "act_short": "kodeks_postepowania_cywilnego",
+    "article": "505",
+    "question": "Dostałem nakaz zapłaty z sądu. Co mogę zrobić, żeby się od niego odwołać?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 84 -- KPC art. 505: sprzeciw od nakazu zapłaty; surowe ranga 2 (480³ przed nim)."
+  },
+  {
+    "id": "kpc_168_przywrocenie_terminu",
+    "domain": "postepowanie_cywilne",
+    "act_short": "kodeks_postepowania_cywilnego",
+    "article": "168",
+    "question": "Spóźniłem się z terminem na pismo w sądzie bez swojej winy. Czy da się to naprawić?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 84 -- KPC art. 168: przywrócenie terminu; surowe ranga 1."
+  },
+  {
+    "id": "kpc_730_zabezpieczenie",
+    "domain": "postepowanie_cywilne",
+    "act_short": "kodeks_postepowania_cywilnego",
+    "article": "730",
+    "question": "Czy mogę zażądać zabezpieczenia roszczenia, zanim złożę pozew?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 84 -- KPC art. 730: zabezpieczenie; surowe ranga 2 (1121 przed nim)."
+  },
+  {
+    "id": "kpc_882_zajecie_wynagrodzenia",
+    "domain": "postepowanie_cywilne",
+    "act_short": "kodeks_postepowania_cywilnego",
+    "article": "882",
+    "question": "Komornik zajął moje wynagrodzenie. Co musi zrobić pracodawca?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 84 -- KPC art. 882: wezwanie pracodawcy po zajęciu wynagrodzenia; surowe ranga 1."
+  },
+  {
+    "id": "kpc_139_awizo",
+    "domain": "postepowanie_cywilne",
+    "act_short": "kodeks_postepowania_cywilnego",
+    "article": "139",
+    "question": "List z sądu leżał na poczcie, nie odebrałem go. Czy uznaje się, że go dostałem?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 84 -- KPC art. 139: skutek doręczenia (awizo); surowe ranga 3 (1160, 560⁶ przed nim)."
+  },
+  {
+    "id": "kpk_304_zawiadomienie",
+    "domain": "postepowanie_karne",
+    "act_short": "kodeks_postepowania_karnego",
+    "article": "304",
+    "question": "Jak zgłosić przestępstwo na policji i czy w ogóle muszę to zrobić?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 85 -- KPK art. 304: społeczny obowiązek zawiadomienia; surowe ranga 1."
+  },
+  {
+    "id": "kpk_306_odmowa_sledztwa_zazalenie",
+    "domain": "postepowanie_karne",
+    "act_short": "kodeks_postepowania_karnego",
+    "article": "306",
+    "question": "Prokurator odmówił wszczęcia śledztwa w mojej sprawie. Czy mogę się od tego odwołać?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 85 -- KPK art. 306: zażalenie na odmowę wszczęcia śledztwa; surowe ranga 1."
+  },
+  {
+    "id": "kpk_182_odmowa_zeznan",
+    "domain": "postepowanie_karne",
+    "act_short": "kodeks_postepowania_karnego",
+    "article": "182",
+    "question": "Mój mąż jest oskarżony. Czy muszę zeznawać przeciwko niemu jako świadek?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 85 -- KPK art. 182: odmowa zeznań osoby najbliższej; surowe ranga 3 (384, 185 przed nim)."
+  },
+  {
+    "id": "kpk_177_swiadek_obowiazek",
+    "domain": "postepowanie_karne",
+    "act_short": "kodeks_postepowania_karnego",
+    "article": "177",
+    "question": "Dostałem wezwanie na świadka do sądu. Czy muszę się stawić?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 85 -- KPK art. 177: obowiązek stawiennictwa świadka; surowe ranga 1."
+  },
+  {
+    "id": "kpk_244_zatrzymanie",
+    "domain": "postepowanie_karne",
+    "act_short": "kodeks_postepowania_karnego",
+    "article": "244",
+    "question": "Kiedy policja może mnie zatrzymać?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 85 -- KPK art. 244: zatrzymanie przez Policję; surowe ranga 1."
+  },
+  {
+    "id": "kpk_258_areszt_przeslanki",
+    "domain": "postepowanie_karne",
+    "act_short": "kodeks_postepowania_karnego",
+    "article": "258",
+    "question": "Za co sąd może zastosować tymczasowy areszt?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 85 -- KPK art. 258: przesłanki środków zapobiegawczych; surowe ranga 2 (262 przed nim)."
+  },
+  {
+    "id": "kpk_445_apelacja_termin",
+    "domain": "postepowanie_karne",
+    "act_short": "kodeks_postepowania_karnego",
+    "article": "445",
+    "question": "Sąd skazał mnie wyrokiem. Ile mam czasu na apelację w sprawie karnej?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 85 -- KPK art. 445: apelacja w 14 dni; surowe ranga 2 (524 przed nim)."
+  },
+  {
+    "id": "kpk_300_pouczenie_podejrzany",
+    "domain": "postepowanie_karne",
+    "act_short": "kodeks_postepowania_karnego",
+    "article": "300",
+    "question": "Policja chce mnie przesłuchać jako podejrzanego. O czym powinni mnie najpierw poinformować?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 85 -- KPK art. 300: pouczenie podejrzanego; surowe ranga 1."
+  },
+  {
+    "id": "pac_26_dokumentacja_zmarlego",
+    "domain": "prawa_pacjenta",
+    "act_short": "ustawa_o_prawach_pacjenta",
+    "article": "26",
+    "question": "Mój ojciec zmarł w szpitalu. Czy mogę dostać jego dokumentację medyczną?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 91 -- art. 26: udostępnienie dokumentacji (także po śmierci pacjenta); surowe ranga 1."
+  },
+  {
+    "id": "pac_28_oplata_dokumentacja",
+    "domain": "prawa_pacjenta",
+    "act_short": "ustawa_o_prawach_pacjenta",
+    "article": "28",
+    "question": "Ile szpital może policzyć za kopię mojej dokumentacji medycznej?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 91 -- art. 28: opłata za udostępnienie dokumentacji; surowe ranga 1."
+  },
+  {
+    "id": "pac_17_zgoda_maloletni",
+    "domain": "prawa_pacjenta",
+    "act_short": "ustawa_o_prawach_pacjenta",
+    "article": "17",
+    "question": "Lekarz chce zoperować moje dziecko. Czy potrzebna jest moja zgoda i czy nastolatek może sam zdecydować?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 91 -- art. 17: zgoda na świadczenia (małoletni od 16 lat, przedstawiciel ustawowy); surowe ranga 1. Zgoda NIE jest w art. 32 (tam Komisja Lekarska)."
+  },
+  {
+    "id": "pac_14_tajemnica_rodzina",
+    "domain": "prawa_pacjenta",
+    "act_short": "ustawa_o_prawach_pacjenta",
+    "article": "14",
+    "question": "Czy lekarz może powiedzieć mojej rodzinie o mojej chorobie bez mojej zgody?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 91 -- art. 14: tajemnica i wyjątki; surowe ranga 1."
+  },
+  {
+    "id": "pac_4_zadoscuczynienie",
+    "domain": "prawa_pacjenta",
+    "act_short": "ustawa_o_prawach_pacjenta",
+    "article": "4",
+    "question": "Lekarz naruszył moje prawa jako pacjenta. Czy mogę żądać pieniędzy za krzywdę?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 91 -- art. 4: zadośćuczynienie za naruszenie praw pacjenta; surowe ranga 1."
+  },
+  {
+    "id": "pac_67t_swiadczenie_kompensacyjne",
+    "domain": "prawa_pacjenta",
+    "act_short": "ustawa_o_prawach_pacjenta",
+    "article": "67t",
+    "question": "W szpitalu doszło do zakażenia, przez które zachorowałem. Jak uzyskać odszkodowanie bez procesu w sądzie?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 91 -- klaster świadczenia kompensacyjnego (67r-67zc); oczekiwany art. 67t (wniosek do Rzecznika = odpowiedź na 'jak uzyskać'); surowe ranga 3 (67r, definicja uprawnienia, ranga 12)."
+  },
+  {
+    "id": "pac_31_sprzeciw_orzeczenie",
+    "domain": "prawa_pacjenta",
+    "act_short": "ustawa_o_prawach_pacjenta",
+    "article": "31",
+    "question": "Nie zgadzam się z opinią lekarza orzecznika. Czy mogę się od niej odwołać?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 91 -- art. 31: sprzeciw wobec opinii/orzeczenia lekarza; surowe ranga 1."
+  },
+  {
+    "id": "pac_21_osoba_bliska",
+    "domain": "prawa_pacjenta",
+    "act_short": "ustawa_o_prawach_pacjenta",
+    "article": "21",
+    "question": "Czy mogę mieć przy sobie męża podczas badania w szpitalu?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 91 -- art. 21: obecność osoby bliskiej; surowe ranga 1."
+  },
+  {
+    "id": "pac_50_skarga_rzecznik",
+    "domain": "prawa_pacjenta",
+    "act_short": "ustawa_o_prawach_pacjenta",
+    "article": "50",
+    "question": "Gdzie złożyć skargę, że szpital naruszył moje prawa pacjenta?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 91 -- art. 50: postępowanie wyjaśniające Rzecznika (wniosek/skarga); surowe ranga 6."
+  },
+  {
+    "id": "deep_budowlane_30_ust5_sprzeciw",
+    "domain": "budowlane",
+    "act_short": "prawo_budowlane",
+    "article": "30",
+    "question": "Zgłosiłem w starostwie budowę wiaty. Ile urząd ma czasu, żeby się sprzeciwić, zanim mogę zacząć budować?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 93 -- odpowiedź głęboko w długim artykule (ust. 5, znak ~7800 z 12,4 tys.), poza pierwszymi RERANK_TEXT_CHARS=1500 znakami, które ocenia reranker. Pilnuje, że fuzja RRF z kosinusem (trafiony fragment) utrzymuje artykuł w top-8."
+  },
+  {
+    "id": "deep_pit_21_pkt131_cele_mieszkaniowe",
+    "domain": "podatkowe",
+    "act_short": "ustawa_o_pit",
+    "article": "21",
+    "question": "Sprzedałem mieszkanie dwa lata po zakupie. Czy nie zapłacę podatku, jeśli za te pieniądze kupię nowe mieszkanie dla siebie?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 93 -- odpowiedź głęboko w długim artykule (ust. 1 pkt 131, znak ~74 800 z 118 tys.), poza pierwszymi RERANK_TEXT_CHARS=1500 znakami, które ocenia reranker. Pilnuje, że fuzja RRF z kosinusem (trafiony fragment) utrzymuje artykuł w top-8."
+  },
+  {
+    "id": "deep_pit_21_pkt148_ulga_dla_mlodych",
+    "domain": "podatkowe",
+    "act_short": "ustawa_o_pit",
+    "article": "21",
+    "question": "Mam 24 lata i pracuję na etacie. Czy muszę płacić podatek dochodowy od pensji?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 93 -- odpowiedź głęboko w długim artykule (ust. 1 pkt 148, znak ~80 400 z 118 tys.), poza pierwszymi RERANK_TEXT_CHARS=1500 znakami, które ocenia reranker. Pilnuje, że fuzja RRF z kosinusem (trafiony fragment) utrzymuje artykuł w top-8."
+  },
+  {
+    "id": "deep_vat_86_ust10_moment_odliczenia",
+    "domain": "podatkowe",
+    "act_short": "ustawa_o_vat",
+    "article": "86",
+    "question": "W którym miesiącu mogę odliczyć VAT z faktury za kupiony towar?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 93 -- odpowiedź głęboko w długim artykule (ust. 10, znak ~7800 z 14,2 tys.), poza pierwszymi RERANK_TEXT_CHARS=1500 znakami, które ocenia reranker. Pilnuje, że fuzja RRF z kosinusem (trafiony fragment) utrzymuje artykuł w top-8."
+  },
+  {
+    "id": "deep_vat_113_ust9_limit_proporcjonalny",
+    "domain": "podatkowe",
+    "act_short": "ustawa_o_vat",
+    "article": "113",
+    "question": "Zakładam firmę w lipcu. Jaki mam limit sprzedaży, żeby nie płacić VAT w pierwszym roku?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 93 -- odpowiedź głęboko w długim artykule (ust. 9, znak ~1900 z 5,6 tys.), poza pierwszymi RERANK_TEXT_CHARS=1500 znakami, które ocenia reranker. Pilnuje, że fuzja RRF z kosinusem (trafiony fragment) utrzymuje artykuł w top-8."
+  },
+  {
+    "id": "deep_rd_135_zatrzymanie_prawa_jazdy",
+    "domain": "ruch_drogowy",
+    "act_short": "prawo_o_ruchu_drogowym",
+    "article": "135",
+    "question": "Jechałem w mieście o 55 km/h za szybko. Czy policja może mi od razu zabrać prawo jazdy?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 93 -- odpowiedź głęboko w długim artykule (ust. 1 pkt 1a, znak ~2300 z 5,9 tys.), poza pierwszymi RERANK_TEXT_CHARS=1500 znakami, które ocenia reranker. Pilnuje, że fuzja RRF z kosinusem (trafiony fragment) utrzymuje artykuł w top-8."
+  },
+  {
+    "id": "deep_op_70_par6_zawieszenie_przedawnienia",
+    "domain": "podatkowe",
+    "act_short": "ordynacja_podatkowa",
+    "article": "70",
+    "question": "Czy wszczęcie sprawy karnej skarbowej wstrzymuje przedawnienie mojego zaległego podatku?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 93 -- odpowiedź głęboko w długim artykule (§ 6, znak ~3400 z 6,7 tys.), poza pierwszymi RERANK_TEXT_CHARS=1500 znakami, które ocenia reranker. Pilnuje, że fuzja RRF z kosinusem (trafiony fragment) utrzymuje artykuł w top-8."
+  },
+  {
+    "id": "deep_konsumenckie_38_pkt13_ebook",
+    "domain": "konsumenckie",
+    "act_short": "ustawa_o_prawach_konsumenta",
+    "article": "38",
+    "question": "Kupiłem e-booka w internecie i od razu go pobrałem. Czy mogę jeszcze odstąpić od umowy w ciągu 14 dni?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 93 -- odpowiedź głęboko w długim artykule (pkt 13, znak ~2700 z 3,6 tys.), poza pierwszymi RERANK_TEXT_CHARS=1500 znakami, które ocenia reranker. Pilnuje, że fuzja RRF z kosinusem (trafiony fragment) utrzymuje artykuł w top-8."
+  },
+  {
+    "id": "deep_pit_26_ulga_rehabilitacyjna",
+    "domain": "podatkowe",
+    "act_short": "ustawa_o_pit",
+    "article": "26",
+    "question": "Czy mogę odliczyć od podatku wydatki na rehabilitację mojego niepełnosprawnego dziecka?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 93 -- odpowiedź głęboko w długim artykule (ust. 1 pkt 6, znak ~2100 z 20,4 tys.), poza pierwszymi RERANK_TEXT_CHARS=1500 znakami, które ocenia reranker. Pilnuje, że fuzja RRF z kosinusem (trafiony fragment) utrzymuje artykuł w top-8."
+  },
+  {
+    "id": "pit_30e_sprzedaz_dzialki",
+    "domain": "podatkowe",
+    "act_short": "ustawa_o_pit",
+    "article": "30e",
+    "question": "Sprzedaję działkę kupioną trzy lata temu. Ile podatku zapłacę od tej sprzedaży?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 93 -- przypadek kontrolny dla podpowiedzi słowem kluczowym 'sprzedaż nieruchomości' w `podatkowe`: bez wątku mieszkaniowego celem jest stawka 19% z art. 30e, podpowiedź nie może go wypchnąć na rzecz art. 21."
+  },
+  {
+    "id": "sd_4a_darowizna_od_rodzicow",
+    "domain": "podatkowe",
+    "act_short": "ustawa_o_podatku_od_spadkow_i_darowizn",
+    "article": "4a",
+    "question": "Rodzice dali mi 200 tys. zł na mieszkanie. Czy muszę od tego zapłacić podatek?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 94 -- spadki i darowizny dołączone do `podatkowe`; artykuł sprawdzony po treści."
+  },
+  {
+    "id": "sd_4a_termin_zgloszenia_spadku",
+    "domain": "podatkowe",
+    "act_short": "ustawa_o_podatku_od_spadkow_i_darowizn",
+    "article": "4a",
+    "question": "W jakim terminie muszę zgłosić do urzędu skarbowego spadek po mamie, żeby nie płacić podatku?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 94 -- spadki i darowizny dołączone do `podatkowe`; artykuł sprawdzony po treści."
+  },
+  {
+    "id": "sd_14_grupa_tesciowa",
+    "domain": "podatkowe",
+    "act_short": "ustawa_o_podatku_od_spadkow_i_darowizn",
+    "article": "14",
+    "question": "Do której grupy podatkowej należy teściowa, która daje mi darowiznę?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 94 -- spadki i darowizny dołączone do `podatkowe`; artykuł sprawdzony po treści."
+  },
+  {
+    "id": "sd_9_kwota_wolna_ciocia",
+    "domain": "podatkowe",
+    "act_short": "ustawa_o_podatku_od_spadkow_i_darowizn",
+    "article": "9",
+    "question": "Ile mogę dostać od cioci bez płacenia podatku od darowizny?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 94 -- spadki i darowizny dołączone do `podatkowe`; artykuł sprawdzony po treści."
+  },
+  {
+    "id": "sd_15_stawka_obcy",
+    "domain": "podatkowe",
+    "act_short": "ustawa_o_podatku_od_spadkow_i_darowizn",
+    "article": "15",
+    "question": "Jaki procent podatku zapłaci znajomy, któremu podaruję samochód?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 94 -- spadki i darowizny dołączone do `podatkowe`; artykuł sprawdzony po treści."
+  },
+  {
+    "id": "sd_16_odziedziczone_mieszkanie_ulga",
+    "domain": "podatkowe",
+    "act_short": "ustawa_o_podatku_od_spadkow_i_darowizn",
+    "article": "16",
+    "question": "Odziedziczyłem mieszkanie po wujku i chcę w nim zamieszkać. Czy jest jakaś ulga w podatku od spadku?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 94 -- spadki i darowizny dołączone do `podatkowe`; artykuł sprawdzony po treści."
+  },
+  {
+    "id": "sd_6_kiedy_obowiazek_spadek",
+    "domain": "podatkowe",
+    "act_short": "ustawa_o_podatku_od_spadkow_i_darowizn",
+    "article": "6",
+    "question": "Od kiedy liczy się obowiązek podatkowy przy dziedziczeniu?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 94 -- spadki i darowizny dołączone do `podatkowe`; artykuł sprawdzony po treści."
+  },
+  {
+    "id": "sd_3_ppk_dziedziczenie",
+    "domain": "podatkowe",
+    "act_short": "ustawa_o_podatku_od_spadkow_i_darowizn",
+    "article": "3",
+    "question": "Czy odziedziczone pieniądze z PPK podlegają podatkowi od spadków?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 94 -- spadki i darowizny dołączone do `podatkowe`; artykuł sprawdzony po treści."
+  },
+  {
+    "id": "pit_10_sprzedaz_odziedziczonego",
+    "domain": "podatkowe",
+    "act_short": "ustawa_o_pit",
+    "article": "10",
+    "question": "Sprzedałem mieszkanie odziedziczone rok temu. Czy muszę zapłacić podatek dochodowy?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 94 -- strażnik granicy PIT/spadki: sprzedaż odziedziczonej nieruchomości to PIT (art. 10 ust. 1 pkt 8, ust. 5 -- 5 lat liczone od nabycia przez spadkodawcę), nie ustawa o podatku od spadków."
+  },
+  {
+    "id": "pcc_4_kto_placi_kupno_auta",
+    "domain": "pcc",
+    "act_short": "ustawa_o_pcc",
+    "article": "4",
+    "question": "Kupiłem używany samochód od osoby prywatnej. Kto ma zapłacić podatek od tej umowy, ja czy sprzedający?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 95 -- własna dziedzina `pcc`; artykuł sprawdzony po treści."
+  },
+  {
+    "id": "pcc_7_stawka_sprzedaz_mieszkania",
+    "domain": "pcc",
+    "act_short": "ustawa_o_pcc",
+    "article": "7",
+    "question": "Jaka jest stawka podatku PCC przy kupnie mieszkania na rynku wtórnym?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 95 -- własna dziedzina `pcc`; artykuł sprawdzony po treści."
+  },
+  {
+    "id": "pcc_9_pozyczka_od_rodziny",
+    "domain": "pcc",
+    "act_short": "ustawa_o_pcc",
+    "article": "9",
+    "question": "Pożyczyłem pieniądze od brata, przelew na konto. Czy muszę płacić podatek od pożyczki?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 95 -- własna dziedzina `pcc`; artykuł sprawdzony po treści."
+  },
+  {
+    "id": "pcc_10_termin_deklaracji",
+    "domain": "pcc",
+    "act_short": "ustawa_o_pcc",
+    "article": "10",
+    "question": "W jakim terminie muszę złożyć deklarację PCC-3 i zapłacić podatek po kupnie samochodu?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 95 -- własna dziedzina `pcc`; artykuł sprawdzony po treści."
+  },
+  {
+    "id": "pcc_11_zwrot_podatku",
+    "domain": "pcc",
+    "act_short": "ustawa_o_pcc",
+    "article": "11",
+    "question": "Umowa sprzedaży została unieważniona, czy mogę odzyskać zapłacony podatek od czynności cywilnoprawnych?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 95 -- własna dziedzina `pcc`; artykuł sprawdzony po treści."
+  },
+  {
+    "id": "pcc_2_sprzedaz_z_vat",
+    "domain": "pcc",
+    "act_short": "ustawa_o_pcc",
+    "article": "2",
+    "question": "Kupuję towar od firmy, która wystawia fakturę z VAT. Czy do tego płaci się jeszcze PCC?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 95 -- własna dziedzina `pcc`; artykuł sprawdzony po treści."
+  },
+  {
+    "id": "pcc_6_podstawa_zamiana",
+    "domain": "pcc",
+    "act_short": "ustawa_o_pcc",
+    "article": "6",
+    "question": "Od jakiej kwoty liczy się podatek od umowy sprzedaży, jeśli cena w umowie jest zaniżona względem wartości rynkowej?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 95 -- własna dziedzina `pcc`; artykuł sprawdzony po treści."
+  },
+  {
+    "id": "cit_19_stawka_9_mala_spolka",
+    "domain": "cit",
+    "act_short": "ustawa_o_cit",
+    "article": "19",
+    "question": "Jaka stawka CIT obowiązuje małą spółkę z o.o.? Słyszałem, że jest obniżona.",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 96 -- własna dziedzina `cit`; artykuł sprawdzony po treści."
+  },
+  {
+    "id": "cit_15_koszt_uzyskania",
+    "domain": "cit",
+    "act_short": "ustawa_o_cit",
+    "article": "15",
+    "question": "Czy wydatek poniesiony w spółce na szkolenie pracowników mogę zaliczyć do kosztów uzyskania przychodów?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 96 -- własna dziedzina `cit`; artykuł sprawdzony po treści."
+  },
+  {
+    "id": "cit_16_kary_nie_koszt",
+    "domain": "cit",
+    "act_short": "ustawa_o_cit",
+    "article": "16",
+    "question": "Spółka zapłaciła grzywnę nałożoną przez urząd. Czy mogę ją wrzucić w koszty?",
+    "max_acceptable_rank": 8,
+    "known_issue": "Krok 96: ranga 9 (próg 8) -- art. 16 ma ponad 50 punktów, grzywny to pkt 18; wypiera go m.in. art. 15d, 26c, 15cb. Podpowiedź słowem kluczowym nie zmieniła rangi (Bielik ją zignorował) -- cofnięta. Łagodne: art. 16 jest tuż za progiem.",
+    "note": "Krok 96 -- własna dziedzina `cit`; artykuł sprawdzony po treści."
+  },
+  {
+    "id": "cit_26_podatek_u_zrodla",
+    "domain": "cit",
+    "act_short": "ustawa_o_cit",
+    "article": "26",
+    "question": "Płacimy odsetki zagranicznej firmie. Czy jako spółka musimy pobrać podatek od tej wypłaty?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 96 -- własna dziedzina `cit`; artykuł sprawdzony po treści."
+  },
+  {
+    "id": "cit_27_termin_zeznania",
+    "domain": "cit",
+    "act_short": "ustawa_o_cit",
+    "article": "27",
+    "question": "Do kiedy spółka musi złożyć roczne zeznanie CIT-8 i wpłacić podatek za rok?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 96 -- własna dziedzina `cit`; artykuł sprawdzony po treści."
+  },
+  {
+    "id": "cit_25_zaliczki_miesieczne",
+    "domain": "cit",
+    "act_short": "ustawa_o_cit",
+    "article": "25",
+    "question": "Czy spółka płaci zaliczki na CIT co miesiąc i jak się je liczy?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 96 -- własna dziedzina `cit`; artykuł sprawdzony po treści."
+  },
+  {
+    "id": "cit_28j_estonski_cit",
+    "domain": "cit",
+    "act_short": "ustawa_o_cit",
+    "article": "28j",
+    "question": "Jakie warunki musi spełnić spółka, żeby płacić estoński CIT, czyli ryczałt od dochodów spółek?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 96 -- własna dziedzina `cit`; artykuł sprawdzony po treści."
+  },
+  {
+    "id": "cit_11c_ceny_transferowe",
+    "domain": "cit",
+    "act_short": "ustawa_o_cit",
+    "article": "11c",
+    "question": "Spółka kupuje towary od spółki matki po zawyżonych cenach. Czy urząd może to skorygować?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 96 -- własna dziedzina `cit`; artykuł sprawdzony po treści."
+  },
+  {
+    "id": "cit_3_zarzad_w_polsce",
+    "domain": "cit",
+    "act_short": "ustawa_o_cit",
+    "article": "3",
+    "question": "Spółka zagraniczna ma zarząd w Polsce. Czy płaci w Polsce podatek od całości dochodów?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 96 -- własna dziedzina `cit`; artykuł sprawdzony po treści."
+  },
+  {
+    "id": "cit_24b_podatek_od_budynkow",
+    "domain": "cit",
+    "act_short": "ustawa_o_cit",
+    "article": "24b",
+    "question": "Spółka wynajmuje biurowiec. Co to jest podatek od przychodów z budynków i ile wynosi?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 96 -- własna dziedzina `cit`; artykuł sprawdzony po treści."
+  },
+  {
+    "id": "pl_2_przedmiot_nieruchomosc",
+    "domain": "podatki_lokalne",
+    "act_short": "ustawa_o_podatkach_i_oplatach_lokalnych",
+    "article": "2",
+    "question": "Co podlega podatkowi od nieruchomości? Mam działkę i dom.",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 97 -- własna dziedzina `podatki_lokalne`; artykuł sprawdzony po treści."
+  },
+  {
+    "id": "pl_3_podatnik_najem",
+    "domain": "podatki_lokalne",
+    "act_short": "ustawa_o_podatkach_i_oplatach_lokalnych",
+    "article": "3",
+    "question": "Wynajmuję lokal firmie. Kto płaci podatek od nieruchomości – ja jako właściciel czy najemca?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 97 -- własna dziedzina `podatki_lokalne`; artykuł sprawdzony po treści."
+  },
+  {
+    "id": "pl_4_podstawa_powierzchnia",
+    "domain": "podatki_lokalne",
+    "act_short": "ustawa_o_podatkach_i_oplatach_lokalnych",
+    "article": "4",
+    "question": "Od jakiej powierzchni liczy się podatek od nieruchomości za poddasze i garaż?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 97 -- własna dziedzina `podatki_lokalne`; artykuł sprawdzony po treści."
+  },
+  {
+    "id": "pl_5_stawki_rada_gminy",
+    "domain": "podatki_lokalne",
+    "act_short": "ustawa_o_podatkach_i_oplatach_lokalnych",
+    "article": "5",
+    "question": "Kto ustala wysokość stawek podatku od nieruchomości i jaka jest maksymalna stawka za budynek mieszkalny?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 97 -- własna dziedzina `podatki_lokalne`; artykuł sprawdzony po treści."
+  },
+  {
+    "id": "pl_6_obowiazek_poczatek",
+    "domain": "podatki_lokalne",
+    "act_short": "ustawa_o_podatkach_i_oplatach_lokalnych",
+    "article": "6",
+    "question": "Kupiłem mieszkanie w połowie miesiąca. Od kiedy muszę płacić podatek od nieruchomości?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 97 -- własna dziedzina `podatki_lokalne`; artykuł sprawdzony po treści."
+  },
+  {
+    "id": "pl_7_zwolnienie",
+    "domain": "podatki_lokalne",
+    "act_short": "ustawa_o_podatkach_i_oplatach_lokalnych",
+    "article": "7",
+    "question": "Czy budynek zajęty na gospodarstwo rolne albo kościół jest zwolniony z podatku od nieruchomości?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 97 -- własna dziedzina `podatki_lokalne`; artykuł sprawdzony po treści."
+  },
+  {
+    "id": "pl_8_srodki_transportowe",
+    "domain": "podatki_lokalne",
+    "act_short": "ustawa_o_podatkach_i_oplatach_lokalnych",
+    "article": "8",
+    "question": "Czy muszę płacić podatek od środków transportowych za ciężarówkę firmy?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 97 -- własna dziedzina `podatki_lokalne`; artykuł sprawdzony po treści."
+  },
+  {
+    "id": "pl_11_termin_transport",
+    "domain": "podatki_lokalne",
+    "act_short": "ustawa_o_podatkach_i_oplatach_lokalnych",
+    "article": "11",
+    "question": "W jakich terminach płaci się podatek od środków transportowych?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 97 -- własna dziedzina `podatki_lokalne`; artykuł sprawdzony po treści."
+  },
+  {
+    "id": "pl_15_oplata_targowa",
+    "domain": "podatki_lokalne",
+    "act_short": "ustawa_o_podatkach_i_oplatach_lokalnych",
+    "article": "15",
+    "question": "Sprzedaję warzywa na targowisku. Czy muszę płacić opłatę targową?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 97 -- własna dziedzina `podatki_lokalne`; artykuł sprawdzony po treści."
+  },
+  {
+    "id": "pl_17_oplata_miejscowa",
+    "domain": "podatki_lokalne",
+    "act_short": "ustawa_o_podatkach_i_oplatach_lokalnych",
+    "article": "17",
+    "question": "Czy turysta nocujący w pensjonacie w górach płaci opłatę miejscową?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 97 -- własna dziedzina `podatki_lokalne`; artykuł sprawdzony po treści."
+  },
+  {
+    "id": "pl_17a_oplata_reklamowa",
+    "domain": "podatki_lokalne",
+    "act_short": "ustawa_o_podatkach_i_oplatach_lokalnych",
+    "article": "17a",
+    "question": "Mam szyld reklamowy na budynku. Czy gmina może pobrać opłatę reklamową?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 97 -- własna dziedzina `podatki_lokalne`; artykuł sprawdzony po treści."
+  },
+  {
+    "id": "ubez_4_rodzaje",
+    "domain": "ubezpieczenia_obowiazkowe",
+    "act_short": "ustawa_o_ubezpieczeniach_obowiazkowych",
+    "article": "4",
+    "question": "Jakie ubezpieczenia są w Polsce obowiązkowe?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 111 -- własna dziedzina `ubezpieczenia_obowiazkowe`; artykuł sprawdzony po treści."
+  },
+  {
+    "id": "ubez_14_termin_wyplaty",
+    "domain": "ubezpieczenia_obowiazkowe",
+    "act_short": "ustawa_o_ubezpieczeniach_obowiazkowych",
+    "article": "14",
+    "question": "W jakim terminie ubezpieczyciel sprawcy musi wypłacić mi odszkodowanie po zgłoszeniu szkody z OC?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 111 -- własna dziedzina `ubezpieczenia_obowiazkowe`; artykuł sprawdzony po treści."
+  },
+  {
+    "id": "ubez_16_obowiazki_po_zdarzeniu",
+    "domain": "ubezpieczenia_obowiazkowe",
+    "act_short": "ustawa_o_ubezpieczeniach_obowiazkowych",
+    "article": "16",
+    "question": "Miałem kolizję. Co muszę zrobić po zdarzeniu wobec ubezpieczyciela i innych uczestników?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 111 -- własna dziedzina `ubezpieczenia_obowiazkowe`; artykuł sprawdzony po treści."
+  },
+  {
+    "id": "ubez_19_roszczenie_bezposrednio",
+    "domain": "ubezpieczenia_obowiazkowe",
+    "act_short": "ustawa_o_ubezpieczeniach_obowiazkowych",
+    "article": "19",
+    "question": "Czy mogę żądać odszkodowania bezpośrednio od ubezpieczyciela sprawcy wypadku, a nie od niego samego?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 111 -- własna dziedzina `ubezpieczenia_obowiazkowe`; artykuł sprawdzony po treści."
+  },
+  {
+    "id": "ubez_28_automatyczne_przedluzenie",
+    "domain": "ubezpieczenia_obowiazkowe",
+    "act_short": "ustawa_o_ubezpieczeniach_obowiazkowych",
+    "article": "28",
+    "question": "Czy polisa OC na samochód przedłuża się automatycznie na kolejny rok, jeśli jej nie wypowiem?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 111 -- własna dziedzina `ubezpieczenia_obowiazkowe`; artykuł sprawdzony po treści."
+  },
+  {
+    "id": "ubez_31_sprzedaz_pojazdu",
+    "domain": "ubezpieczenia_obowiazkowe",
+    "act_short": "ustawa_o_ubezpieczeniach_obowiazkowych",
+    "article": "31",
+    "question": "Sprzedałem samochód. Co się dzieje z moją polisą OC?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 111 -- własna dziedzina `ubezpieczenia_obowiazkowe`; artykuł sprawdzony po treści."
+  },
+  {
+    "id": "ubez_43_regres_alkohol",
+    "domain": "ubezpieczenia_obowiazkowe",
+    "act_short": "ustawa_o_ubezpieczeniach_obowiazkowych",
+    "article": "43",
+    "question": "Kiedy ubezpieczyciel może żądać zwrotu wypłaconego odszkodowania od kierowcy, który spowodował wypadek po alkoholu?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 111 -- własna dziedzina `ubezpieczenia_obowiazkowe`; artykuł sprawdzony po treści."
+  },
+  {
+    "id": "ubez_47_oc_rolnika",
+    "domain": "ubezpieczenia_obowiazkowe",
+    "act_short": "ustawa_o_ubezpieczeniach_obowiazkowych",
+    "article": "47",
+    "question": "Odziedziczyłem gospodarstwo rolne. Od kiedy muszę mieć obowiązkowe OC rolnika?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 111 -- własna dziedzina `ubezpieczenia_obowiazkowe`; artykuł sprawdzony po treści."
+  },
+  {
+    "id": "ubez_88_oplata_brak_oc",
+    "domain": "ubezpieczenia_obowiazkowe",
+    "act_short": "ustawa_o_ubezpieczeniach_obowiazkowych",
+    "article": "88",
+    "question": "Ile zapłacę, jeśli nie wykupię OC do samochodu osobowego?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 111 -- własna dziedzina `ubezpieczenia_obowiazkowe`; artykuł sprawdzony po treści."
+  },
+  {
+    "id": "ubez_98_ufg_sprawca_uciekl",
+    "domain": "ubezpieczenia_obowiazkowe",
+    "act_short": "ustawa_o_ubezpieczeniach_obowiazkowych",
+    "article": "98",
+    "question": "Sprawca wypadku uciekł i nie ustalono kim jest. Kto wypłaci mi odszkodowanie za szkody na osobie?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 111 -- własna dziedzina `ubezpieczenia_obowiazkowe`; artykuł sprawdzony po treści."
+  },
+  {
+    "id": "pb_50_swobodne_dysponowanie",
+    "domain": "prawo_bankowe",
+    "act_short": "prawo_bankowe",
+    "article": "50",
+    "question": "Czy bank może mi ograniczyć swobodne dysponowanie pieniędzmi na moim koncie?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 114 -- własna dziedzina `prawo_bankowe`; artykuł sprawdzony po treści w indeksie."
+  },
+  {
+    "id": "pb_51_konto_wspolne",
+    "domain": "prawo_bankowe",
+    "act_short": "prawo_bankowe",
+    "article": "51",
+    "question": "Chcemy z żoną założyć wspólne konto w banku. Czy rachunek może być prowadzony dla kilku osób?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 114 -- własna dziedzina `prawo_bankowe`; artykuł sprawdzony po treści w indeksie."
+  },
+  {
+    "id": "pb_52_umowa_rachunku",
+    "domain": "prawo_bankowe",
+    "act_short": "prawo_bankowe",
+    "article": "52",
+    "question": "W jakiej formie zawiera się umowę rachunku bankowego i co musi w niej być?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 114 -- własna dziedzina `prawo_bankowe`; artykuł sprawdzony po treści w indeksie."
+  },
+  {
+    "id": "pb_54_wolne_od_zajecia",
+    "domain": "prawo_bankowe",
+    "act_short": "prawo_bankowe",
+    "article": "54",
+    "question": "Komornik zajął mi konto oszczędnościowe. Czy jakaś kwota jest wolna od zajęcia?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 114 -- własna dziedzina `prawo_bankowe`; artykuł sprawdzony po treści w indeksie."
+  },
+  {
+    "id": "pb_55_pogrzeb_z_konta",
+    "domain": "prawo_bankowe",
+    "act_short": "prawo_bankowe",
+    "article": "55",
+    "question": "Zmarł mój ojciec. Czy bank wypłaci mi z jego konta pieniądze na pogrzeb, zanim zakończy się sprawa spadkowa?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 114 -- własna dziedzina `prawo_bankowe`; artykuł sprawdzony po treści w indeksie."
+  },
+  {
+    "id": "pb_69_umowa_kredytu",
+    "domain": "prawo_bankowe",
+    "act_short": "prawo_bankowe",
+    "article": "69",
+    "question": "Co powinna zawierać umowa kredytu zawierana z bankiem?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 114 -- własna dziedzina `prawo_bankowe`; artykuł sprawdzony po treści w indeksie."
+  },
+  {
+    "id": "pb_70_zdolnosc_kredytowa",
+    "domain": "prawo_bankowe",
+    "act_short": "prawo_bankowe",
+    "article": "70",
+    "question": "Bank odmówił mi kredytu, bo rzekomo nie mam zdolności kredytowej. Co to właściwie znaczy?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 114 -- własna dziedzina `prawo_bankowe`; artykuł sprawdzony po treści w indeksie."
+  },
+  {
+    "id": "pb_75_wypowiedzenie_przez_bank",
+    "domain": "prawo_bankowe",
+    "act_short": "prawo_bankowe",
+    "article": "75",
+    "question": "Przestałem spłacać raty kredytu. W jakim terminie bank może wypowiedzieć mi umowę kredytu?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 114 -- własna dziedzina `prawo_bankowe`; artykuł sprawdzony po treści w indeksie."
+  },
+  {
+    "id": "pb_75a_wypowiedzenie_przez_kredytobiorce",
+    "domain": "prawo_bankowe",
+    "act_short": "prawo_bankowe",
+    "article": "75a",
+    "question": "Mam kredyt na dziesięć lat. Czy mogę sam wypowiedzieć umowę kredytu i z jakim terminem?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 114 -- własna dziedzina `prawo_bankowe`; artykuł sprawdzony po treści w indeksie."
+  },
+  {
+    "id": "pb_75c_restrukturyzacja_zadluzenia",
+    "domain": "prawo_bankowe",
+    "act_short": "prawo_bankowe",
+    "article": "75c",
+    "question": "Mam zaległości w ratach i bank przysłał wezwanie do zapłaty. Czy mogę poprosić o restrukturyzację zadłużenia?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 114 -- własna dziedzina `prawo_bankowe`; artykuł sprawdzony po treści w indeksie."
+  },
+  {
+    "id": "pb_104_tajemnica_bankowa",
+    "domain": "prawo_bankowe",
+    "act_short": "prawo_bankowe",
+    "article": "104",
+    "question": "Co obejmuje tajemnica bankowa i czy pracownik banku może komuś powiedzieć o stanie mojego konta?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 114 -- własna dziedzina `prawo_bankowe`; artykuł sprawdzony po treści w indeksie."
+  },
+  {
+    "id": "pb_111_tabela_oplat",
+    "domain": "prawo_bankowe",
+    "act_short": "prawo_bankowe",
+    "article": "111",
+    "question": "Czy bank musi publicznie ogłaszać swoje oprocentowanie, prowizje i opłaty?",
+    "max_acceptable_rank": 8,
+    "known_issue": null,
+    "note": "Krok 114 -- własna dziedzina `prawo_bankowe`; artykuł sprawdzony po treści w indeksie."
+  },
+  {"id": "cud_25_cel_pobytu_wjazd", "domain": "cudzoziemcy", "act_short": "ustawa_o_cudzoziemcach", "article": "25", "question": "Czy przy wjeździe do Polski muszę udowodnić, po co przyjeżdżam i za co się utrzymam?", "max_acceptable_rank": 8, "known_issue": null, "note": "Krok 123 -- własna dziedzina `cudzoziemcy`; artykuł sprawdzony po treści w indeksie."},
+  {"id": "cud_28_odmowa_wjazdu", "domain": "cudzoziemcy", "act_short": "ustawa_o_cudzoziemcach", "article": "28", "question": "W jakich sytuacjach straż graniczna może odmówić cudzoziemcowi wjazdu do Polski?", "max_acceptable_rank": 8, "known_issue": null, "note": "Krok 123 -- własna dziedzina `cudzoziemcy`; artykuł sprawdzony po treści w indeksie."},
+  {"id": "cud_60_cele_wizy", "domain": "cudzoziemcy", "act_short": "ustawa_o_cudzoziemcach", "article": "60", "question": "W jakim celu można dostać wizę do Polski?", "max_acceptable_rank": 8, "known_issue": null, "note": "Krok 123 -- własna dziedzina `cudzoziemcy`; artykuł sprawdzony po treści w indeksie."},
+  {"id": "cud_100_odmowa_pobytu_czasowego", "domain": "cudzoziemcy", "act_short": "ustawa_o_cudzoziemcach", "article": "100", "question": "Kiedy urząd odmówi mi zezwolenia na pobyt czasowy?", "max_acceptable_rank": 8, "known_issue": null, "note": "Krok 123 -- własna dziedzina `cudzoziemcy`; artykuł sprawdzony po treści w indeksie."},
+  {"id": "cud_108_legalny_pobyt_wniosek", "domain": "cudzoziemcy", "act_short": "ustawa_o_cudzoziemcach", "article": "108", "question": "Czy mogę legalnie przebywać w Polsce, gdy czekam na decyzję w sprawie pobytu czasowego?", "max_acceptable_rank": 8, "known_issue": null, "note": "Krok 123 -- własna dziedzina `cudzoziemcy`; artykuł sprawdzony po treści w indeksie."},
+  {"id": "cud_142_dzialalnosc_gospodarcza", "domain": "cudzoziemcy", "act_short": "ustawa_o_cudzoziemcach", "article": "142", "question": "Jak cudzoziemiec może dostać pobyt czasowy, żeby prowadzić firmę w Polsce?", "max_acceptable_rank": 8, "known_issue": null, "note": "Krok 123 -- własna dziedzina `cudzoziemcy`; artykuł sprawdzony po treści w indeksie."},
+  {"id": "cud_159_laczenie_rodziny", "domain": "cudzoziemcy", "act_short": "ustawa_o_cudzoziemcach", "article": "159", "question": "Na jakich warunkach mogę sprowadzić do Polski rodzinę na pobyt czasowy?", "max_acceptable_rank": 8, "known_issue": null, "note": "Krok 123 -- własna dziedzina `cudzoziemcy`; artykuł sprawdzony po treści w indeksie."},
+  {"id": "cud_187_nauka", "domain": "cudzoziemcy", "act_short": "ustawa_o_cudzoziemcach", "article": "187", "question": "Czy student z zagranicy może dostać zezwolenie na pobyt czasowy ze względu na naukę?", "max_acceptable_rank": 8, "known_issue": null, "note": "Krok 123 -- własna dziedzina `cudzoziemcy`; artykuł sprawdzony po treści w indeksie."},
+  {"id": "cud_195_pobyt_staly", "domain": "cudzoziemcy", "act_short": "ustawa_o_cudzoziemcach", "article": "195", "question": "Kiedy cudzoziemiec może dostać zezwolenie na pobyt stały w Polsce?", "max_acceptable_rank": 8, "known_issue": null, "note": "Krok 123 -- własna dziedzina `cudzoziemcy`; artykuł sprawdzony po treści w indeksie."},
+  {"id": "cud_230_wymiana_karty_pobytu", "domain": "cudzoziemcy", "act_short": "ustawa_o_cudzoziemcach", "article": "230", "question": "W jakim terminie trzeba złożyć wniosek o wymianę karty pobytu?", "max_acceptable_rank": 8, "known_issue": null, "note": "Krok 123 -- własna dziedzina `cudzoziemcy`; artykuł sprawdzony po treści w indeksie."},
+  {"id": "cud_238_oplata_zgubiona_karta", "domain": "cudzoziemcy", "act_short": "ustawa_o_cudzoziemcach", "article": "238", "question": "Ile zapłacę za wymianę karty pobytu, jeśli ją zgubiłem z własnej winy?", "max_acceptable_rank": 8, "known_issue": null, "note": "Krok 123 -- własna dziedzina `cudzoziemcy`; artykuł sprawdzony po treści w indeksie."},
+  {"id": "cud_302_zobowiazanie_do_powrotu", "domain": "cudzoziemcy", "act_short": "ustawa_o_cudzoziemcach", "article": "302", "question": "W jakich przypadkach cudzoziemiec dostaje decyzję o zobowiązaniu do powrotu?", "max_acceptable_rank": 8, "known_issue": null, "note": "Krok 123 -- własna dziedzina `cudzoziemcy`; artykuł sprawdzony po treści w indeksie."},
+  {"id": "cud_401_areszt_dla_cudzoziemcow", "domain": "cudzoziemcy", "act_short": "ustawa_o_cudzoziemcach", "article": "401", "question": "Kto decyduje o umieszczeniu cudzoziemca w strzeżonym ośrodku albo areszcie dla cudzoziemców?", "max_acceptable_rank": 8, "known_issue": null, "note": "Krok 123 -- własna dziedzina `cudzoziemcy`; artykuł sprawdzony po treści w indeksie."}
+]

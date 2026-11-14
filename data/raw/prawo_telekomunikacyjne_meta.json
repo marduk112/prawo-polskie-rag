@@ -1,0 +1,1338 @@
+{
+  "address": "WDU20041711800",
+  "announcementDate": "2004-07-16",
+  "changeDate": "2025-07-04T09:25:27",
+  "displayAddress": "Dz.U. 2004 nr 171 poz. 1800",
+  "pos": 1800,
+  "promulgation": "2004-08-03",
+  "publisher": "DU",
+  "status": "uchylony",
+  "textHTML": true,
+  "textPDF": true,
+  "title": "Ustawa z dnia 16 lipca 2004 r. Prawo telekomunikacyjne",
+  "type": "Ustawa",
+  "volume": 171,
+  "year": 2004,
+  "authorizedBody": [
+    "MIN. OBRONY NARODOWEJ",
+    "PREZ. RADY MINISTRÓW",
+    "MIN. WŁAŚCIWY DS ŁĄCZNOŚCI",
+    "MIN. WŁAŚCIWY DS FINANSÓW PUBLICZNYCH"
+  ],
+  "comments": "Art. 81 ust. 5, art. 100, art. 118 ust. 7, art. 150 ust. 3, art. 180 ust. 2 i art. 183-185 wchodzą w życie z dniem 1 stycznia 2005 r. Ustawa odsyła do dyrektywy 2002/21/WE z dnia 7 marca 2002 r. w sprawie wspólnych ram regulacyjnych sieci i usług Lączności elektronicznej (Dz. Urz. WE L 108 z 24.4.2002)",
+  "directives": [
+    {
+      "address": "32002L0019",
+      "date": "2002-03-07",
+      "title": "DYREKTYWA 2002/19/WE PARLAMENTU EUROPEJSKIEGO I RADY z dnia 7 marca 2002 r. w sprawie dostępu do sieci łączności elektronicznej i urządzeń towarzyszących oraz ich łączenia (dyrektywa o dostępie)"
+    },
+    {
+      "address": "32002L0020",
+      "date": "2002-03-07",
+      "title": "Dyrektywa 2002/20/WE Parlamentu Europejskiego i Rady z dnia 7 marca 2002 r. w sprawie zezwoleń na udostępnienie sieci i usługi łączności elektronicznej (dyrektywa o zezwoleniach)"
+    },
+    {
+      "address": "32002L0021",
+      "date": "2002-03-07",
+      "title": "Dyrektywa 2002/21/WE Parlamentu Europejskiego i Rady z dnia 7 marca 2002 r. w sprawie wspólnych ram regulacyjnych sieci i usług łączności elektronicznej (dyrektywa ramowa)"
+    },
+    {
+      "address": "32002L0022",
+      "date": "2002-03-07",
+      "title": "DYREKTYWA 2002/22/WE PARLAMENTU EUROPEJSKIEGO I RADY z dnia 7 marca 2002 r. w sprawie usługi powszechnej i praw użytkowników odnoszących się do sieci i usług łączności elektronicznej (dyrektywa o usłudze powszechnej)"
+    },
+    {
+      "address": "32002L0058",
+      "date": "2002-07-12",
+      "title": "DYREKTYWA 2002/58/WE PARLAMENTU EUROPEJSKIEGO I RADY z dnia 12 lipca 2002 r. w sprawie przetwarzania danych osobowych i ochrony prywatności w sektorze łączności elektronicznej"
+    },
+    {
+      "address": "32002L0077",
+      "date": "2002-09-16",
+      "title": "DYREKTYWA KOMISJI 2002/77/WE z dnia 16 września 2002 r. w sprawie konkurencji na rynkach sieci i usług łączności elektronicznej"
+    },
+    {
+      "address": "32005L0032",
+      "date": "2005-07-06",
+      "title": "DYREKTYWA 2005/32/WE PARLAMENTU EUROPEJSKIEGO I RADY z dnia 6 lipca 2005 r. ustanawiająca ogólne zasady ustalania wymogów dotyczących ekoprojektu dla produktów wykorzystujących energię oraz zmieniająca dyrektywę Rady 92/42/EWG, oraz dyrektywy Parlamentu Europejskiego i Rady 96/57/WE i 2000/55/WE"
+    },
+    {
+      "address": "32008R1275",
+      "date": "2008-12-17",
+      "title": "ROZPORZĄDZENIE KOMISJI (WE) NR 1275/2008 z dnia 17 grudnia 2008 r. w sprawie wykonania dyrektywy 2005/32/WE Parlamentu Europejskiego i Rady w odniesieniu do wymogów dotyczących ekoprojektu dla zużycia energii przez elektryczne i elektroniczne urządzenia gospodarstwa domowego i urządzenia biurowe w trybie czuwania i wyłączenia (Tekst mający znaczenie dla EOG)"
+    },
+    {
+      "address": "32009R0278",
+      "date": "2009-04-06",
+      "title": "ROZPORZĄDZENIE KOMISJI (WE) NR 278/2009 z dnia 6 kwietnia 2009 r. w sprawie wykonania dyrektywy 2005/32/WE Parlamentu Europejskiego i Rady w odniesieniu do wymogów dotyczących ekoprojektu w zakresie zużycia energii elektrycznej przez zasilacze zewnętrzne w stanie bez obciążenia oraz ich średniej sprawności podczas pracy (Tekst mający znaczenie dla EOG)"
+    },
+    {
+      "address": "32009R0642",
+      "date": "2009-07-22",
+      "title": "ROZPORZĄDZENIE KOMISJI (WE) NR 642/2009 z dnia 22 lipca 2009 r. w sprawie wykonania dyrektywy 2005/32/WE Parlamentu Europejskiego i Rady w odniesieniu do wymogów dotyczących ekoprojektu dla telewizorów (Tekst mający znaczenie dla EOG)"
+    },
+    {
+      "address": "32009R1211",
+      "date": "2009-11-25",
+      "title": "ROZPORZĄDZENIE PARLAMENTU EUROPEJSKIEGO I RADY (WE) NR 1211/2009 z dnia 25 listopada 2009 r. ustanawiające Organ Europejskich Regulatorów Łączności Elektronicznej (BEREC) oraz Urząd (Tekst mający znaczenie dla EOG)"
+    },
+    {
+      "address": "32010L0030",
+      "date": "2010-05-19",
+      "title": "DYREKTYWA PARLAMENTU EUROPEJSKIEGO I RADY 2010/30/UE z dnia 19 maja 2010 r. w sprawie wskazania poprzez etykietowanie oraz standardowe informacje o produkcie, zużycia energii oraz innych zasobów przez produkty związane z energią (wersja przekształcona) (Tekst mający znaczenie dla EOG)"
+    },
+    {
+      "address": "32010R1062",
+      "date": "2010-09-28",
+      "title": "ROZPORZĄDZENIE DELEGOWANE KOMISJI (UE) NR 1062/2010 z dnia 28 września 2010 r. uzupełniające dyrektywę Parlamentu Europejskiego i Rady 2010/30/UE w odniesieniu do etykiet efektywności energetycznej dla telewizorów (Tekst mający znaczenie dla EOG)"
+    },
+    {
+      "address": "32009R0107",
+      "date": "2009-02-04",
+      "title": "ROZPORZĄDZENIE KOMISJI (WE) NR 107/2009 z dnia 4 lutego 2009 r. w sprawie wykonania dyrektywy 2005/32/WE Parlamentu Europejskiego i Rady w odniesieniu do wymogów dotyczących ekoprojektu dla prostych set-top boksów (Tekst mający znaczenie dla EOG)"
+    },
+    {
+      "address": "32012R0531",
+      "date": "2012-06-13",
+      "title": "ROZPORZĄDZENIE PARLAMENTU EUROPEJSKIEGO I RADY (UE) NR 531/2012 z dnia 13 czerwca 2012 r. w sprawie roamingu w publicznych sieciach łączności ruchomej wewnątrz Unii (wersja przekształcona) (Tekst mający znaczenie dla EOG)"
+    },
+    {
+      "address": "32014L0053",
+      "date": "2014-04-16",
+      "title": "Dyrektywa Parlamentu Europejskiego i Rady 2014/53/UE z dnia 16 kwietnia 2014 r. w sprawie harmonizacji ustawodawstw państw członkowskich dotyczących udostępniania na rynku urządzeń radiowych i uchylająca dyrektywę 1999/5/WE  Tekst mający znaczenie dla EOG"
+    },
+    {
+      "address": "31989L0336",
+      "date": "1989-05-03",
+      "title": "DYREKTYWA RADY 89/336/EWG z dnia 3 maja 1989 r. w sprawie ujednolicenia przepisów prawnych Krajów Członkowskich w zakresie kompatybilności elektromagnetycznej"
+    },
+    {
+      "address": "32016R0679",
+      "date": "2016-04-27",
+      "title": "Rozporządzenie Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE (ogólne rozporządzenie o ochronie danych) (Tekst mający znaczenie dla EOG)"
+    },
+    {
+      "address": "32013R0611",
+      "date": "2013-06-24",
+      "title": "ROZPORZĄDZENIE KOMISJI (UE) NR 611/2013 z dnia 24 czerwca 2013 r. w sprawie środków mających zastosowanie przy powiadamianiu o przypadkach naruszenia danych osobowych, na mocy dyrektywy 2002/58/WE Parlamentu Europejskiego i Rady o prywatności i łączności elektronicznej"
+    },
+    {
+      "address": "32015R2120",
+      "date": "2015-11-25",
+      "title": "Rozporządzenie Parlamentu Europejskiego i Rady (UE) 2015/2120 z dnia 25 listopada 2015 r. ustanawiające środki dotyczące dostępu do otwartego internetu oraz zmieniające dyrektywę 2002/22/WE w sprawie usługi powszechnej i związanych z sieciami i usługami łączności elektronicznej praw użytkowników, a także rozporządzenie (UE) nr 531/2012 w sprawie roamingu w publicznych sieciach łączności ruchomej wewnątrz Unii (Tekst mający znaczenie dla EOG)"
+    },
+    {
+      "address": "32018R0644",
+      "date": "2018-04-18",
+      "title": "Rozporządzenie Parlamentu Europejskiego i Rady (UE) 2018/644 z dnia 18 kwietnia 2018 r. w sprawie transgranicznych usług doręczania paczek (Tekst mający znaczenie dla EOG. )"
+    },
+    {
+      "address": "32005L0032R(01)",
+      "date": "2005-07-06",
+      "title": "Sprostowanie do dyrektywy 2005/32/WE Parlamentu Europejskiego i Rady z dnia 6 lipca 2005 r. ustanawiającej ogólne zasady ustalania wymogów dotyczących ekoprojektu dla produktów wykorzystujących energię oraz zmieniającej dyrektywę Rady 92/42/EWG, oraz dyrektywy Parlamentu Europejskiego i Rady 96/57/WE i 2000/55/WE (Dziennik Urzędowy Unii Europejskiej L 191 z dnia 22 lipca 2005 r.)"
+    },
+    {
+      "address": "32013R0617",
+      "date": "2013-06-26",
+      "title": "ROZPORZĄDZENIE KOMISJI (UE) NR 617/2013 z dnia 26 czerwca 2013 r. w sprawie wykonania dyrektywy Parlamentu Europejskiego i Rady 2009/125/WE w odniesieniu do wymogów dotyczących ekoprojektu dla komputerów i serwerów (Tekst mający znaczenie dla EOG)"
+    },
+    {
+      "address": "32009L0125",
+      "date": "2009-10-21",
+      "title": "DYREKTYWA PARLAMENTU EUROPEJSKIEGO I RADY 2009/125/WE z dnia 21 października 2009 r. ustanawiająca ogólne zasady ustalania wymogów dotyczących ekoprojektu dla produktów związanych z energią (wersja przekształcona) (Tekst mający znaczenie dla EOG)"
+    },
+    {
+      "address": "32008R0106",
+      "date": "2008-01-15",
+      "title": "ROZPORZĄDZENIE PARLAMENTU EUROPEJSKIEGO I RADY (WE) nr 106/2008 z dnia 15 stycznia 2008 r. w sprawie wspólnotowego programu znakowania efektywności energetycznej urządzeń biurowych (Wersja przekształcona)"
+    }
+  ],
+  "entryIntoForce": "2004-09-03",
+  "inForce": "NOT_IN_FORCE",
+  "keywords": [
+    "szkolnictwo",
+    "ochrona danych osobowych",
+    "telekomunikacja",
+    "budżet",
+    "działalność gospodarcza",
+    "informatyzacja",
+    "łączność",
+    "poczta",
+    "koncesje",
+    "kodeks wykroczeń",
+    "rachunkowość",
+    "bezpieczeństwo państwa",
+    "dotacje",
+    "niepełnosprawni",
+    "postępowanie egzekucyjne w administracji",
+    "radiofonia i telewizja",
+    "rejestry",
+    "podatek dochodowy od osób prawnych",
+    "karne prawo",
+    "kontrola",
+    "przetargi",
+    "obrona narodowa",
+    "wynagrodzenia",
+    "zezwolenia",
+    "opłaty",
+    "identyfikacja podatkowa",
+    "odszkodowania",
+    "konsumenci",
+    "elektroniczne urządzenia",
+    "sądy polubowne",
+    "kary pieniężne i porządkowe",
+    "odsetki",
+    "depozyty",
+    "kontrola skarbowa",
+    "wskaźnik",
+    "usługi"
+  ],
+  "keywordsNames": [
+    "Agencja Bezpieczeństwa Wewnętrznego",
+    "Policja",
+    "Żandarmeria Wojskowa",
+    "Agencja Wywiadu",
+    "Unia Europejska",
+    "Straż Graniczna",
+    "Wojskowe Służby Informacyjne"
+  ],
+  "obligated": [
+    "MIN. SPRAWIEDLIWOŚCI",
+    "KRAJOWA RADA RADIOFONII I TELEWIZJI",
+    "MIN. WŁAŚCIWY DS INFORMATYZACJI",
+    "MIN. WŁAŚCIWY DS ŁĄCZNOŚCI",
+    "MIN. WŁAŚCIWY DS WEWNĘTRZNYCH",
+    "RADA MINISTRÓW"
+  ],
+  "previousTitle": [],
+  "prints": [
+    {
+      "link": "https://orka.sejm.gov.pl/proc4.nsf/opisy/2637.htm",
+      "linkPrintAPI": "https://api.sejm.gov.pl/sejm/term4/prints/2637",
+      "linkProcessAPI": "https://api.sejm.gov.pl/sejm/term4/processes/2637",
+      "number": "2637",
+      "term": 4
+    }
+  ],
+  "references": {
+    "Akty uchylające": [
+      {
+        "id": "DU/2024/1222",
+        "date": "2024-11-10"
+      }
+    ],
+    "Akty uchylone": [
+      {
+        "id": "DU/2001/1321",
+        "date": "2004-09-03"
+      },
+      {
+        "id": "DU/2000/852",
+        "date": "2004-09-03"
+      }
+    ],
+    "Akty uznane za uchylone": [
+      {
+        "id": "DU/2004/203",
+        "date": "2005-09-03"
+      },
+      {
+        "id": "DU/2004/1774",
+        "date": "2005-09-03"
+      },
+      {
+        "id": "DU/2004/1166",
+        "date": "2005-09-03"
+      },
+      {
+        "id": "DU/2003/307",
+        "date": "2005-09-03"
+      },
+      {
+        "id": "DU/2003/2087",
+        "date": "2005-09-03"
+      },
+      {
+        "id": "DU/2003/1843",
+        "date": "2005-09-03"
+      },
+      {
+        "id": "DU/2003/166",
+        "date": "2005-09-03"
+      },
+      {
+        "id": "DU/2002/886",
+        "date": "2005-09-03"
+      },
+      {
+        "id": "DU/2002/1162",
+        "date": "2005-09-03"
+      },
+      {
+        "id": "DU/2001/1218",
+        "date": "2005-09-03"
+      },
+      {
+        "id": "DU/2000/1340",
+        "date": "2005-09-03"
+      }
+    ],
+    "Akty wykonawcze": [
+      {
+        "id": "MP/2023/1245"
+      },
+      {
+        "id": "MP/2022/1201"
+      },
+      {
+        "id": "MP/2021/1157"
+      },
+      {
+        "id": "MP/2020/855"
+      },
+      {
+        "id": "MP/2020/1131"
+      },
+      {
+        "id": "MP/2019/1066"
+      },
+      {
+        "id": "MP/2018/1200"
+      },
+      {
+        "id": "MP/2017/1149"
+      },
+      {
+        "id": "MP/2017/11"
+      },
+      {
+        "id": "MP/2016/960"
+      },
+      {
+        "id": "MP/2016/959"
+      },
+      {
+        "id": "MP/2016/699"
+      },
+      {
+        "id": "MP/2016/698"
+      },
+      {
+        "id": "MP/2012/71"
+      },
+      {
+        "id": "MP/2012/70"
+      },
+      {
+        "id": "DU/2024/1141"
+      },
+      {
+        "id": "DU/2023/580"
+      },
+      {
+        "id": "DU/2023/2567"
+      },
+      {
+        "id": "DU/2023/1621"
+      },
+      {
+        "id": "DU/2022/864"
+      },
+      {
+        "id": "DU/2022/567"
+      },
+      {
+        "id": "DU/2022/2513"
+      },
+      {
+        "id": "DU/2022/1793"
+      },
+      {
+        "id": "DU/2022/1337"
+      },
+      {
+        "id": "DU/2021/232"
+      },
+      {
+        "id": "DU/2021/2014"
+      },
+      {
+        "id": "DU/2021/1884"
+      },
+      {
+        "id": "DU/2021/1864"
+      },
+      {
+        "id": "DU/2020/679"
+      },
+      {
+        "id": "DU/2020/472"
+      },
+      {
+        "id": "DU/2020/2291"
+      },
+      {
+        "id": "DU/2020/2199"
+      },
+      {
+        "id": "DU/2020/1980"
+      },
+      {
+        "id": "DU/2020/1809"
+      },
+      {
+        "id": "DU/2020/1808"
+      },
+      {
+        "id": "DU/2020/1807"
+      },
+      {
+        "id": "DU/2020/1464"
+      },
+      {
+        "id": "DU/2020/1446"
+      },
+      {
+        "id": "DU/2020/1130"
+      },
+      {
+        "id": "DU/2020/1058"
+      },
+      {
+        "id": "DU/2019/809"
+      },
+      {
+        "id": "DU/2019/699"
+      },
+      {
+        "id": "DU/2019/2336"
+      },
+      {
+        "id": "DU/2019/2135"
+      },
+      {
+        "id": "DU/2019/2125"
+      },
+      {
+        "id": "DU/2019/1777"
+      },
+      {
+        "id": "DU/2019/1467"
+      },
+      {
+        "id": "DU/2019/1354"
+      },
+      {
+        "id": "DU/2018/2324"
+      },
+      {
+        "id": "DU/2018/2316"
+      },
+      {
+        "id": "DU/2018/2315"
+      },
+      {
+        "id": "DU/2018/2002"
+      },
+      {
+        "id": "DU/2018/1831"
+      },
+      {
+        "id": "DU/2018/1830"
+      },
+      {
+        "id": "DU/2018/1327"
+      },
+      {
+        "id": "DU/2018/1171"
+      },
+      {
+        "id": "DU/2017/920"
+      },
+      {
+        "id": "DU/2017/49"
+      },
+      {
+        "id": "DU/2017/2415"
+      },
+      {
+        "id": "DU/2017/2407"
+      },
+      {
+        "id": "DU/2017/2307"
+      },
+      {
+        "id": "DU/2016/767"
+      },
+      {
+        "id": "DU/2016/2017"
+      },
+      {
+        "id": "DU/2016/1798"
+      },
+      {
+        "id": "DU/2016/1647"
+      },
+      {
+        "id": "DU/2015/99"
+      },
+      {
+        "id": "DU/2015/2356"
+      },
+      {
+        "id": "DU/2015/2333"
+      },
+      {
+        "id": "DU/2015/2174"
+      },
+      {
+        "id": "DU/2015/2140"
+      },
+      {
+        "id": "DU/2015/1472"
+      },
+      {
+        "id": "DU/2015/12"
+      },
+      {
+        "id": "DU/2015/11"
+      },
+      {
+        "id": "DU/2015/1042"
+      },
+      {
+        "id": "DU/2015/10"
+      },
+      {
+        "id": "DU/2014/713"
+      },
+      {
+        "id": "DU/2014/471"
+      },
+      {
+        "id": "DU/2014/464"
+      },
+      {
+        "id": "DU/2014/373"
+      },
+      {
+        "id": "DU/2014/284"
+      },
+      {
+        "id": "DU/2014/1936"
+      },
+      {
+        "id": "DU/2014/1890"
+      },
+      {
+        "id": "DU/2014/1843"
+      },
+      {
+        "id": "DU/2014/1821"
+      },
+      {
+        "id": "DU/2014/1817"
+      },
+      {
+        "id": "DU/2014/1639"
+      },
+      {
+        "id": "DU/2014/161"
+      },
+      {
+        "id": "DU/2014/1596"
+      },
+      {
+        "id": "DU/2014/1496"
+      },
+      {
+        "id": "DU/2013/835"
+      },
+      {
+        "id": "DU/2013/386"
+      },
+      {
+        "id": "DU/2013/37"
+      },
+      {
+        "id": "DU/2013/1697"
+      },
+      {
+        "id": "DU/2013/1586"
+      },
+      {
+        "id": "DU/2013/1510"
+      },
+      {
+        "id": "DU/2013/1281"
+      },
+      {
+        "id": "DU/2013/1201"
+      },
+      {
+        "id": "DU/2013/1174"
+      },
+      {
+        "id": "DU/2013/1079"
+      },
+      {
+        "id": "DU/2012/537"
+      },
+      {
+        "id": "DU/2012/200"
+      },
+      {
+        "id": "DU/2012/1527"
+      },
+      {
+        "id": "DU/2012/1526"
+      },
+      {
+        "id": "DU/2012/1267"
+      },
+      {
+        "id": "DU/2012/12"
+      },
+      {
+        "id": "DU/2011/765"
+      },
+      {
+        "id": "DU/2011/404"
+      },
+      {
+        "id": "DU/2011/1734"
+      },
+      {
+        "id": "DU/2011/1122"
+      },
+      {
+        "id": "DU/2010/875"
+      },
+      {
+        "id": "DU/2010/8"
+      },
+      {
+        "id": "DU/2010/77"
+      },
+      {
+        "id": "DU/2010/627"
+      },
+      {
+        "id": "DU/2010/410"
+      },
+      {
+        "id": "DU/2010/281"
+      },
+      {
+        "id": "DU/2010/1683"
+      },
+      {
+        "id": "DU/2010/1670"
+      },
+      {
+        "id": "DU/2010/15"
+      },
+      {
+        "id": "DU/2010/1302"
+      },
+      {
+        "id": "DU/2010/1192"
+      },
+      {
+        "id": "DU/2009/990"
+      },
+      {
+        "id": "DU/2009/810"
+      },
+      {
+        "id": "DU/2009/480"
+      },
+      {
+        "id": "DU/2009/22"
+      },
+      {
+        "id": "DU/2009/1828"
+      },
+      {
+        "id": "DU/2009/1743"
+      },
+      {
+        "id": "DU/2009/1742"
+      },
+      {
+        "id": "DU/2009/148"
+      },
+      {
+        "id": "DU/2009/147"
+      },
+      {
+        "id": "DU/2009/1225"
+      },
+      {
+        "id": "DU/2009/1105"
+      },
+      {
+        "id": "DU/2009/1086"
+      },
+      {
+        "id": "DU/2008/919"
+      },
+      {
+        "id": "DU/2008/866"
+      },
+      {
+        "id": "DU/2008/84"
+      },
+      {
+        "id": "DU/2008/830"
+      },
+      {
+        "id": "DU/2008/629"
+      },
+      {
+        "id": "DU/2008/529"
+      },
+      {
+        "id": "DU/2008/307"
+      },
+      {
+        "id": "DU/2008/277"
+      },
+      {
+        "id": "DU/2008/179"
+      },
+      {
+        "id": "DU/2008/1620"
+      },
+      {
+        "id": "DU/2008/1512"
+      },
+      {
+        "id": "DU/2008/1472"
+      },
+      {
+        "id": "DU/2008/1356"
+      },
+      {
+        "id": "DU/2008/1290"
+      },
+      {
+        "id": "DU/2007/972"
+      },
+      {
+        "id": "DU/2007/350"
+      },
+      {
+        "id": "DU/2007/1722"
+      },
+      {
+        "id": "DU/2007/1298"
+      },
+      {
+        "id": "DU/2007/1227"
+      },
+      {
+        "id": "DU/2007/114"
+      },
+      {
+        "id": "DU/2006/290"
+      },
+      {
+        "id": "DU/2006/190"
+      },
+      {
+        "id": "DU/2006/1792"
+      },
+      {
+        "id": "DU/2006/1721"
+      },
+      {
+        "id": "DU/2006/1245"
+      },
+      {
+        "id": "DU/2005/886"
+      },
+      {
+        "id": "DU/2005/867"
+      },
+      {
+        "id": "DU/2005/592"
+      },
+      {
+        "id": "DU/2005/439"
+      },
+      {
+        "id": "DU/2005/438"
+      },
+      {
+        "id": "DU/2005/310"
+      },
+      {
+        "id": "DU/2005/2210"
+      },
+      {
+        "id": "DU/2005/2141"
+      },
+      {
+        "id": "DU/2005/2140"
+      },
+      {
+        "id": "DU/2005/196"
+      },
+      {
+        "id": "DU/2005/1955"
+      },
+      {
+        "id": "DU/2005/174"
+      },
+      {
+        "id": "DU/2005/1736"
+      },
+      {
+        "id": "DU/2005/1568"
+      },
+      {
+        "id": "DU/2005/1565"
+      },
+      {
+        "id": "DU/2005/144"
+      },
+      {
+        "id": "DU/2005/1408"
+      },
+      {
+        "id": "DU/2005/1407"
+      },
+      {
+        "id": "DU/2005/1406"
+      },
+      {
+        "id": "DU/2005/1351"
+      },
+      {
+        "id": "DU/2005/1350"
+      },
+      {
+        "id": "DU/2005/1349"
+      },
+      {
+        "id": "DU/2005/1215"
+      },
+      {
+        "id": "DU/2005/1127"
+      },
+      {
+        "id": "DU/2005/1082"
+      },
+      {
+        "id": "DU/2005/1029"
+      },
+      {
+        "id": "DU/2004/2857"
+      },
+      {
+        "id": "DU/2004/2832"
+      },
+      {
+        "id": "DU/2004/2831"
+      },
+      {
+        "id": "DU/2004/2794"
+      },
+      {
+        "id": "DU/2004/2659"
+      },
+      {
+        "id": "DU/2004/2420"
+      },
+      {
+        "id": "DU/2004/2335"
+      },
+      {
+        "id": "DU/2004/2291"
+      },
+      {
+        "id": "DU/2004/2263"
+      },
+      {
+        "id": "DU/2004/2134"
+      },
+      {
+        "id": "DU/2004/2127"
+      }
+    ],
+    "Akty zmieniające": [
+      {
+        "id": "DU/2024/834",
+        "date": "2024-07-01"
+      },
+      {
+        "id": "DU/2024/731",
+        "date": "2025-06-28"
+      },
+      {
+        "id": "DU/2023/2005",
+        "date": "2023-09-27"
+      },
+      {
+        "id": "DU/2023/1703",
+        "date": "2023-09-25"
+      },
+      {
+        "id": "DU/2023/1394",
+        "date": "2024-06-01"
+      },
+      {
+        "id": "DU/2022/501",
+        "date": "2022-03-03"
+      },
+      {
+        "id": "DU/2022/2581",
+        "date": "2023-01-01"
+      },
+      {
+        "id": "DU/2022/1933",
+        "date": "2022-12-14"
+      },
+      {
+        "id": "DU/2020/875",
+        "date": "2020-05-16"
+      },
+      {
+        "id": "DU/2020/695",
+        "date": "2020-04-18"
+      },
+      {
+        "id": "DU/2020/374",
+        "date": "2020-03-08"
+      },
+      {
+        "id": "DU/2019/730",
+        "date": "2019-05-04"
+      },
+      {
+        "id": "DU/2019/643",
+        "date": "2019-05-06"
+      },
+      {
+        "id": "DU/2019/2294",
+        "date": "2019-12-22"
+      },
+      {
+        "id": "DU/2019/2005",
+        "date": "2019-10-23"
+      },
+      {
+        "id": "DU/2019/1815",
+        "date": "2019-10-25"
+      },
+      {
+        "id": "DU/2019/1553",
+        "date": "2020-01-01"
+      },
+      {
+        "id": "DU/2019/1030",
+        "date": "2019-06-19"
+      },
+      {
+        "id": "DU/2018/650",
+        "date": "2018-04-30"
+      },
+      {
+        "id": "DU/2018/2354",
+        "date": "2019-01-02"
+      },
+      {
+        "id": "DU/2018/2245",
+        "date": "2019-09-01"
+      },
+      {
+        "id": "DU/2018/1629",
+        "date": "2018-11-25"
+      },
+      {
+        "id": "DU/2018/1560",
+        "date": "2018-08-28"
+      },
+      {
+        "id": "DU/2018/138",
+        "date": "2018-02-01"
+      },
+      {
+        "id": "DU/2018/1118",
+        "date": "2018-12-12"
+      },
+      {
+        "id": "DU/2018/106",
+        "date": "2018-01-27"
+      },
+      {
+        "id": "DU/2017/935",
+        "date": "2017-06-01"
+      },
+      {
+        "id": "DU/2017/2201",
+        "date": "2018-01-01"
+      },
+      {
+        "id": "DU/2016/904",
+        "date": "2016-07-25"
+      },
+      {
+        "id": "DU/2016/903",
+        "date": "2016-07-01"
+      },
+      {
+        "id": "DU/2016/542",
+        "date": "2016-04-20"
+      },
+      {
+        "id": "DU/2016/2003",
+        "date": "2017-01-01"
+      },
+      {
+        "id": "DU/2016/1954",
+        "date": "2016-12-17"
+      },
+      {
+        "id": "DU/2016/1948",
+        "date": "2017-03-01"
+      },
+      {
+        "id": "DU/2016/1823",
+        "date": "2017-01-10"
+      },
+      {
+        "id": "DU/2016/1579",
+        "date": "2016-10-07"
+      },
+      {
+        "id": "DU/2016/147",
+        "date": "2016-02-07"
+      },
+      {
+        "id": "DU/2015/2281",
+        "date": "2016-01-01"
+      },
+      {
+        "id": "DU/2015/1893",
+        "date": "2016-05-19"
+      },
+      {
+        "id": "DU/2015/1069",
+        "date": "2015-08-14"
+      },
+      {
+        "id": "DU/2014/827",
+        "date": "2014-12-25"
+      },
+      {
+        "id": "DU/2014/1198",
+        "date": "2016-10-01"
+      },
+      {
+        "id": "DU/2013/1635",
+        "date": "2014-01-01"
+      },
+      {
+        "id": "DU/2012/908",
+        "date": "2012-09-08"
+      },
+      {
+        "id": "DU/2012/1529",
+        "date": "2013-01-01"
+      },
+      {
+        "id": "DU/2012/1445",
+        "date": "2013-01-21"
+      },
+      {
+        "id": "DU/2012/1256",
+        "date": "2012-12-16"
+      },
+      {
+        "id": "DU/2012/1203",
+        "date": "2013-02-01"
+      },
+      {
+        "id": "DU/2011/903",
+        "date": "2011-08-10"
+      },
+      {
+        "id": "DU/2011/779",
+        "date": "2011-07-14"
+      },
+      {
+        "id": "DU/2011/587",
+        "date": "2011-06-02"
+      },
+      {
+        "id": "DU/2011/586",
+        "date": "2011-06-02"
+      },
+      {
+        "id": "DU/2011/1390",
+        "date": "2011-12-04"
+      },
+      {
+        "id": "DU/2011/1381",
+        "date": "2012-05-03"
+      },
+      {
+        "id": "DU/2011/1016",
+        "date": "2011-09-01"
+      },
+      {
+        "id": "DU/2010/675",
+        "date": "2010-07-17"
+      },
+      {
+        "id": "DU/2010/554",
+        "date": "2010-07-20"
+      },
+      {
+        "id": "DU/2010/530",
+        "date": "2010-06-14"
+      },
+      {
+        "id": "DU/2010/1578",
+        "date": "2010-12-17"
+      },
+      {
+        "id": "DU/2010/1499",
+        "date": "2010-12-21"
+      },
+      {
+        "id": "DU/2010/1443",
+        "date": "2010-12-01"
+      },
+      {
+        "id": "DU/2010/1228",
+        "date": "2011-01-02"
+      },
+      {
+        "id": "DU/2009/97",
+        "date": "2009-03-07"
+      },
+      {
+        "id": "DU/2009/716",
+        "date": "2009-07-06"
+      },
+      {
+        "id": "DU/2009/59",
+        "date": "2009-02-10"
+      },
+      {
+        "id": "DU/2008/1505",
+        "date": "2009-03-24"
+      },
+      {
+        "id": "DU/2008/101",
+        "date": "2008-08-01"
+      },
+      {
+        "id": "DU/2007/556",
+        "date": "2007-07-20"
+      },
+      {
+        "id": "DU/2007/331",
+        "date": "2007-04-21"
+      },
+      {
+        "id": "DU/2007/137",
+        "date": "2007-02-27"
+      },
+      {
+        "id": "DU/2006/711",
+        "date": "2006-10-01"
+      },
+      {
+        "id": "DU/2006/711",
+        "date": "2006-09-30"
+      },
+      {
+        "id": "DU/2006/708",
+        "date": "2006-07-24"
+      },
+      {
+        "id": "DU/2006/66",
+        "date": "2006-02-09"
+      },
+      {
+        "id": "DU/2006/1834",
+        "date": "2007-01-07"
+      },
+      {
+        "id": "DU/2006/1700",
+        "date": "2007-01-01"
+      },
+      {
+        "id": "DU/2006/1600",
+        "date": "2007-01-01"
+      },
+      {
+        "id": "DU/2006/1217",
+        "date": "2006-10-27"
+      },
+      {
+        "id": "DU/2005/2258",
+        "date": "2006-01-14"
+      },
+      {
+        "id": "DU/2005/1362",
+        "date": "2005-09-01"
+      },
+      {
+        "id": "DU/2004/2703",
+        "date": "2005-01-01"
+      }
+    ],
+    "Akty zmienione": [
+      {
+        "id": "DU/2003/424",
+        "date": "2004-09-03"
+      },
+      {
+        "id": "DU/2003/1652",
+        "date": "2004-09-03"
+      },
+      {
+        "id": "DU/2003/1326",
+        "date": "2004-09-03"
+      },
+      {
+        "id": "DU/2003/1188",
+        "date": "2004-09-03"
+      },
+      {
+        "id": "DU/2003/1070",
+        "date": "2004-09-03"
+      },
+      {
+        "id": "DU/2002/676",
+        "date": "2004-09-03"
+      },
+      {
+        "id": "DU/2002/253",
+        "date": "2004-09-03"
+      },
+      {
+        "id": "DU/2002/1360",
+        "date": "2004-09-03"
+      },
+      {
+        "id": "DU/2001/1802",
+        "date": "2004-09-03"
+      },
+      {
+        "id": "DU/2001/1800",
+        "date": "2004-09-03"
+      },
+      {
+        "id": "DU/2001/1353",
+        "date": "2004-09-03"
+      },
+      {
+        "id": "DU/1993/34",
+        "date": "2004-09-03"
+      },
+      {
+        "id": "DU/1992/86",
+        "date": "2004-09-03"
+      },
+      {
+        "id": "DU/1991/442",
+        "date": "2004-09-03"
+      },
+      {
+        "id": "DU/1990/462",
+        "date": "2004-09-03"
+      },
+      {
+        "id": "DU/1990/179",
+        "date": "2004-09-03"
+      },
+      {
+        "id": "DU/1971/114",
+        "date": "2004-09-03"
+      }
+    ],
+    "Inf. o tekście jednolitym": [
+      {
+        "id": "DU/2024/34"
+      },
+      {
+        "id": "DU/2022/1648"
+      },
+      {
+        "id": "DU/2021/576"
+      },
+      {
+        "id": "DU/2019/2460"
+      },
+      {
+        "id": "DU/2018/1954"
+      },
+      {
+        "id": "DU/2017/1907"
+      },
+      {
+        "id": "DU/2016/1489"
+      },
+      {
+        "id": "DU/2014/243"
+      }
+    ],
+    "Odesłania": [
+      {
+        "id": "DU/2004/896"
+      },
+      {
+        "id": "DU/2003/424"
+      },
+      {
+        "id": "DU/2003/1188"
+      },
+      {
+        "id": "DU/2001/508"
+      },
+      {
+        "id": "DU/1997/926"
+      },
+      {
+        "id": "DU/1994/591"
+      },
+      {
+        "id": "DU/1960/168"
+      }
+    ]
+  },
+  "releasedBy": [
+    "SEJM"
+  ],
+  "repealDate": "2024-11-10",
+  "texts": [
+    {
+      "fileName": "text.html",
+      "type": "H"
+    },
+    {
+      "fileName": "D20041800.pdf",
+      "type": "O"
+    },
+    {
+      "fileName": "D20041800.pdf",
+      "type": "I"
+    },
+    {
+      "fileName": "D20041800L.pdf",
+      "type": "T"
+    },
+    {
+      "fileName": "D20041800Lj.pdf",
+      "type": "U"
+    }
+  ],
+  "validFrom": "2004-09-03",
+  "ELI": "DU/2004/1800"
+}
