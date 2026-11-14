@@ -13,8 +13,16 @@ osobnym katalogu kopię nadającą się do upublicznienia:
    kodem 1, jeśli znajdzie sekret albo e-mail (ścieżki i inne uwagi są tylko raportowane).
 5. Opcjonalnie: świeża historia git (jeden commit, wskazany autor), odpalenie testów.
 
-Skrypt NIE zmienia repo źródłowego i NIE robi `git push`. Wynik to katalog do
-przeglądu przez człowieka -- skrypt niczego nie publikuje.
+Tryb `--update <klon-publicznego-repo>` (kolejne aktualizacje): buduje i skanuje
+drzewo dokładnie tak samo, w katalogu tymczasowym, a potem synchronizuje je
+z istniejącym klonem publicznego repo i robi w nim ZWYKŁY commit (historia rośnie,
+nie powstaje nowa). Do publicznego repo trafia wyłącznie to, co przeszło filtr
+(wykluczenia, czyszczenie ścieżek, skan) -- dane i logi spoza listy nigdy.
+Źródłem prawdy jest repo prywatne: zmiany zrobione bezpośrednio w klonie
+publicznym zostaną nadpisane (lista zmian jest widoczna w `--dry-run`).
+
+Skrypt NIE zmienia repo źródłowego i NIE robi `git push`. Wynik to katalog (albo
+commit w klonie) do przeglądu przez człowieka -- skrypt niczego nie publikuje.
 
 Użycie:
     python scripts/export_public.py ../rag-prawo-public
@@ -23,11 +31,16 @@ Użycie:
     python scripts/export_public.py ../rag-prawo-public --init-git \\
         --author "Imię <12345+login@users.noreply.github.com>"
     python scripts/export_public.py --dry-run          # tylko lista i rozmiary, bez zapisu
+    python scripts/export_public.py --update ../rag-prawo-public --dry-run
+    python scripts/export_public.py --update ../rag-prawo-public \\
+        --author "Imię <12345+login@users.noreply.github.com>" --message "Opis zmian"
 
 Opcje:
     --exclude WZORZEC     dodatkowy pathspec do pominięcia (można powtarzać), np. data/raw
     --keep-data           NIE pomijaj data/distill i data/finetune (świadoma decyzja)
     --no-distill-scripts  pomiń też skrypty destylacji/ewaluacji adapterów (DISTILL_SCRIPTS)
+    --update KLON         zaktualizuj istniejący klon publicznego repo zwykłym commitem
+    --message TEKST       komunikat commitu dla --update (domyślnie: numer wersji archiwum)
 """
 
 import argparse
@@ -37,6 +50,7 @@ import shutil
 import subprocess
 import sys
 import tarfile
+import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -169,6 +183,96 @@ def scan(out: Path) -> tuple[list[str], list[str]]:
     return errors, uwagi
 
 
+def build_clean_tree(out: Path, excludes: list[str], run_tests: bool) -> list[str]:
+    """Eksport + czyszczenie ścieżek + skan (+ testy) do `out`. Zwraca listę BŁĘDÓW."""
+    export_tree(out, excludes)
+    n_out = sum(1 for p in out.rglob("*") if p.is_file())
+    b_out = sum(p.stat().st_size for p in out.rglob("*") if p.is_file())
+    print(f"\nWyeksportowano: {n_out} plików, {human(b_out)} -> {out}")
+
+    scrubbed = scrub_paths(out)
+    print(f"Oczyszczono ścieżki lokalne w {len(scrubbed)} plikach: " + ", ".join(f"{k} ({v})" for k, v in list(scrubbed.items())[:10]))
+
+    errors, uwagi = scan(out)
+    print("\nUwagi do przeglądu (nie blokują):")
+    for u in uwagi or ["  brak"]:
+        print(f"  - {u}")
+
+    if run_tests:
+        print("\nTesty w wyeksportowanym drzewie (pytest -m 'not slow'):")
+        r = subprocess.run([sys.executable, "-m", "pytest", "-q", "-m", "not slow", "-p", "no:cacheprovider"], cwd=out)
+        if r.returncode != 0:
+            errors.append(f"testy w wyeksportowanym drzewie nie przechodzą (kod {r.returncode})")
+        shutil.rmtree(out / ".pytest_cache", ignore_errors=True)
+        for pc in out.rglob("__pycache__"):
+            shutil.rmtree(pc, ignore_errors=True)
+    return errors
+
+
+def _git(cwd: Path, *args: str, check: bool = True) -> subprocess.CompletedProcess:
+    return subprocess.run(["git", *args], cwd=cwd, check=check, capture_output=True, text=True)
+
+
+def _files(root: Path) -> dict[str, Path]:
+    return {p.relative_to(root).as_posix(): p for p in root.rglob("*") if p.is_file() and ".git" not in p.relative_to(root).parts}
+
+
+def update_target(target: Path, src: Path, author: str | None, message: str | None, dry_run: bool) -> int:
+    """Synchronizuje oczyszczone drzewo `src` z klonem `target` i robi w nim zwykły commit."""
+    if not (target / ".git").exists():
+        print(f"BŁĄD: {target} nie jest klonem git (brak .git)")
+        return 1
+    if target == ROOT or ROOT in target.parents or target in ROOT.parents:
+        print("BŁĄD: klon publiczny nie może być repo źródłowym ani leżeć w nim / je zawierać")
+        return 1
+    src_remote = _git(ROOT, "remote", "get-url", "origin", check=False).stdout.strip()
+    tgt_remote = _git(target, "remote", "get-url", "origin", check=False).stdout.strip()
+    if src_remote and src_remote == tgt_remote:
+        print("BŁĄD: klon wskazuje na to samo zdalne repo co źródło -- to prywatne archiwum, nie publiczne")
+        return 1
+    if _git(target, "status", "--porcelain").stdout.strip():
+        print("BŁĄD: klon publiczny ma niezacommitowane zmiany lub nieśledzone pliki -- posprzątaj najpierw")
+        return 1
+
+    tracked = set(_git(target, "ls-files").stdout.splitlines())
+    exported = _files(src)
+    added = sorted(set(exported) - tracked)
+    removed = sorted(tracked - set(exported))
+    modified = sorted(
+        p
+        for p in set(exported) & tracked
+        if (target / p).read_bytes() != exported[p].read_bytes()
+        or ((target / p).stat().st_mode & 0o111) != (exported[p].stat().st_mode & 0o111)
+    )
+    print(f"\nSynchronizacja z {target}: +{len(added)} nowych, ~{len(modified)} zmienionych, -{len(removed)} usuniętych")
+    for label, lst in (("nowe", added), ("zmienione", modified), ("usunięte", removed)):
+        for p in lst[:30]:
+            print(f"  {label}: {p}")
+        if len(lst) > 30:
+            print(f"  ... i {len(lst) - 30} więcej ({label})")
+    if not (added or modified or removed):
+        print("Brak zmian -- publiczny klon jest aktualny.")
+        return 0
+    if dry_run:
+        print("(--dry-run: nic nie zapisano)")
+        return 0
+
+    for i in range(0, len(removed), 100):
+        _git(target, "rm", "-q", "--", *removed[i : i + 100])
+    for p in added + modified:
+        dst = target / p
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(exported[p], dst)
+    _git(target, "add", "-A")
+    name, mail = re.fullmatch(r"(.+) <(.+)>", author).groups()
+    src_sha = _git(ROOT, "rev-parse", "--short", "HEAD").stdout.strip()
+    msg = message or f"Aktualizacja z archiwum (wersja {src_sha})"
+    _git(target, "-c", f"user.name={name}", "-c", f"user.email={mail}", "commit", "-q", "-m", msg)
+    sha = _git(target, "rev-parse", "--short", "HEAD").stdout.strip()
+    print(f"\nCommit {sha} w {target}, autor {author}. NIC nie wypchnięto -- po przeglądzie: git -C \"{target}\" push")
+    return 0
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("out", nargs="?", type=Path, help="Katalog wyjściowy (musi nie istnieć albo być pusty)")
@@ -179,7 +283,17 @@ def main():
     ap.add_argument("--init-git", action="store_true", help="Świeża historia: git init + jeden commit")
     ap.add_argument("--author", type=str, default=None, help='Autor commitu: "Imię <adres-noreply>" (z --init-git)')
     ap.add_argument("--dry-run", action="store_true", help="Tylko raport rozmiarów, bez zapisu")
+    ap.add_argument("--update", type=Path, default=None, metavar="KLON", help="Zaktualizuj istniejący klon publicznego repo zwykłym commitem")
+    ap.add_argument("--message", type=str, default=None, help="Komunikat commitu dla --update")
     args = ap.parse_args()
+
+    if args.update:
+        if args.out is not None or args.init_git:
+            ap.error("--update nie łączy się z katalogiem wyjściowym ani z --init-git")
+        if args.keep_data:
+            ap.error("--update nie pozwala na --keep-data (dane zostają w prywatnym archiwum)")
+        if not args.dry_run and not args.author:
+            ap.error("--update wymaga --author (adres noreply GitHuba), chyba że --dry-run")
 
     if args.init_git and not args.author:
         ap.error("--init-git wymaga --author (adres noreply GitHuba, nie prywatny)")
@@ -201,6 +315,19 @@ def main():
         print(f"  {e:<45} {n:>4} plików  {human(b)}")
     n_all, b_all = tracked_size(".")
     print(f"Razem śledzone: {n_all} plików, {human(b_all)}")
+    if args.update:
+        target = args.update.resolve()
+        tmp = Path(tempfile.mkdtemp(prefix="export_public_"))
+        try:
+            errors = build_clean_tree(tmp, excludes, args.run_tests)
+            if errors:
+                print("\nBŁĘDY -- klon publiczny NIE został zmieniony:")
+                for e in errors:
+                    print(f"  ! {e}")
+                return 1
+            return update_target(target, tmp, args.author, args.message, args.dry_run)
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
     if args.dry_run:
         return 0
 
@@ -212,27 +339,7 @@ def main():
     if out.exists() and any(out.iterdir()):
         ap.error(f"{out} nie jest pusty -- nic nie nadpisuję")
 
-    export_tree(out, excludes)
-    n_out = sum(1 for p in out.rglob("*") if p.is_file())
-    b_out = sum(p.stat().st_size for p in out.rglob("*") if p.is_file())
-    print(f"\nWyeksportowano: {n_out} plików, {human(b_out)} -> {out}")
-
-    scrubbed = scrub_paths(out)
-    print(f"Oczyszczono ścieżki lokalne w {len(scrubbed)} plikach: " + ", ".join(f"{k} ({v})" for k, v in list(scrubbed.items())[:10]))
-
-    errors, uwagi = scan(out)
-    print("\nUwagi do przeglądu (nie blokują):")
-    for u in uwagi or ["  brak"]:
-        print(f"  - {u}")
-
-    if args.run_tests:
-        print("\nTesty w wyeksportowanym drzewie (pytest -m 'not slow'):")
-        r = subprocess.run([sys.executable, "-m", "pytest", "-q", "-m", "not slow", "-p", "no:cacheprovider"], cwd=out)
-        if r.returncode != 0:
-            errors.append(f"testy w wyeksportowanym drzewie nie przechodzą (kod {r.returncode})")
-        shutil.rmtree(out / ".pytest_cache", ignore_errors=True)
-        for pc in out.rglob("__pycache__"):
-            shutil.rmtree(pc, ignore_errors=True)
+    errors = build_clean_tree(out, excludes, args.run_tests)
 
     if args.init_git:
         env_author = args.author

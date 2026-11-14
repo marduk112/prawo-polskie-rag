@@ -7,6 +7,7 @@
 > and the development log (`PROGRESS.md`) are in Polish. **Not legal advice**: contents have not been verified
 > by a lawyer; always check the cited articles at the source. Code: Apache-2.0; model weights and training data are
 > not distributed here (see "Licencje składników i źródła danych" at the end of this file).
+> Successor of the single-domain HR/payroll assistant: https://github.com/marduk112/RAG-LoRA---kadry-i-place
 
 Lokalny (offline po pierwszym pobraniu) asystent odpowiadający na pytania
 z zakresu polskiego prawa, bez wysyłania niczego do chmury. Natywnie na
@@ -14,7 +15,8 @@ Apple Silicon (MLX) — plus alternatywne ścieżki dla Linuksa/Windows z
 kartą NVIDIA (CUDA) i dla dowolnego modelu już załadowanego w LM Studio.
 
 Ten projekt to rozwinięcie wcześniejszego, jednodziedzinowego asystenta
-kadrowo-płacowego na **wiele dziedzin prawa jednocześnie**, budowanych
+kadrowo-płacowego ([RAG-LoRA---kadry-i-place](https://github.com/marduk112/RAG-LoRA---kadry-i-place))
+na **wiele dziedzin prawa jednocześnie**, budowanych
 i mierzonych osobno. Architektura RAG, parsowanie PDF-ów z ELI API i cały
 pipeline pochodzą z tamtego projektu — zmienił się sposób, w jaki wybiera
 się, które ustawy wchodzą w skład bazy (patrz "Dziedziny prawa" niżej).
