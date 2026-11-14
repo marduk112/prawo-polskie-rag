@@ -1,0 +1,342 @@
+[
+ {
+  "id": "u_administracyjne_0",
+  "domain": "administracyjne",
+  "question": "Urząd nie wydał decyzji w ustawowym terminie, co mogę zrobić?"
+ },
+ {
+  "id": "u_administracyjne_1",
+  "domain": "administracyjne",
+  "question": "Czy mogę wnieść odwołanie od decyzji administracyjnej po terminie?"
+ },
+ {
+  "id": "u_autorskie_0",
+  "domain": "autorskie",
+  "question": "Czy mogę wykorzystać cudze zdjęcie z internetu na swojej stronie firmowej?"
+ },
+ {
+  "id": "u_autorskie_1",
+  "domain": "autorskie",
+  "question": "Jak długo trwają autorskie prawa majątkowe po śmierci twórcy?"
+ },
+ {
+  "id": "u_budowlane_0",
+  "domain": "budowlane",
+  "question": "Czy do postawienia altany ogrodowej potrzebuję pozwolenia?"
+ },
+ {
+  "id": "u_budowlane_1",
+  "domain": "budowlane",
+  "question": "Kto odpowiada za wady po zakończeniu budowy domu, inwestor czy kierownik?"
+ },
+ {
+  "id": "u_cit_0",
+  "domain": "cit",
+  "question": "Czy spółka z o.o. może zaliczyć do kosztów prezenty dla kontrahentów?"
+ },
+ {
+  "id": "u_cit_1",
+  "domain": "cit",
+  "question": "Jaka jest stawka CIT dla małego podatnika?"
+ },
+ {
+  "id": "u_cudzoziemcy_0",
+  "domain": "cudzoziemcy",
+  "question": "Jak długo może legalnie przebywać w Polsce obywatel Ukrainy na pobycie czasowym?"
+ },
+ {
+  "id": "u_cudzoziemcy_1",
+  "domain": "cudzoziemcy",
+  "question": "Czy cudzoziemiec może złożyć wniosek o kartę pobytu przez internet?"
+ },
+ {
+  "id": "u_cywilne_0",
+  "domain": "cywilne",
+  "question": "Sąsiad zniszczył mi ogrodzenie, jak mogę żądać odszkodowania?"
+ },
+ {
+  "id": "u_cywilne_1",
+  "domain": "cywilne",
+  "question": "Po jakim czasie przedawnia się roszczenie z umowy zlecenia?"
+ },
+ {
+  "id": "u_energetyczne_0",
+  "domain": "energetyczne",
+  "question": "Dostawca prądu odciął mi zasilanie mimo reklamacji, co mogę zrobić?"
+ },
+ {
+  "id": "u_energetyczne_1",
+  "domain": "energetyczne",
+  "question": "Czy mogę zmienić sprzedawcę gazu w trakcie trwania umowy?"
+ },
+ {
+  "id": "u_geologia_i_gornictwo_0",
+  "domain": "geologia_i_gornictwo",
+  "question": "Czy do wydobywania żwiru z własnej działki potrzebna jest koncesja?"
+ },
+ {
+  "id": "u_geologia_i_gornictwo_1",
+  "domain": "geologia_i_gornictwo",
+  "question": "Kto odpowiada za szkody górnicze na moim domu?"
+ },
+ {
+  "id": "u_gospodarcze_0",
+  "domain": "gospodarcze",
+  "question": "Kto reprezentuje spółkę z o.o. wobec banku, gdy zarząd jest wieloosobowy?"
+ },
+ {
+  "id": "u_gospodarcze_1",
+  "domain": "gospodarcze",
+  "question": "Czy wspólnik spółki jawnej odpowiada za jej długi swoim majątkiem?"
+ },
+ {
+  "id": "u_kadry_i_place_0",
+  "domain": "kadry_i_place",
+  "question": "Ile wynosi okres wypowiedzenia umowy o pracę po trzech latach pracy?"
+ },
+ {
+  "id": "u_kadry_i_place_1",
+  "domain": "kadry_i_place",
+  "question": "Czy pracodawca może odmówić mi urlopu na żądanie?"
+ },
+ {
+  "id": "u_karne_0",
+  "domain": "karne",
+  "question": "Jaka kara grozi za kradzież z włamaniem?"
+ },
+ {
+  "id": "u_karne_1",
+  "domain": "karne",
+  "question": "Czy za pomocnictwo do przestępstwa odpowiada się tak samo jak za sprawstwo?"
+ },
+ {
+  "id": "u_konsumenckie_0",
+  "domain": "konsumenckie",
+  "question": "Zamówiłem buty przez internet, ile mam dni na odstąpienie od umowy?"
+ },
+ {
+  "id": "u_konsumenckie_1",
+  "domain": "konsumenckie",
+  "question": "Czy sprzedawca może odmówić zwrotu pieniędzy za towar kupiony na wyprzedaży?"
+ },
+ {
+  "id": "u_kredyt_konsumencki_0",
+  "domain": "kredyt_konsumencki",
+  "question": "Czy bank może naliczyć prowizję za wcześniejszą spłatę kredytu gotówkowego?"
+ },
+ {
+  "id": "u_kredyt_konsumencki_1",
+  "domain": "kredyt_konsumencki",
+  "question": "Ile dni mam na odstąpienie od umowy kredytu konsumenckiego?"
+ },
+ {
+  "id": "u_lotnicze_0",
+  "domain": "lotnicze",
+  "question": "Czy mogę latać dronem nad własnym domem bez zezwolenia?"
+ },
+ {
+  "id": "u_lotnicze_1",
+  "domain": "lotnicze",
+  "question": "Co grozi za latanie dronem w pobliżu lotniska?"
+ },
+ {
+  "id": "u_mieszkaniowe_0",
+  "domain": "mieszkaniowe",
+  "question": "Czy właściciel może mnie eksmitować w zimie z wynajmowanego mieszkania?"
+ },
+ {
+  "id": "u_mieszkaniowe_1",
+  "domain": "mieszkaniowe",
+  "question": "Kto płaci za remont dachu we wspólnocie mieszkaniowej?"
+ },
+ {
+  "id": "u_ochrona_danych_0",
+  "domain": "ochrona_danych",
+  "question": "Czy firma może przetwarzać moje dane po wycofaniu zgody?"
+ },
+ {
+  "id": "u_ochrona_danych_1",
+  "domain": "ochrona_danych",
+  "question": "Ile wynosi kara za wyciek danych osobowych klientów?"
+ },
+ {
+  "id": "u_ochrona_srodowiska_0",
+  "domain": "ochrona_srodowiska",
+  "question": "Czy za wycinkę drzewa na własnej działce płaci się opłatę?"
+ },
+ {
+  "id": "u_ochrona_srodowiska_1",
+  "domain": "ochrona_srodowiska",
+  "question": "Kto musi mieć pozwolenie zintegrowane dla zakładu produkcyjnego?"
+ },
+ {
+  "id": "u_pcc_0",
+  "domain": "pcc",
+  "question": "Czy przy kupnie samochodu od osoby prywatnej płacę podatek od czynności cywilnoprawnych?"
+ },
+ {
+  "id": "u_pcc_1",
+  "domain": "pcc",
+  "question": "Ile wynosi PCC przy zaciągnięciu pożyczki od znajomego?"
+ },
+ {
+  "id": "u_podatki_lokalne_0",
+  "domain": "podatki_lokalne",
+  "question": "Czy płacę podatek od nieruchomości za garaż w bloku?"
+ },
+ {
+  "id": "u_podatki_lokalne_1",
+  "domain": "podatki_lokalne",
+  "question": "Jak działa zwolnienie z podatku od budynków rolniczych?"
+ },
+ {
+  "id": "u_podatkowe_0",
+  "domain": "podatkowe",
+  "question": "Do kiedy mogę złożyć korektę zeznania VAT?"
+ },
+ {
+  "id": "u_podatkowe_1",
+  "domain": "podatkowe",
+  "question": "Czy przysługuje mi odsetki od nadpłaconego podatku?"
+ },
+ {
+  "id": "u_postepowanie_cywilne_0",
+  "domain": "postepowanie_cywilne",
+  "question": "Jak złożyć sprzeciw od nakazu zapłaty?"
+ },
+ {
+  "id": "u_postepowanie_cywilne_1",
+  "domain": "postepowanie_cywilne",
+  "question": "Jakie są koszty sądowe przy pozwie o zapłatę 20 tysięcy złotych?"
+ },
+ {
+  "id": "u_postepowanie_karne_0",
+  "domain": "postepowanie_karne",
+  "question": "Czy mogę odmówić składania zeznań jako świadek wobec członka rodziny?"
+ },
+ {
+  "id": "u_postepowanie_karne_1",
+  "domain": "postepowanie_karne",
+  "question": "Jak długo może trwać tymczasowe aresztowanie?"
+ },
+ {
+  "id": "u_prawa_pacjenta_0",
+  "domain": "prawa_pacjenta",
+  "question": "Czy lekarz może odmówić mi wglądu do mojej dokumentacji medycznej?"
+ },
+ {
+  "id": "u_prawa_pacjenta_1",
+  "domain": "prawa_pacjenta",
+  "question": "Gdzie złożyć skargę na szpital za naruszenie praw pacjenta?"
+ },
+ {
+  "id": "u_prawo_bankowe_0",
+  "domain": "prawo_bankowe",
+  "question": "Czy bank może ujawnić informacje o moim koncie komornikowi bez mojej zgody?"
+ },
+ {
+  "id": "u_prawo_bankowe_1",
+  "domain": "prawo_bankowe",
+  "question": "Jak długo bank ma rozpatrzyć reklamację płatności kartą?"
+ },
+ {
+  "id": "u_prawo_przedsiebiorcow_0",
+  "domain": "prawo_przedsiebiorcow",
+  "question": "Czy mogę prowadzić działalność gospodarczą pod adresem zamieszkania?"
+ },
+ {
+  "id": "u_prawo_przedsiebiorcow_1",
+  "domain": "prawo_przedsiebiorcow",
+  "question": "Jak ustalić, czy kontrola urzędu u mnie jest legalna?"
+ },
+ {
+  "id": "u_rodzinne_0",
+  "domain": "rodzinne",
+  "question": "Jak ustalić alimenty na dziecko po rozwodzie?"
+ },
+ {
+  "id": "u_rodzinne_1",
+  "domain": "rodzinne",
+  "question": "Czy małżonek odpowiada za długi współmałżonka zaciągnięte przed ślubem?"
+ },
+ {
+  "id": "u_ruch_drogowy_0",
+  "domain": "ruch_drogowy",
+  "question": "Ile punktów karnych dostanę za przekroczenie prędkości o 30 km/h?"
+ },
+ {
+  "id": "u_ruch_drogowy_1",
+  "domain": "ruch_drogowy",
+  "question": "Czy mogę jechać z psem na kolanach?"
+ },
+ {
+  "id": "u_telekomunikacyjne_0",
+  "domain": "telekomunikacyjne",
+  "question": "Operator podniósł cenę abonamentu w trakcie umowy, czy mogę ją wypowiedzieć bez kary?"
+ },
+ {
+  "id": "u_telekomunikacyjne_1",
+  "domain": "telekomunikacyjne",
+  "question": "Czy operator może zablokować mi numer za zaległość w płatnościach?"
+ },
+ {
+  "id": "u_ubezpieczenia_obowiazkowe_0",
+  "domain": "ubezpieczenia_obowiazkowe",
+  "question": "Czy muszę mieć OC rolnika, jeśli mam tylko trzy hektary?"
+ },
+ {
+  "id": "u_ubezpieczenia_obowiazkowe_1",
+  "domain": "ubezpieczenia_obowiazkowe",
+  "question": "Co się stanie, jeśli nie opłacę OC samochodu w terminie?"
+ },
+ {
+  "id": "u_upadlosciowe_0",
+  "domain": "upadlosciowe",
+  "question": "Jak ogłosić upadłość konsumencką i co się wtedy dzieje z długami?"
+ },
+ {
+  "id": "u_upadlosciowe_1",
+  "domain": "upadlosciowe",
+  "question": "Kto ma pierwszeństwo przy podziale majątku w upadłości firmy?"
+ },
+ {
+  "id": "u_wlasnosc_przemyslowa_0",
+  "domain": "wlasnosc_przemyslowa",
+  "question": "Jak zastrzec nazwę firmy jako znak towarowy?"
+ },
+ {
+  "id": "u_wlasnosc_przemyslowa_1",
+  "domain": "wlasnosc_przemyslowa",
+  "question": "Ile trwa ochrona patentu na wynalazek?"
+ },
+ {
+  "id": "u_wodne_0",
+  "domain": "wodne",
+  "question": "Czy potrzebuję pozwolenia na studnię głębinową na działce?"
+ },
+ {
+  "id": "u_wodne_1",
+  "domain": "wodne",
+  "question": "Kto odpowiada za zanieczyszczenie rzeki przez zakład?"
+ },
+ {
+  "id": "u_wykroczenia_0",
+  "domain": "wykroczenia",
+  "question": "Jaka jest kara za zaśmiecanie lasu?"
+ },
+ {
+  "id": "u_wykroczenia_1",
+  "domain": "wykroczenia",
+  "question": "Czy mandat można odrzucić i co się wtedy dzieje?"
+ },
+ {
+  "id": "u_zamowienia_publiczne_0",
+  "domain": "zamowienia_publiczne",
+  "question": "Jak odwołać się od wyboru oferty konkurenta w przetargu?"
+ },
+ {
+  "id": "u_zamowienia_publiczne_1",
+  "domain": "zamowienia_publiczne",
+  "question": "Kiedy zamawiający może odrzucić ofertę z rażąco niską ceną?"
+ }
+]
