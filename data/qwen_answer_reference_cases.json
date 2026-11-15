@@ -878,5 +878,97 @@
       "kodeks pracy"
     ],
     "note": "Krok 136 (2026-11-15) -- pełna odpowiedź w nowej dziedzinie rachunkowosc; pytanie spoza dziedziny. Zweryfikowane ręcznie (Krok 136): uprzejma odmowa, wskazanie Kodeksu pracy art. 154 (zgodne)."
+  },
+  {
+    "history": [],
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "known_issue": null,
+    "expect_not_contains": [],
+    "id": "kk_intertemp_nowa_lagodniejsza",
+    "domain": "karne",
+    "question": "Popełniłem przestępstwo w 2019 roku, a w międzyczasie zmieniono ustawę na łagodniejszą. Według której ustawy sąd mnie osądzi?",
+    "expect_contains_any": [
+      "art. 4"
+    ],
+    "note": "Krok 139 (2026-11-15) -- prawo intertemporalne (ustawa z czasu czynu vs z czasu orzekania); do ręcznej weryfikacji z KK art. 1, 4 i KW art. 2. KK art. 4 § 1: stosuje się ustawę nową, ale poprzednią, jeżeli względniejsza dla sprawcy. Zweryfikowane ręcznie (Krok 139): cytat art. 4 § 1 dokładny, rozróżnienie przed/po wyroku (§ 2-4) zgodne z tekstem. BŁĄD DROBNY: jako przykład względniejszej ustawy podano 'wyższa dolna granica kary (np. od 6 miesięcy zamiast od roku)' -- przykład opisuje NIŻSZĄ dolną granicę, opis sprzeczny; odpowiedź nie mówi wprost 'tu nowa, bo łagodniejsza'."
+  },
+  {
+    "history": [],
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "known_issue": null,
+    "expect_not_contains": [],
+    "id": "kk_intertemp_nullum_crimen",
+    "domain": "karne",
+    "question": "Czy sąd może mnie skazać za coś, co w dniu zdarzenia nie było karalne, a zostało zakazane dopiero później?",
+    "expect_contains_any": [
+      "art. 1"
+    ],
+    "note": "Krok 139 (2026-11-15) -- prawo intertemporalne (ustawa z czasu czynu vs z czasu orzekania); do ręcznej weryfikacji z KK art. 1, 4 i KW art. 2. KK art. 1 § 1: odpowiedzialność tylko za czyn zabroniony ustawą obowiązującą w czasie jego popełnienia. Retrieval NIE wyciągał art. 1 (poza top-30), art. 4 był #2. Zweryfikowane ręcznie (Krok 139): art. 1 § 1 cytowany dokładnie, art. 4 § 1 poprawnie; jedno zdanie ('nie może być korzystniejsza w drugą stronę') niezgrabne, wniosek poprawny."
+  },
+  {
+    "history": [],
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "known_issue": null,
+    "expect_not_contains": [],
+    "id": "kk_intertemp_czyn_przestal_byc_przestepstwem",
+    "domain": "karne",
+    "question": "Po moim prawomocnym wyroku zmieniły się przepisy i ten czyn nie jest już przestępstwem. Co z moim skazaniem?",
+    "expect_contains_any": [
+      "art. 4",
+      "zatar"
+    ],
+    "note": "Krok 139 (2026-11-15) -- prawo intertemporalne (ustawa z czasu czynu vs z czasu orzekania); do ręcznej weryfikacji z KK art. 1, 4 i KW art. 2. KK art. 4 § 4: skazanie ulega zatarciu z mocy prawa. Zweryfikowane ręcznie (Krok 139): art. 4 § 4, art. 106 (cytat dokładny) i art. 114a § 2 pkt 1 (skazanie przez sąd UE -> ustawa miejsca skazania) zgodne z tekstem. Dodatek z wiedzy modelu, nie z kontekstu: wzmianka o recydywie (art. 64)."
+  },
+  {
+    "history": [],
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "known_issue": null,
+    "expect_not_contains": [],
+    "id": "kk_intertemp_surowsza_nowa",
+    "domain": "karne",
+    "question": "Jeśli nowa ustawa jest surowsza niż ta z dnia popełnienia czynu, którą stosuje sąd?",
+    "expect_contains_any": [
+      "art. 4"
+    ],
+    "note": "Krok 139 (2026-11-15) -- prawo intertemporalne (ustawa z czasu czynu vs z czasu orzekania); do ręcznej weryfikacji z KK art. 1, 4 i KW art. 2. KK art. 4 § 1: przy nowej surowszej stosuje się poprzednią (względniejszą). Zweryfikowane ręcznie (Krok 139): zgodne z art. 4 § 1; poprawny wniosek (przy surowszej nowej stosuje się poprzednią)."
+  },
+  {
+    "history": [],
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "known_issue": null,
+    "expect_not_contains": [],
+    "id": "kw_intertemp_zmiana_przepisow",
+    "domain": "wykroczenia",
+    "question": "Wykroczenie popełniłem rok temu, od tego czasu przepisy się zmieniły. Która wersja przepisów obowiązuje przy ukaraniu?",
+    "expect_contains_any": [
+      "art. 2"
+    ],
+    "note": "Krok 139 (2026-11-15) -- prawo intertemporalne (ustawa z czasu czynu vs z czasu orzekania); do ręcznej weryfikacji z KK art. 1, 4 i KW art. 2. KW art. 2 § 1: ustawa nowa, chyba że poprzednia względniejsza. Zweryfikowane ręcznie (Krok 139): art. 2 § 1 i § 2 KW zgodne z tekstem, trzy warianty (surowsza / łagodniejsza / dekryminalizacja) poprawne."
+  },
+  {
+    "history": [],
+    "as_of": null,
+    "reasoning_effort": "low",
+    "max_tokens": 3000,
+    "known_issue": null,
+    "expect_not_contains": [],
+    "id": "kw_intertemp_przepis_uchylony",
+    "domain": "wykroczenia",
+    "question": "Po nałożeniu mandatu przepis został uchylony i czyn nie jest już wykroczeniem. Co z karą?",
+    "expect_contains_any": [
+      "art. 2",
+      "niebyłe"
+    ],
+    "note": "Krok 139 (2026-11-15) -- prawo intertemporalne (ustawa z czasu czynu vs z czasu orzekania); do ręcznej weryfikacji z KK art. 1, 4 i KW art. 2. KW art. 2 § 2: ukaranie uważa się za niebyłe. Zweryfikowane ręcznie (Krok 139): art. 2 § 2 KW poprawnie. NADUŻYCIE: art. 101 § 1 KPW (uchylenie prawomocnego mandatu za czyn niebędący wykroczeniem, 7 dni) przedstawiono jako obowiązujący 'w opisanej sytuacji', a ten przepis dotyczy mandatu nałożonego za czyn, który wykroczeniem nie był, nie późniejszej dekryminalizacji; literówka w tytule ('dekareralizacji')."
   }
 ]
