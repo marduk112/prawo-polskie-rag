@@ -764,7 +764,12 @@ przed użyciem komercyjnym sprawdź aktualne warunki.
 
 **Dane prawne:** teksty aktów pochodzą z publicznego API ELI Sejmu (`https://api.sejm.gov.pl/eli`). Akty
 normatywne nie są przedmiotem prawa autorskiego (art. 4 pkt 1 ustawy o prawie autorskim i prawach
-pokrewnych), ale samo API może mieć własne warunki korzystania -- sprawdź je przy większym użyciu.
+pokrewnych). Dokumentacja `api.sejm.gov.pl` nie zawiera (w momencie sprawdzenia, 2026-11-15) własnego
+regulaminu; dane sektora publicznego podlegają ustawie o otwartych danych i ponownym wykorzystywaniu
+informacji sektora publicznego (Dz.U. 2021 poz. 1641). Źródło: Kancelaria Sejmu (ISAP / ELI). Skrypty
+pobierania stronicują zapytania i działają sekwencyjnie, żeby nie przeciążać serwerów -- zachowaj to przy
+własnym użyciu. Projekt jest nieoficjalny i nie ma związku z Kancelarią Sejmu; pobrane teksty mogą być
+nieaktualne (sprawdzaj w ISAP).
 
 **Odpowiedzi systemu nie są poradą prawną.** Treść dziedzin nie została zweryfikowana przez prawnika;
 zawsze sprawdzaj cytowane artykuły w źródle (`source_url`).
