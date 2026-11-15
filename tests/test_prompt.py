@@ -13,9 +13,11 @@ from prompt import (
     MAX_ARTICLE_CHARS,
     QUERY_EXPANSION_SYSTEM_PROMPT,
     build_context,
+    build_followup_rewrite_messages,
     build_query_expansion_messages,
     build_system_prompt,
     build_user_message,
+    clean_rewritten_question,
     looks_like_meta_question,
     search_with_history,
     trim_history,
@@ -355,3 +357,32 @@ def test_keyword_hint_added_only_for_matching_questions():
     assert "ulega przedawnieniu" not in consumer and base in consumer
     other = prompt.build_query_expansion_messages("Czy roszczenie się przedawniło?", domain="karne")[1]["content"]
     assert "ulega przedawnieniu" not in other
+
+
+# --- przepisywanie pytań uzupełniających (PROGRESS.md, Krok 140) ---
+
+
+def test_build_followup_rewrite_messages_lists_last_user_questions():
+    history = []
+    for q in ("Ile dni urlopu po 10 latach?", "A ojcowski?", "Ile wynosi minimalne wynagrodzenie?", "A okres próbny?"):
+        history += [{"role": "user", "content": q}, {"role": "assistant", "content": "..."}]
+    messages = build_followup_rewrite_messages(history, "A po 15 latach?")
+    assert messages[0]["role"] == "system"
+    content = messages[1]["content"]
+    assert "Ostatnie pytanie: A po 15 latach?" in content
+    assert "- A ojcowski?" in content and "- A okres próbny?" in content
+    assert "po 10 latach" not in content  # tylko MAX_LOOKBACK_QUESTIONS (3) ostatnich pytań użytkownika
+
+
+@pytest.mark.parametrize(
+    "text, expected",
+    [
+        ('"Ile dni urlopu przysługuje po 15 latach pracy?"', "Ile dni urlopu przysługuje po 15 latach pracy?"),
+        ("\nPytanie w drugiej linii\nKomentarz modelu", "Pytanie w drugiej linii"),
+        ("", "oryginał"),
+        (None, "oryginał"),
+        ("x" * 400, "oryginał"),  # model zaczął odpowiadać zamiast przepisywać
+    ],
+)
+def test_clean_rewritten_question(text, expected):
+    assert clean_rewritten_question(text, "oryginał") == expected

@@ -60,7 +60,9 @@ import requests
 
 from file_index import SessionFileIndex
 from prompt import (
+    build_followup_rewrite_messages,
     build_query_expansion_messages,
+    clean_rewritten_question,
     build_system_prompt,
     build_user_message,
     looks_like_meta_question,
@@ -201,6 +203,32 @@ def expand_query(
     return expanded
 
 
+def rewrite_followup(
+    base_url: str,
+    model_id: str,
+    history: list[dict],
+    question: str,
+    reasoning_effort: str | None = None,
+    template_kwargs: dict | None = None,
+) -> str:
+    """Krótkie wywołanie modelu: pytanie uzupełniające ("A po 15 latach?") -> samodzielne, albo to samo pytanie, jeśli
+    już jest samodzielne (patrz prompt.build_followup_rewrite_messages, Krok 140). Parametry modelu "thinking" jak w
+    `expand_query` (800 tokenów i jedno ponowienie z większym budżetem przy pustym wyniku). Surowy wynik modelu --
+    czyści go `prompt.clean_rewritten_question`."""
+    messages = build_followup_rewrite_messages(history, question)
+    payload = {"model": model_id, "messages": messages, "max_tokens": 800 if reasoning_effort else 120, "temperature": 0.0}
+    if reasoning_effort is not None:
+        payload["reasoning_effort"] = reasoning_effort
+        payload["chat_template_kwargs"] = {"reasoning_effort": reasoning_effort}
+    if template_kwargs:
+        payload["chat_template_kwargs"] = {**payload.get("chat_template_kwargs", {}), **template_kwargs}
+    text = post_chat(base_url, payload, timeout=300)["content"].strip()
+    if not text and reasoning_effort is not None:
+        payload["max_tokens"] = EMPTY_EXPANSION_RETRY_MAX_TOKENS
+        text = post_chat(base_url, payload, timeout=600)["content"].strip()
+    return text
+
+
 def answer(
     base_url: str,
     model_id: str,
@@ -214,6 +242,7 @@ def answer(
     max_tokens: int = 500,
     reasoning_effort: str | None = None,
     template_kwargs: dict | None = None,
+    rewrite_followups: bool = False,
 ) -> str:
     """`max_tokens`/`reasoning_effort` (patrz PROGRESS.md Krok 32): modele z
     trybem "thinking" (np. Qwen3.8) zużywają tokeny z TEGO SAMEGO budżetu
@@ -232,15 +261,27 @@ def answer(
         # prompt.looks_like_meta_question i PROGRESS.md, krok 10).
         current_turn = {"role": "user", "content": question}
     else:
+        # Pytanie uzupełniające ("A po 15 latach?") przepisujemy na samodzielne PRZED rozszerzaniem zapytania i
+        # wyszukiwaniem (Krok 140); użytkownik i model odpowiedzi nadal widzą oryginalne `question`. Przy
+        # przepisywaniu historia nie jest już potrzebna do wyszukania, więc stary fallback (próg kosinusa) jest wyłączony.
+        search_question, search_history = question, history
+        if rewrite_followups and history:
+            try:
+                search_question = clean_rewritten_question(
+                    rewrite_followup(base_url, model_id, history, question, reasoning_effort, template_kwargs), question
+                )
+                search_history = []
+            except Exception as e:  # noqa: BLE001 -- przepisanie to tylko ulepszenie, nie może zablokować odpowiedzi
+                print(f"[WARN] Przepisanie pytania nie powiodło się ({e}); używam oryginału.")
         extra_queries = None
         if expand_query_enabled:
             expanded = expand_query(
-                base_url, model_id, question, act_titles=rag.act_titles(), domain=rag.domain,
+                base_url, model_id, search_question, act_titles=rag.act_titles(), domain=rag.domain,
                 reasoning_effort=reasoning_effort, template_kwargs=template_kwargs,
             )
-            if expanded and expanded.strip().lower() != question.strip().lower():
+            if expanded and expanded.strip().lower() != search_question.strip().lower():
                 extra_queries = [expanded]
-        results = search_with_history(rag, history, question, top_k, as_of=as_of, extra_queries=extra_queries)
+        results = search_with_history(rag, search_history, search_question, top_k, as_of=as_of, extra_queries=extra_queries)
         file_results = file_index.search(question, top_k=3)
         current_turn = {
             "role": "user",
@@ -297,6 +338,13 @@ def main():
         metavar="RRRR-MM-DD",
         help="Pytaj o stan prawny na ten dzień zamiast bieżącego (wymaga indeksu "
         "zbudowanego z build_rag_index.py --include-history)",
+    )
+    parser.add_argument(
+        "--rewrite-followups",
+        action="store_true",
+        help="Przepisuj pytania uzupełniające (\"a po 15 latach?\") na samodzielne dodatkowym wywołaniem modelu przed "
+        "rozszerzaniem zapytania i wyszukiwaniem (tylko tryb interaktywny; Krok 140). Domyślnie WYŁĄCZONE: w tym repo "
+        "nie zmierzono zysku względem dotychczasowego fallbacku, a koszt to dodatkowe wywołanie modelu na turę.",
     )
     parser.add_argument(
         "--no-expand-query",
@@ -410,6 +458,7 @@ def main():
             as_of=as_of, expand_query_enabled=not args.no_expand_query,
             max_tokens=args.max_tokens, reasoning_effort=args.reasoning_effort,
             template_kwargs=json.loads(args.template_kwargs) if args.template_kwargs else None,
+            rewrite_followups=args.rewrite_followups,
         )
         print("Asystent:", text, "\n")
         history = trim_history(history, args.max_turns)

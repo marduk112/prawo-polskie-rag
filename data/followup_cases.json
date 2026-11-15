@@ -1,0 +1,98 @@
+[
+ {
+  "id": "f_karne_279",
+  "domain": "karne",
+  "act_short": "kodeks_karny",
+  "article": "279",
+  "prior": "Jaka kara grozi za kradzież?",
+  "question": "A jeśli sprawca włamał się do mieszkania?"
+ },
+ {
+  "id": "f_karne_148",
+  "domain": "karne",
+  "act_short": "kodeks_karny",
+  "article": "148",
+  "prior": "Jaka kara grozi za zabójstwo?",
+  "question": "A jeśli to było w afekcie?"
+ },
+ {
+  "id": "f_cywilne_491",
+  "domain": "cywilne",
+  "act_short": "kodeks_cywilny",
+  "article": "491",
+  "prior": "Kiedy mogę odstąpić od umowy, gdy druga strona zwleka ze spełnieniem świadczenia?",
+  "question": "A czy muszę najpierw dać jej dodatkowy termin?"
+ },
+ {
+  "id": "f_cywilne_118",
+  "domain": "cywilne",
+  "act_short": "kodeks_cywilny",
+  "article": "118",
+  "prior": "Ile lat trwa przedawnienie roszczeń majątkowych?",
+  "question": "A dla roszczeń o świadczenia okresowe?"
+ },
+ {
+  "id": "f_rodzinne_56",
+  "domain": "rodzinne",
+  "act_short": "kodeks_rodzinny_i_opiekunczy",
+  "article": "56",
+  "prior": "Kiedy sąd orzeka rozwód?",
+  "question": "A czy można go orzec, jeśli mamy małoletnie dzieci?"
+ },
+ {
+  "id": "f_ruch_drogowy_20",
+  "domain": "ruch_drogowy",
+  "act_short": "prawo_o_ruchu_drogowym",
+  "article": "20",
+  "prior": "Jaka jest dozwolona prędkość w terenie zabudowanym?",
+  "question": "A poza terenem zabudowanym?"
+ },
+ {
+  "id": "f_podatkowe_70",
+  "domain": "podatkowe",
+  "act_short": "ordynacja_podatkowa",
+  "article": "70",
+  "prior": "Po jakim czasie przedawnia się zobowiązanie podatkowe?",
+  "question": "A czy bieg przedawnienia można zawiesić?"
+ },
+ {
+  "id": "f_budowlane_29",
+  "domain": "budowlane",
+  "act_short": "prawo_budowlane",
+  "article": "29",
+  "prior": "Kiedy nie potrzebuję pozwolenia na budowę?",
+  "question": "A czy potrzebuję go na altanę w ogrodzie?"
+ },
+ {
+  "id": "f_kadry_154",
+  "domain": "kadry_i_place",
+  "act_short": "kodeks_pracy",
+  "article": "154",
+  "prior": "Ile dni urlopu wypoczynkowego przysługuje po 10 latach pracy?",
+  "question": "A po 15 latach?"
+ },
+ {
+  "id": "f_kadry_34",
+  "domain": "kadry_i_place",
+  "act_short": "kodeks_pracy",
+  "article": "34",
+  "prior": "Jaki jest okres wypowiedzenia umowy o pracę na czas nieokreślony po trzech latach?",
+  "question": "A na okres próbny?"
+ },
+ {
+  "id": "f_kadry_182³",
+  "domain": "kadry_i_place",
+  "act_short": "kodeks_pracy",
+  "article": "182³",
+  "prior": "Ile tygodni trwa urlop macierzyński po urodzeniu jednego dziecka?",
+  "question": "A ojcowski?"
+ },
+ {
+  "id": "f_kadry_167²",
+  "domain": "kadry_i_place",
+  "act_short": "kodeks_pracy",
+  "article": "167²",
+  "prior": "Ile dni urlopu na żądanie przysługuje w roku?",
+  "question": "A czy pracodawca może odmówić?"
+ }
+]

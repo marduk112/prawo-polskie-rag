@@ -390,6 +390,37 @@ def looks_like_meta_question(question: str) -> bool:
 
 MAX_LOOKBACK_QUESTIONS = 3
 
+FOLLOWUP_REWRITE_SYSTEM_PROMPT = (
+    "Dostajesz kilka poprzednich pytań użytkownika z rozmowy o polskim prawie i jego ostatnie pytanie. "
+    "Jeśli ostatnie pytanie jest zrozumiałe samo w sobie, zwróć je DOKŁADNIE bez zmian. "
+    'Jeśli odwołuje się do wcześniejszej rozmowy (np. "a po 15 latach?", "a w niedzielę?"), przepisz je na pełne, '
+    "samodzielne pytanie, dopisując temat z właściwego poprzedniego pytania (niekoniecznie ostatniego). "
+    "Zwróć wyłącznie pytanie, bez komentarza."
+)
+MAX_REWRITTEN_QUESTION_CHARS = 300
+
+
+def build_followup_rewrite_messages(history: list[dict], question: str) -> list[dict]:
+    """Wiadomości do krótkiego wywołania modelu, które zamienia pytanie uzupełniające ("A po 15 latach?") na
+    samodzielne -- albo zwraca je bez zmian, jeśli już jest samodzielne (PROGRESS.md, Krok 140; ten sam mechanizm co
+    w repo kadrowym, Krok 29). Model widzi do MAX_LOOKBACK_QUESTIONS ostatnich pytań użytkownika (od najstarszego)."""
+    prior = [m["content"] for m in history if m["role"] == "user"][-MAX_LOOKBACK_QUESTIONS:]
+    listing = "\n".join(f"- {q}" for q in prior)
+    return [
+        {"role": "system", "content": FOLLOWUP_REWRITE_SYSTEM_PROMPT},
+        {"role": "user", "content": f"Poprzednie pytania:\n{listing}\nOstatnie pytanie: {question}"},
+    ]
+
+
+def clean_rewritten_question(text: str | None, original: str) -> str:
+    """Pierwsza niepusta linia odpowiedzi modelu bez cudzysłowów; przy pustym wyniku albo zbyt długim (model zaczął
+    odpowiadać zamiast przepisywać) wraca do oryginalnego pytania."""
+    for line in (text or "").splitlines():
+        line = line.strip().strip('"\u201e\u201d\u201c').strip()
+        if line:
+            return line if len(line) <= MAX_REWRITTEN_QUESTION_CHARS else original
+    return original
+
 
 def search_with_history(
     rag,
